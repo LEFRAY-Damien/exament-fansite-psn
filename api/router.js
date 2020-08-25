@@ -7,7 +7,11 @@ const express = require('express'),
 const homeController = require('./controllers/homeController'),
     articleController = require('./controllers/articleController'),
     contactController = require('./controllers/contactController'),
-    archivesController = require('./controllers/archivesController')
+    archivesController = require('./controllers/archivesController'),
+    article_idController = require('./controllers/article_idController'),
+    loginController = require('./controllers/loginController'),
+    freetoplayController = require('./controllers/freetoplayController'),
+    modalController = require('./controllers/modalController')
 
 // Home
 router.route('/')
@@ -24,5 +28,21 @@ router.route('/contact')
 // Archives
 router.route('/archives')
     .get(archivesController.get)
+
+// Article ID
+router.route('/article_id')
+    .get(article_idController.get)
+
+// Login
+router.route('/login')
+    .get(loginController.get)
+
+// Free To Play
+router.route('/freetoplay')
+    .get(freetoplayController.get)
+
+// modal
+router.route('/modal')
+    .get(modalController.get)
 
 module.exports = router;

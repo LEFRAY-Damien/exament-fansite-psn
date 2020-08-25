@@ -1,6 +1,27 @@
 {{!-- Image jeux juillet 2020 --}}
-<div class="container text-center text-white pt-5 bg-bleu_ps">
-    <img src="assets/images/Jeux-offerts-de-juillet-2020-1068x597.jpg" alt="" class="taille_img_arch">
-</div>
+
+
+<div class="accordion" id="accordionExample">
+    <div class="card bg-bleu_ps">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="container text-center text-white pt-2 pb-2"><h2>Juillet 2020</h2>
+                        <img src="assets/images/Jeux-offerts-de-juillet-2020-1068x597.jpg" alt=""
+                            class="taille_img_arch mt-1">
+                    </div>
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+
+                {{> archives/cardes_jeux_du_mois-07-2020 }}
+
+            </div>
+        </div>
+    </div>
 
 {{!-- X Image jeux juillet 2020 --}}

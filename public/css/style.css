@@ -7902,7 +7902,6 @@ button.close {
   .d-print-inline-flex {
     display: inline-flex !important; } }
 /* Import Perso */
-/* Import Perso */
 body {
   margin: 0;
   padding: 0; }
@@ -7921,27 +7920,45 @@ body {
 .bg-bleu_ps {
   background-color: rgba(63, 127, 191, 0.7); }
 
+.bg-gris_transparent_ps {
+  background-color: rgba(220, 220, 220, 0.7); }
+
+.border-bleu_ps {
+  border-color: rgba(63, 127, 191, 0.7) !important; }
+
 .taille_img_carousel {
   height: 70vh; }
 
-.taille_img_jdm {
+.taille_img_carousel_id {
   height: 50vh; }
 
-.ep_bordure {
-  border-width: 20px !important; }
+.taille_img_jdm {
+  height: 40vh; }
 
 .taille_img_arch {
   height: 25vh; }
 
 .taille_img_contact {
-  height: 25vh; }
+  height: 20vh; }
+
+.taille_img_article_id {
+  height: 12vh; }
 
 .taille_img_footer {
   height: 30px; }
+
+.ep_bordure {
+  border-width: 20px !important; }
+
+.lageur_mini_carousel {
+  width: 80vh; }
 
 footer {
   background-color: #000000;
   color: white;
   height: 50px; }
+
+.baniere {
+  height: 300px; }
 
 /*# sourceMappingURL=style.css.map */
