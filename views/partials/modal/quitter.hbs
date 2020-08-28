@@ -1,5 +1,30 @@
 <div class="container pt-5">
-  <div class="text-center bg-bleu_ps">
-    <button type="button" class="btn btn-light mb-3 pb-3 pt-2 mt-3">Quitter</button>
+  <div class="text-center bg-bleu_transparent_ps">
+
+<!-- Button modal quitter -->    
+    <button type="button" class="btn btn-light mb-3 pb-2 pt-2 mt-3" data-toggle="modal" data-target="#modalquitter">
+  Quitter
+</button>
   </div>
 </div>
+
+<!-- Modal quitter -->
+<div class="modal fade" id="modalquitter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h4 class="modal-title ml-2" id="staticBackdropLabel">Attention !</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body mt-4 mb-4 text-center">
+        Etes vous sur de vouloir quitter?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Oui</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Non</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / Modal quitter -->

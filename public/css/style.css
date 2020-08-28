@@ -7909,7 +7909,14 @@ body {
 .image_de_font_body {
   background-size: cover;
   background-attachment: fixed;
-  size: 100vh; }
+  size: 100vh;
+  background-image: url(../images/playstation_gris.jpg); }
+
+.img_bg_ps_bleu {
+  background-size: cover;
+  background-attachment: fixed;
+  size: 100vh;
+  background-image: url(../images/playstation_mini.jpg); }
 
 .gris_ps {
   color: #AAAAAA; }
@@ -7918,12 +7925,15 @@ body {
   background-color: #AAAAAA; }
 
 .bg-bleu_ps {
+  background-color: #0066ff; }
+
+.bg-bleu_transparent_ps {
   background-color: rgba(63, 127, 191, 0.7); }
 
 .bg-gris_transparent_ps {
-  background-color: rgba(220, 220, 220, 0.7); }
+  background-color: rgba(220, 220, 220, 0.8); }
 
-.border-bleu_ps {
+.border-bleu_transparent_ps {
   border-color: rgba(63, 127, 191, 0.7) !important; }
 
 .taille_img_carousel {
@@ -7946,6 +7956,19 @@ body {
 
 .taille_img_footer {
   height: 30px; }
+
+.icones_m_admin {
+  font-size: 25px;
+  color: #0066ff; }
+
+.trait_admin {
+  display: block;
+  height: 3px;
+  background-color: #0066ff;
+  width: 90%;
+  content: " ";
+  margin: 0 auto;
+  margin-top: 10px; }
 
 .ep_bordure {
   border-width: 20px !important; }

@@ -12,7 +12,15 @@ body
     background-size: cover
     background-attachment: fixed
     size: 100vh
+    background-image: url(../images/playstation_gris.jpg)
+
+.img_bg_ps_bleu
+    background-size: cover
+    background-attachment: fixed
+    size: 100vh
+    background-image: url(../images/playstation_mini.jpg)
 //  X Fond d'ecrant body
+
 
 // Importation des couleurs
 @import couleurs
@@ -27,13 +35,18 @@ body
 .bg-bleu_ps
     background-color: $bleu_ps
 
+.bg-bleu_transparent_ps
+    background-color: $bleu_transparent_ps
+
 .bg-gris_transparent_ps
     background-color: $gris_transparent_ps
 
 // couleur bordure
-.border-bleu_ps
-    border-color: $bleu_ps!important
+.border-bleu_transparent_ps
+    border-color: $bleu_transparent_ps!important
 // X couleur bordure
+
+// X ------------- Couleurs ----------------------
 
 
 // ------------------ Taille ---------------------
@@ -66,8 +79,22 @@ body
 .taille_img_footer
     height: 30px
 
+// taille icones_m_admin
+.icones_m_admin
+    font-size: 25px
+    color: $bleu_ps
 
+// X ---------------- Taille ---------------------
 
+// Trait admin
+.trait_admin
+    display: block
+    height: 3px
+    background-color: $bleu_ps
+    width: 90%
+    content: " "
+    margin: 0 auto
+    margin-top: 10px
 
 // Epaisseur des bordures
 .ep_bordure

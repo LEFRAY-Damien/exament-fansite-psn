@@ -11,7 +11,8 @@ const homeController = require('./controllers/homeController'),
     article_idController = require('./controllers/article_idController'),
     loginController = require('./controllers/loginController'),
     freetoplayController = require('./controllers/freetoplayController'),
-    modalController = require('./controllers/modalController')
+    modalController = require('./controllers/modalController'),
+    adminController = require('./controllers/adminController')
 
 // Home
 router.route('/')
@@ -44,5 +45,9 @@ router.route('/freetoplay')
 // modal
 router.route('/modal')
     .get(modalController.get)
+
+// admin
+router.route('/admin')
+    .get(adminController.get)
 
 module.exports = router;

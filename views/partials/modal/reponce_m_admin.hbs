@@ -1,0 +1,54 @@
+<div class="container pt-5">
+    <div class="text-center bg-bleu_transparent_ps">
+
+        <!-- Button modal reponce_m_admin -->
+        <button type="button" class="btn btn-light mb-3 pb-2 pt-2 mt-3" data-toggle="modal"
+            data-target="#modalreponce_m_admin">
+            reponce message admin
+        </button>
+    </div>
+</div>
+
+<!-- Modal reponce_m_admin -->
+<div class="modal fade" id="modalreponce_m_admin" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border border-primary rounded-lg">
+            <div class="modal-body m-3">
+                <div class="border border-primary rounded-lg mb-3">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                </div>
+
+                <div class="d-flex flex-row pt-2">
+
+                    <div><button type="button" class="btn btn-primary mr-2" data-dismiss="modal">Envoyer</button></div>
+                    <div><button type="button" class="btn btn-outline-danger mr-2" data-dismiss="modal">Annuler</button></div>
+                    
+                    {{!-- Div icones --}}
+                    <div class="d-inline-flex border border-primary rounded-lg">
+
+                        <div class="icones_m_admin ml-3">
+                            <i class="fas fa-font"></i>
+                        </div>
+
+                        <div class="icones_m_admin ml-3">
+                            <i class="far fa-smile"></i>
+                        </div>
+
+                        <div class="icones_m_admin ml-3">
+                            <i class="fas fa-paperclip"></i>
+                        </div>
+
+                        <div class="icones_m_admin ml-3 mr-3">
+                            <i class="far fa-image"></i>
+                        </div>
+
+                    </div>
+                    {{!-- X Div icones --}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Modal reponce_m_admin -->
