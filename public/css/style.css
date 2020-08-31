@@ -7922,6 +7922,9 @@ body {
   background-attachment: fixed;
   background-image: url(../images/cookies.jpg); }
 
+.center-div {
+  display: inline-block; }
+
 .gris_ps {
   color: #AAAAAA; }
 
