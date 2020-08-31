@@ -7918,6 +7918,10 @@ body {
   size: 100vh;
   background-image: url(../images/playstation_mini.jpg); }
 
+.img_cookie_modal {
+  background-attachment: fixed;
+  background-image: url(../images/cookies.jpg); }
+
 .gris_ps {
   color: #AAAAAA; }
 
