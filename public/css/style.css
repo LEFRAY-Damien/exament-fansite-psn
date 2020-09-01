@@ -7961,8 +7961,17 @@ body {
 .taille_img_article_id {
   height: 12vh; }
 
+.taille_fenetre_message_admin {
+  height: 15vh; }
+
 .taille_img_footer {
   height: 30px; }
+
+.taille_message_admin {
+  height: 40px; }
+
+.taille_img_message_admin {
+  font-size: 25px; }
 
 .icones_m_admin {
   font-size: 25px;
@@ -7973,6 +7982,15 @@ body {
   height: 3px;
   background-color: #0066ff;
   width: 90%;
+  content: " ";
+  margin: 0 auto;
+  margin-top: 10px; }
+
+.demi_trait_admin {
+  display: block;
+  height: 3px;
+  background-color: #0066ff;
+  width: 60%;
   content: " ";
   margin: 0 auto;
   margin-top: 10px; }

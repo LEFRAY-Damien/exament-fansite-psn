@@ -20,7 +20,8 @@
 
                     {{!-- Interieur collaps archives --}}
                     <div class="container">
-                        <div class="col-md-8 text-white text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div pt-3">
+                        <div
+                            class="col-md-8 text-white text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div pt-3">
                             <div class="col-md-12">
                                 <label for="exampleFormControlInput1">Date de l'archive :</label>
                                 <div class="form-group d-inline-flex justify-content-center mb-2">
@@ -28,16 +29,17 @@
                                         placeholder="Juillet 2020">
                                 </div>
                             </div>
+                            
                             {{!-- Cadre modification image archive --}}
                             <div class="col-md-6 center-div border border-white rounded-lg mt-3">
                                 <h2 class="mt-2">Image de l'archive</h2>
-
                                 <div class="col-md-6 center-div bg-white"><img src="assets/images/croix.png"
                                         class="d-block w-100 h-75 taille_img_arch mt-1" alt=""></div>
-
-                                <div class="col-md-12 center-div mb-2 mt-2">
-                                    <button type="button" class="btn btn-primary m-2">Modifier</button>
-                                </div>
+                                <form>
+                                    <div class="form-group m-2">
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </form>
                             </div>
                             {{!-- X Cadre modification image archive --}}
 
@@ -84,4 +86,5 @@
             </div>
         </div>
     </div>
+</div>
     {{!-- X collaps archives --}}
