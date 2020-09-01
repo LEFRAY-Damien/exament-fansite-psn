@@ -1,6 +1,7 @@
 module.exports = {
     get: (req, res) => {
-        console.log('get admin')
-        res.render('admin')
+        res.render('admin', {
+            layout: 'adminLayout'
+        })
     }
 }

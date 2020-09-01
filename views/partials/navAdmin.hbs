@@ -1,0 +1,54 @@
+<!-- Navbar -->
+<header>
+    <nav
+        class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary d-flex justify-content-between shadow border border-light">
+        <div class="d-flex">
+
+            {{!-- Bouton deconnection --}}
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/">Deconnection</a>
+                </div>
+            </div>
+            {{!-- X Bouton deconnection --}}
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="d-flex">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav pr-2">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Acceuil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/article">Jeux du mois</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">Archives</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/freetoplay">Free To Play</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{!-- Ratrapage navbar --}}
+    <div class="mb-5"></div>
+    {{!-- X Ratrapage navbar --}}
+
+
+
+</header>
+<!-- / Navbar -->
