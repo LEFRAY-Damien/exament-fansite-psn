@@ -7945,9 +7945,6 @@ body {
 .bg-gris_transparent_ps {
   background-color: rgba(220, 220, 220, 0.8); }
 
-.border-bleu_transparent_ps {
-  border-color: rgba(63, 127, 191, 0.7) !important; }
-
 .taille_img_carousel {
   height: 70vh; }
 
