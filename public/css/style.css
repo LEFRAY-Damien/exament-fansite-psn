@@ -7910,13 +7910,18 @@ body {
   background-size: cover;
   background-attachment: fixed;
   size: 100vh;
-  background-image: url(../images/playstation_gris.jpg); }
+  background-image: url(../images/playstation_gris_2.jpg); }
 
 .img_bg_ps_bleu {
   background-size: cover;
   background-attachment: fixed;
   size: 100vh;
   background-image: url(../images/playstation_mini.jpg); }
+
+.f_baniere {
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url(../images/playstation.jpg); }
 
 .img_cookie_modal {
   background-attachment: fixed;
@@ -7951,6 +7956,9 @@ body {
 
 .taille_img_jdm {
   height: 40vh; }
+
+.taille_carde_jdm {
+  width: 30rem; }
 
 .taille_img_arch {
   height: 25vh; }
@@ -7995,11 +8003,11 @@ body {
   margin: 0 auto;
   margin-top: 10px; }
 
-.ep_bordure {
-  border-width: 20px !important; }
-
 .lageur_mini_carousel {
   width: 80vh; }
+
+.largeur_mini_carousel_jdm {
+  width: 50vh; }
 
 footer {
   background-color: #000000;
@@ -8008,5 +8016,8 @@ footer {
 
 .baniere {
   height: 300px; }
+
+.baniere_taille_2 {
+  height: 100px; }
 
 /*# sourceMappingURL=style.css.map */
