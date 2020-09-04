@@ -5,6 +5,87 @@
         {{!-- Selection filtre --}}
         <div class="col-md-3 center-div">
 
+            {{!-- essais trie --}}
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."
+                title="Type in a name" class="mb-2">
+
+            {{!-- <ul id="myUL">
+                <li><a href="#">Adele</a></li>
+                <li><a href="#">Agnes</a></li>
+
+                <li><a href="#">Billy</a></li>
+                <li><a href="#">Bob</a></li>
+
+                <li><a href="#">Calvin</a></li>
+                <li><a href="#">Christina</a></li>
+                <li><a href="#">Cindy</a></li>
+            </ul> --}}
+
+            <script>
+                // Déclaration de myFunction   
+                function myFunction() {
+
+                    // Déclaration de nos variables
+                    var input, filter, ul, li, a, i, txtValue;
+
+                    // Récupération du input
+                    input = document.getElementById("myInput");
+
+                    // atribuons la variable filter a la récupération de notre valeur de notre input
+                    filter = input.value.toUpperCase();
+
+                    // console log --> affiche ce qui ce passe sur la page avec ctrl maj u "console" ici affiche les filtre et les inputs
+                    console.log(input)
+                    console.log(filter)
+
+                    // On récupère la liste complète grace à ul
+                    ul = document.getElementById("myUL");
+
+                    //  On définit que li est un enfant de ul
+                    li = ul.getElementsByTagName("li");
+
+                    // Ici nous avons la boucle qui permet de trier nos résultat
+                    for (i = 0; i < li.length; i++) {
+
+                        // Ici on définit a comme étant l'enfant de li[i] Ici ils recherche des "h5"
+                        a = li[i].getElementsByTagName("h5")[0];
+
+                        // txtValue est egale au contenu de a
+                        txtValue = a.textContent || a.innerText;
+
+                        // Ici on check si notre txtValue est bien égale à filter
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+
+                            // On laisse notre class vide si ça match
+                            li[i].style.display = "";
+                        } else {
+                            // Sinon on les fait disparaitre
+                            li[i].style.display = "none";
+                        }
+                    }
+                }
+            </script>
+
+{{!-- Essais avec 2 trie --}}
+
+                {{!-- // Ici on définit a comme étant l'enfant de li[i]
+                a = li[i].getElementsByTagName("a")[0];
+                h2 = li[i].getElementsByTagName('h2')[0];
+​
+                // txtValue est egale au contenu de a
+                // txtValue = a.textContent || a.innerText;
+                // atxtValue est égale au match entre la liste(a) et le filtre(input)
+                atxtValue = (a.textContent || a.innerText).toUpperCase().indexOf(filter) > -1;
+                h2txtValue = (h2.textContent || h2.innerText).toUpperCase().indexOf(filter) > -1;
+                
+                // Ici on check si atxtValue ou h2txtValue à matcher
+                if (h2txtValue || atxtValue) {
+                    // On laisse notre class vide si ça match --}}
+
+{{!-- X essais avec 2 trie --}}
+
+            {{!-- essais trie --}}
+
             <select class="form-control" id="exampleFormControlSelect1">
                 <option>Date de sortie</option>
                 <option>Evaluation</option>

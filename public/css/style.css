@@ -8018,4 +8018,15 @@ footer {
 .baniere_taille_2 {
   height: 100px; }
 
+.d-flex-jca {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+@media screen and (max-width: 680px) {
+  .d-flex-jca {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; } }
+
 /*# sourceMappingURL=style.css.map */
