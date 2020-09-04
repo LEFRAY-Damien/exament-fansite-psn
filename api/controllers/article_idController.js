@@ -1,6 +1,8 @@
 module.exports = {
-    get: (req, res) => {
+    get: async (req, res) => {
         console.log('get article_id')
-        res.render('article_id')
+        res.render('article_id',{
+            page: "Article"
+        })
     }
 }

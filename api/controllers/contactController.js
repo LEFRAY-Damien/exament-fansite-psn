@@ -1,5 +1,7 @@
 module.exports = {
     get: (req, res) => {
-        res.render('contact')
+        res.render('contact',{
+            page: "Contact"
+        })
     }
 }

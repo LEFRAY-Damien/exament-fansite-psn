@@ -7946,7 +7946,8 @@ body {
   background-color: rgba(220, 220, 220, 0.8); }
 
 .taille_img_carousel {
-  height: 70vh; }
+  height: 60vh;
+  width: auto; }
 
 .taille_img_carousel_id {
   height: 50vh; }

@@ -1,5 +1,7 @@
 module.exports = {
     get: (req, res) => {
-        res.render('modal')
+        res.render('modal',{
+            page: 'Modals'
+        })
     }
 }

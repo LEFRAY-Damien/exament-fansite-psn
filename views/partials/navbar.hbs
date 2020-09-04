@@ -3,7 +3,9 @@
   <nav
     class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between shadow border border-light">
     <div class="d-flex">
-      <a class="navbar-brand pl-2" href="#">Acceuil</a>
+
+      <a class="navbar-brand pl-2" href="#">{{ page }}</a>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,8 +32,8 @@
 
 {{!-- succes vien du controller , #if donne une condition et else donne "sinon" --}}
 
-{{!-- 
-          {{#if success}}
+
+          {{!-- {{#if success}} 
           <li class="nav-item">
             <a class="nav-link" href="/freetoplay">Success</a>
           </li>
@@ -40,8 +42,8 @@
             <a class="nav-link" href="/contact">Error</a>
           </li>
           {{/if}}
- --}}
 
+--}}
         </ul>
       </div>
     </div>

@@ -1,5 +1,7 @@
 module.exports = {
     get: (req, res) => {
-        res.render('login')
+        res.render('login',{
+            page: 'Login'
+        })
     }
 }

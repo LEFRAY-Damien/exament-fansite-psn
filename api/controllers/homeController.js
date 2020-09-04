@@ -8,9 +8,12 @@ module.exports = {
             {name: 'name 4', description: 'desxcrerg'},
         ]
         console.log('get home')
+
         res.render('home', {
+            page: 'Acceuil',
             success: "success",
             titre: title,
+            navbar_acceuil: "",
             tableau: myArray
         })
     }
