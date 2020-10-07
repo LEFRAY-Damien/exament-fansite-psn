@@ -8,7 +8,7 @@ const
     app = express(),
     hbs = require('express-handlebars'),
     bodyParser = require('body-parser'),
-    port = process.env.PORT || 3000,
+    port = process.env.PORT || 2606,
     morgan = require('morgan');
 
 // modul morgan debuggeur http    
