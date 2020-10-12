@@ -2,14 +2,33 @@
  * App.js
  ******************************/
 
+// Modul pour cacher les mot de pass et autre
+require('dotenv').config()
+
 // Import de module
 const
     express = require('express'),
     app = express(),
     hbs = require('express-handlebars'),
-    bodyParser = require('body-parser'),
-    port = process.env.PORT || 2606,
-    morgan = require('morgan');
+    mongoose = require('mongoose'), // Passerel pour communiquer avec la base de donnée MongoDB
+    session = require('express-session') // Permet de gere les session utilisateur du site
+    bodyParser = require('body-parser'), // Modul pour traiter les formulaires
+    port = process.env.PORT,
+    morgan = require('morgan'); // Module pour debuger
+
+
+
+// Base de donnée ...............................................
+// pour mongodb cloud   // mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'
+                                                        // blog le nom de la collection et <password> le mot de passe collection
+mongoose.connect(process.env.PORTMDB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+});
+
+// .............................................................
 
 // modul morgan debuggeur http    
 app.use(morgan('dev'));
