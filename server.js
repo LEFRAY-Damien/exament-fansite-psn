@@ -13,10 +13,9 @@ const
     mongoose = require('mongoose'), // Passerel pour communiquer avec la base de donnée MongoDB
     session = require('express-session') // Permet de gere les session utilisateur du site
     bodyParser = require('body-parser'), // Modul pour traiter les formulaires
-    port = process.env.PORT,
-    morgan = require('morgan'); // Module pour debuger
-
-
+    morgan = require('morgan'), // Module pour debuger
+    fileUpload = require('express-fileupload'), // modul pour envoyer des fichier avec express
+    port = process.env.PORT;
 
 // Base de donnée ...............................................
 // pour mongodb cloud   // mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'
@@ -33,6 +32,9 @@ mongoose.connect(process.env.PORTMDB, {
 // modul morgan debuggeur http    
 app.use(morgan('dev'));
 
+// FileUpload pour envoyer des fichiers
+app.use(fileUpload());
+
 // Handlebars
 app.set('view engine', 'hbs');
 app.engine('hbs', hbs({
@@ -48,7 +50,7 @@ app.use('/assets', express.static('public'));
 // Parser = https://fr.wiktionary.org/wiki/parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true // -> A VOIR EN FALSE
 }));
 
 // Notre router permettra de diriger des chemins 'URL' sur les actions 'Controller' qui distriburont nos pages, ... 
@@ -62,5 +64,5 @@ app.use('/', ROUTER)
 
 // Ensuite nous demandons a express (app) de run notre projet.
 app.listen(port, () => {
-    console.log("le serveur tourne sur le prt: " + port);
+    console.log("le serveur tourne sur le prt: " + port, "lancé à:" + new Date().toLocaleString());
 });

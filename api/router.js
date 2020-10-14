@@ -1,7 +1,8 @@
 // Import
 const express = require('express'),
     router = express.Router(),
-    path = require('path')
+    path = require('path'),
+    upload = require('./config/multer')
 
 // Controller
 const homeController = require('./controllers/homeController'),
@@ -49,5 +50,7 @@ router.route('/modal')
 // admin
 router.route('/admin')
     .get(adminController.get)
+    // .post(adminController.post)
+    .post(upload.single('imageCard'), adminController.post)
 
 module.exports = router;

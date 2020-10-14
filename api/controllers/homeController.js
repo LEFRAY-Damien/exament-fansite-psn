@@ -7,7 +7,6 @@ module.exports = {
             {name: 'name 3', description: 'desxcrerg'},
             {name: 'name 4', description: 'desxcrerg'},
         ]
-        console.log('get home')
 
         res.render('home', {
             page: 'Acceuil',
