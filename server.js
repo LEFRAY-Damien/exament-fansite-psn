@@ -14,7 +14,7 @@ const
     session = require('express-session') // Permet de gere les session utilisateur du site
     bodyParser = require('body-parser'), // Modul pour traiter les formulaires
     morgan = require('morgan'), // Module pour debuger
-    fileUpload = require('express-fileupload'), // modul pour envoyer des fichier avec express
+    sharp = require('sharp') // modul pour redimenssionner les images
     port = process.env.PORT;
 
 // Base de donnée ...............................................
@@ -31,9 +31,6 @@ mongoose.connect(process.env.PORTMDB, {
 
 // modul morgan debuggeur http    
 app.use(morgan('dev'));
-
-// FileUpload pour envoyer des fichiers
-app.use(fileUpload());
 
 // Handlebars
 app.set('view engine', 'hbs');

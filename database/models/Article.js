@@ -8,12 +8,19 @@ const ArticleSchema = new mongoose.Schema({
     title: String,  // Titre : chaine de caractere
     descriptionGen: String, // Description general de l'article
     descriptionSimple: String, // Description simplifié
-    imageCarde: String, // Image principal
+    imageCard: String, // Image principal
    // imagecarousel: String, // Images du carousel
    // pegi: String, // Pegi de l'article
    // note: String, // Note en etoiles de l'article 
     details: {      // Details est un OBJ
         type: Object
+    },
+    cover: {
+        name: String,
+        originalName: String,
+        path: String,
+        urlSharp: String,
+        createAt: Date
     }
 
 })

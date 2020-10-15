@@ -2,7 +2,8 @@
 const express = require('express'),
     router = express.Router(),
     path = require('path'),
-    upload = require('./config/multer')
+
+    upload  = require('./config/multer')
 
 // Controller
 const homeController = require('./controllers/homeController'),

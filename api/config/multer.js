@@ -15,6 +15,17 @@ const storage = multer.diskStorage({
   }
 })
 
+
+
+// filename: function (req, file, cb) {
+//   const date = Date.now();
+//   cb(null, date + '-' + file.originalname) // enregistre l'image sous ce nom
+// }      //    la date + '-' + le nom de 'limage
+
+
+
+
+
 // Ici seront initialiser les parametre de la config de multer
 const upload = multer({
   // Ici nous renseignons le stockage definit au dessu

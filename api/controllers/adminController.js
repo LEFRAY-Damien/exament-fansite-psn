@@ -14,12 +14,30 @@ module.exports = {
     },
 
     //  // POST................................
-     post: async (req, res) => {
+    post: (req, res) => {
 
-
-        console.log('Controller create Article (Admin)')
-        console.log(req.files);
+        console.log(req.file);
         console.log(req.body);
+
+
+        const file = req.file; // cree constante file pour cree l'image en webp
+
+        sharp(file.path)
+            .resize(200)  // taille de la redimenssion
+            .webp({ quality: 80 })
+            // toFile ->  endrois ou stocker l'image
+            .toFile('./public/webp' + file.originalname.split('.').slice(0, -1).join('.') + ".webp", (err, info) => { });
+
+
+        // if (file) {
+        //     newProduct.cover = {
+        //         name: file.filename,
+        //         originalName: file.originalname,
+        //         path: file.path.replace("public", ""),
+        //         urlSharp: '/uploads/web/' + file.originalname.split('.').slice(0, -1).join('.') + ".webp",
+        //         createAt: Date.now(),
+        //     }
+        // }
 
         const details = {  // Const cree pour faire un model de l'obj
             genre: req.body.genre,
@@ -29,39 +47,25 @@ module.exports = {
         }
 
         Article.create({       // On cree l'article sur le model Article DB
+
+            details: details,  // On ce sert de la const details pour cree un model
+
             ...req.body,       // suivant le req.body
-            details: details   // On ce sert de la const details pour cree un model
+
+            // Ici on viens formater le chemin de notre image qui sera stocker dans notre DB
+            imageCard: `/assets/imagesArticles/${req.file.originalname}`,
+
+            // On stock aussi le nom de l'image
+            name: req.file.originalname
+
         }, (err, post) => {
 
             // Et on redirige sur la page /
-            res.redirect('/')
+            res.redirect('/admin')
         })
 
     },
 
 }
 
-// // Method POST
-// post: async (req, res) => {
-
-//     // Condition pour verifier si aucun fichier est envoyer dans le formulaire
-//     if (!req.file) res.redirect('/')
-//     // Si Le fichier est bien présent alors on execute ça
-//     else {
-//       // On récupère le modele (constructor) de mongoose
-//       Article.create({
-//         // On stock toute les infos de notre req.body
-//         ...req.body,
-//         // Ici on viens formater le chemin de notre image qui sera stocker dans notre DB
-//         imgArticle: `/assets/images/${req.file.originalname}`,
-//         // On stock aussi le nom de l'image
-//         name: req.file.originalname
-//       // Le callback d'error
-//       }, (err, post) => {
-//         if (err) console.log(err)
-//         res.redirect('/article')
-//       })
-//     }
-
-//   },
 
