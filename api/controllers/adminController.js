@@ -1,6 +1,7 @@
 // Import du model Article de la base de donnée
 const Article = require("../../database/models/Article"); // Model database
 const path = require('path') // utile uniquement pour path.resolve plus bas
+sharp = require('sharp') // modul pour redimenssionner les images
 fs = require('fs')
 
 // Controllers
@@ -28,15 +29,15 @@ module.exports = {
             // toFile ->  endrois ou stocker l'image
             .toFile('./public/webp' + file.originalname.split('.').slice(0, -1).join('.') + ".webp", (err, info) => { });
 
-        // if (file) {
-        //     newProduct.cover = {
-        //         name: file.filename,
-        //         originalName: file.originalname,
-        //         path: file.path.replace("public", ""),
-        //         urlSharp: '/uploads/web/' + file.originalname.split('.').slice(0, -1).join('.') + ".webp",
-        //         createAt: Date.now(),
-        //     }
-        // }
+     
+            const cover = {
+                name: file.filename,
+                originalName: file.originalname,
+                path: file.path.replace("public", ""),
+                urlSharp: '/public/imageswebp/' + file.originalname.split('.').slice(0, -1).join('.') + ".webp",
+                createAt: Date.now(),
+            }
+   
 
         // Const cree pour faire un model de l'obj
         const details = {  
@@ -50,6 +51,8 @@ module.exports = {
         Article.create({       // On cree l'article sur le model Article DB
 
             details: details,  // On ce sert de la const details pour cree un model
+
+            cover : cover,
 
             ...req.body,       // suivant le req.body
 
