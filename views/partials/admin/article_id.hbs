@@ -21,7 +21,8 @@
                     {{!-- Interieur collaps article id --}}
 
                     <div class="container-fluid bg-bleu_transparent_ps">
-                        <form action="/admin" method="POST" enctype="multipart/form-data"> {{! -- enctype pour pouvoir transferer des fichiers --}}
+                        <form action="/admin" method="POST" enctype="multipart/form-data">
+                            {{! -- enctype pour pouvoir transferer des fichiers --}}
                             <div class="row">
                                 <div class="col-md-3">
 
@@ -32,28 +33,33 @@
                                         <div class="col-md-6 center-div bg-white">
                                             <img src="assets/images/croix.png" alt=""
                                                 class="mt-2 mb-2 d-block w-100 h-75 taille_img_arch"></div>
-
-                                       
-                                            <div class="form-group m-2">
-                                                <input type="file" class="form-control-file"
-                                                    id="exampleFormControlFile1" name="imageCard" required>  {{!-- required oblige a metre l'image --}}
-                                            </div>
-
-                                     
+                                        <div class="form-group m-2">
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1"
+                                                name="imageCard" required> {{!-- required oblige a metre l'image --}}
+                                        </div>
                                     </div>
                                     {{!-- Modification image id --}}
 
                                     {{!-- Modification PEGI id --}}
-                                    <div class="text-center mb-3 mt-2 border border-white rounded-lg"
+                                    <div class="mb-3 mt-2 border border-white rounded-lg text-white"
                                         style="max-width: 16rem;">
-                                        <div class="col-md-6 center-div m-2">
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>PEGI 3</option>
-                                                <option>PEGI 7</option>
-                                                <option>PEGI 12</option>
-                                                <option>PEGI 16</option>
-                                                <option>PEGI 18</option>
-                                            </select>
+
+                                        <div class="card-header">
+                                            <h4>Pegi</h4>
+                                        </div>
+
+                                        <div class="card-body text-center">
+                                            <div class="col-md-6 center-div m-2">
+                                                <label for="pegi">
+                                                    <select class="form-control" id="pegi" name="pegi">
+                                                        <option value="3">PEGI 3</option>
+                                                        <option value="7">PEGI 7</option>
+                                                        <option value="12">PEGI 12</option>
+                                                        <option value="16">PEGI 16</option>
+                                                        <option value="18">PEGI 18</option>
+                                                    </select>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                     {{!-- X Modification PEGI id --}}
@@ -120,13 +126,15 @@
                                         </div>
                                         <div class="card-body text-center">
                                             <div class="col-md-6 center-div m-2">
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option>1 étoile</option>
-                                                    <option>2 étoiles</option>
-                                                    <option>3 étoiles</option>
-                                                    <option>4 étoiles</option>
-                                                    <option>5 étoiles</option>
-                                                </select>
+                                                <label for="note">
+                                                    <select class="form-control" id="note" name="note">
+                                                        <option value="1">1 étoile</option>
+                                                        <option value="2">2 étoiles</option>
+                                                        <option value="3">3 étoiles</option>
+                                                        <option value="4">4 étoiles</option>
+                                                        <option value="5">5 étoiles</option>
+                                                    </select>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>

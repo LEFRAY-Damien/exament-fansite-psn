@@ -3,7 +3,7 @@ const express = require('express'),
     router = express.Router(),
     path = require('path'),
 
-    upload  = require('./config/multer')
+    upload = require('./config/multer')
 
 // Controller
 const homeController = require('./controllers/homeController'),
@@ -14,6 +14,8 @@ const homeController = require('./controllers/homeController'),
     loginController = require('./controllers/loginController'),
     freetoplayController = require('./controllers/freetoplayController'),
     modalController = require('./controllers/modalController'),
+    gameController = require('./controllers/gameController'),
+    monthController = require('./controllers/monthController'),
     adminController = require('./controllers/adminController')
 
 // Home
@@ -52,6 +54,16 @@ router.route('/modal')
 router.route('/admin')
     .get(adminController.get)
     // .post(adminController.post)
-    .post(upload.single('imageCard'), adminController.post)
+    .post(upload.single('imageCard'), adminController.postArticleId)
+
+// voir archives
+router.route('/game')
+    .get(gameController.getGame)
+    .post(gameController.createGame)
+
+// voir archives
+router.route('/month')
+    .get(monthController.getMonth)
+    .post(monthController.createMonth)
 
 module.exports = router;

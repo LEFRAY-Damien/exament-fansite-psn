@@ -14,7 +14,7 @@ module.exports = {
     },
 
     //  // POST................................
-    post: (req, res) => {
+    postArticleId: (req, res) => {
 
         console.log(req.file);
         console.log(req.body);
@@ -28,7 +28,6 @@ module.exports = {
             // toFile ->  endrois ou stocker l'image
             .toFile('./public/webp' + file.originalname.split('.').slice(0, -1).join('.') + ".webp", (err, info) => { });
 
-
         // if (file) {
         //     newProduct.cover = {
         //         name: file.filename,
@@ -39,12 +38,14 @@ module.exports = {
         //     }
         // }
 
-        const details = {  // Const cree pour faire un model de l'obj
+        // Const cree pour faire un model de l'obj
+        const details = {  
             genre: req.body.genre,
             editeur: req.body.editeur,
             dateDeSortie: req.body.dateDeSortie,
             taille: req.body.taille
         }
+
 
         Article.create({       // On cree l'article sur le model Article DB
 

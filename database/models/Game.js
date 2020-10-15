@@ -1,17 +1,20 @@
-// Model de l'article sauvgarder dans la base de donnée
+// Model de l'Game sauvgarder dans la base de donnée
 
 const mongoose = require('mongoose') // Appel de la constante mongoose vue qu'elle seras utilise ic
+const Schema = mongoose.Schema
+
+const Month = require('./Month')
 
 // Shema enregistrer dans la base de données
-const ArticleSchema = new mongoose.Schema({
+const GameSchema = new mongoose.Schema({
 
     title: String,  // Titre : chaine de caractere
-    descriptionGen: String, // Description general de l'article
+    descriptionGen: String, // Description general de l'Game
     descriptionSimple: String, // Description simplifié
     imageCard: String, // Image principal
    // imagecarousel: String, // Images du carousel
-    pegi: String, // Pegi de l'article
-    note: String, // Note en etoiles de l'article 
+   // pegi: String, // Pegi de l'Game
+   // note: String, // Note en etoiles de l'Game 
     details: {      // Details est un OBJ
         type: Object
     },
@@ -21,13 +24,17 @@ const ArticleSchema = new mongoose.Schema({
         path: String,
         urlSharp: String,
         createAt: Date
+    },
+    month: {
+        type: Schema.Types.ObjectId,
+        ref: 'Month'
     }
 
 })
 
-// Cree une constante article selon le shema ci dessus
-const Article = mongoose.model('Article', ArticleSchema)
+// Cree une constante Game selon le shema ci dessus
+const Game = mongoose.model('Game', GameSchema)
    
-// Exporte le contenue d'un article sur d'autre page sous le nom Article
-module.exports = Article
+// Exporte le contenue d'un Game sur d'autre page sous le nom Game
+module.exports = Game
     

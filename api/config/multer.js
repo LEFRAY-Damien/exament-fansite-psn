@@ -11,17 +11,13 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     const ext = file.originalname,
       date = Date.now()
-    cb(null, ext)
+
+    cb(null, date + '-' + file.originalname) // enregistre l'image sous ce nom la date + '-' + le nom de 'limage
+
+    // cb(null, ext)
+
   }
 })
-
-
-
-// filename: function (req, file, cb) {
-//   const date = Date.now();
-//   cb(null, date + '-' + file.originalname) // enregistre l'image sous ce nom
-// }      //    la date + '-' + le nom de 'limage
-
 
 
 
