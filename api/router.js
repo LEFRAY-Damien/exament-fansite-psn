@@ -53,8 +53,9 @@ router.route('/modal')
 // admin
 router.route('/admin')
     .get(adminController.get)
-    // .post(adminController.post)
-    .post(upload.single('imageCard'), adminController.postArticleId)
+    //.post(upload.single('imageCard'), adminController.postArticleId)
+    .post(upload.fields([{ name: 'imageCard', maxCount: 1 }, { name: 'imagesCarouselId', maxCount: 6 }]), adminController.postArticleId)
+    //.post(upload.single('imageCard'),upload.array('imagesCarouselId', 3), adminController.postArticleId)
 
 // voir archives
 router.route('/game')

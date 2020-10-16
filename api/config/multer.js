@@ -13,14 +13,9 @@ const storage = multer.diskStorage({
       date = Date.now()
 
     cb(null, date + '-' + file.originalname) // enregistre l'image sous ce nom la date + '-' + le nom de 'limage
-
     // cb(null, ext)
-
   }
 })
-
-
-
 
 // Ici seront initialiser les parametre de la config de multer
 const upload = multer({
@@ -29,7 +24,7 @@ const upload = multer({
   // Ici seront renseigner les limits des fichiers (taile, proportion, ...)
   limits: {
     fileSize: 1 * 4098 * 4098,
-    files: 1
+    files: 6
   },
   // Ici nous avons un filtre qui va nous permetre de configurer les extensions accepter par notre middleware ou autre
   fileFilter: (req, file, cb) => {
