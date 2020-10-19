@@ -7,7 +7,6 @@ const express = require('express'),
 
 // Controller
 const homeController = require('./controllers/homeController'),
-    articleController = require('./controllers/articleController'),
     contactController = require('./controllers/contactController'),
     archivesController = require('./controllers/archivesController'),
     article_idController = require('./controllers/article_idController'),
@@ -21,10 +20,6 @@ const homeController = require('./controllers/homeController'),
 // Home
 router.route('/')
     .get(homeController.get)
-
-// Article
-router.route('/article')
-    .get(articleController.get)
 
 // Contact
 router.route('/contact')
@@ -53,9 +48,8 @@ router.route('/modal')
 // admin
 router.route('/admin')
     .get(adminController.get)
-    //.post(upload.single('imageCard'), adminController.postArticleId)
-    .post(upload.fields([{ name: 'imageCard', maxCount: 1 }, { name: 'imagesCarouselId', maxCount: 6 }]), adminController.postArticleId)
-    //.post(upload.single('imageCard'),upload.array('imagesCarouselId', 3), adminController.postArticleId)
+    .post(upload.single('imageCard'), adminController.postArticleId)
+    //.post(upload.fields([{ name: 'imageCard', maxCount: 1 }, { name: 'imagesCarouselId', maxCount: 6 }]), adminController.postArticleId)
 
 // voir archives
 router.route('/game')

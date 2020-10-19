@@ -1,0 +1,29 @@
+{{!-- Ligne 1 D-flex --}}
+<ul id="myUL" class="list-unstyled row">
+
+
+
+  {{!-- Boucle free to play --}}
+
+  {{#each cardearticleftp}}
+  <li class="my-3 col-xl-3 col-lg-4 col-md-6 text-center">
+    <div class="card border-primary center-div" style="width: 15rem;">
+      <img src="{{imageCard}}" class="card-img-top" alt="Placeholder image">
+      <div class="card-body text-white bg-primary">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{descriptionSimple}}</p>
+      </div>
+    </div>
+  </li>
+  {{/each}}
+  {{!-- X Boucle free to play --}}
+
+
+
+
+
+</ul>
+{{!-- X Free to play filtre B --}}
+
+{{!-- Fortnite est le jeu multijoueur entièrement gratuit
+                        ou vous vous affrontez pour être le dernier survivant. --}}
