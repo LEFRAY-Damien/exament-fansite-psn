@@ -19,7 +19,7 @@ module.exports = {
 
         console.log("1 log files ");
         console.log(req.files);
- 
+
         console.log("2 log body");
         console.log(req.body);
 
@@ -43,13 +43,12 @@ module.exports = {
         // Définition d'un tableau que l'on va agrémenté avec nos data pour l'inscrire dans la DB
         arrayFiles = []
 
-
         // Boucle parcours notre req.files afin de récupéré les datas que l'on veux avant d'inscrire
         // nos objets dans le tableaux
         for (let i = 0; i < file.length; i++) {
             if (file) {
                 console.log("3 log files1");
-                console.log(file[i].filename)
+                console.log(file)
                 // C'est grace à la method push que nous inscrivont nos data dans nos Objets
                 // Et nos objets dans le tableau
                 arrayFiles.push({
@@ -70,12 +69,10 @@ module.exports = {
             createAt: Date.now(),
         }
 
-
-
-
-
         console.log("4 log arrayfiles");
         console.log(arrayFiles);
+
+
 
 
 
