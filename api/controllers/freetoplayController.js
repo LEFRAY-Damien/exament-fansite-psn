@@ -2,15 +2,6 @@
 
 const Article = require("../../database/models/Article"); // Model database
 
-// module.exports = {
-//     get: (req, res) => {
-//         res.render('freetoplay', {
-//             page: "Free To Play"
-//         })
-//     }
-// }
-
-
 module.exports = {
     // Method Get
     get: async (req, res) => {

@@ -14,7 +14,8 @@ const
     session = require('express-session') // Permet de gere les session utilisateur du site
     bodyParser = require('body-parser'), // Modul pour traiter les formulaires
     morgan = require('morgan'), // Module pour debuger
-    sharp = require('sharp') // modul pour redimenssionner les images
+    sharp = require('sharp'), // modul pour redimenssionner les images
+    // helpers = require('handlebars-helpers')(), // modul pour limiter le nombre dans un array
     port = process.env.PORT;
 
 // Base de donnée ...............................................
@@ -26,15 +27,26 @@ mongoose.connect(process.env.PORTMDB, {
     useFindAndModify: false,
     useCreateIndex: true
 });
-
 // .............................................................
+
+// register-helper ...... limite le nombre de post 
+// Handlebars.registerHelper('limit', function (arr, limit) {
+//     if (!Array.isArray(arr)) { return []; }
+//     return arr.slice(0, limit);
+// });
+//.......................................................
 
 // modul morgan debuggeur http    
 app.use(morgan('dev'));
 
 // Handlebars
+const { limit, striptag } = require('./helpers/hbs')
 app.set('view engine', 'hbs');
 app.engine('hbs', hbs({
+    helpers: {
+        limit: limit,
+        striptag: striptag
+    },
     extname: 'hbs',
     defaultLayout: 'main',
     adminLayout: 'adminLayout'
@@ -52,7 +64,7 @@ app.use(bodyParser.urlencoded({
 
 // Notre router permettra de diriger des chemins 'URL' sur les actions 'Controller' qui distriburont nos pages, ... 
 // CRUD = GET / POST / PUT / DELETE
-const ROUTER = require('./api/router')
+const ROUTER = require('./api/router');
 app.use('/', ROUTER)
 
 // app.use((req, res) => {

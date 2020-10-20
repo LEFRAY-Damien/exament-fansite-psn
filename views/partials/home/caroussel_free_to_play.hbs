@@ -1,9 +1,39 @@
 {{!-- Carde free to play --}}
-<div class="container mb-5">
+{{!-- <div class="container mb-5">
   <div class="row text-center">
     <div class="col-md-12">
       <img src="assets/images/ftplay.jpeg" alt="" class="w-100 taille_img_carousel">
     </div>
   </div>
-</div>
+</div> --}}
 {{!-- X Carde free to play --}}
+
+{{!-- Container limite free to play --}}
+<div class="container">
+  <div class="bg-bleu_transparent_ps pb-3 mb-5">
+
+
+
+    {{!-- Boucle free to play limite 3 --}}
+    <ul id="myUL" class="list-unstyled row">
+
+    {{#each ( limit cardearticleftp 4 ) }}
+    <li class="my-3 col-xl-3 col-lg-4 col-md-6 text-center">
+      <div class="card border-primary center-div" style="width: 15rem;">
+        <img src="{{imageCard}}" class="card-img-top" alt="Placeholder image">
+        <div class="card-body text-white bg-primary">
+          <h5 class="card-title">{{ title }}</h5>
+          <p class="card-text">{{descriptionSimple}}</p>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+    </ul>
+    {{!-- X Boucle free to play limite 3 --}}
+
+
+  </div>
+</div>
+{{!-- X Container limite free to play --}}
+
+

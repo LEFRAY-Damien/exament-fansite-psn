@@ -1,4 +1,5 @@
 // Import du model Article de la base de donnée
+const Acceuil = require("../../database/models/Acceuil");
 const Article = require("../../database/models/Article"); // Model database
 const path = require('path') // utile uniquement pour path.resolve plus bas
 sharp = require('sharp') // modul pour redimenssionner les images
@@ -8,7 +9,13 @@ fs = require('fs')
 module.exports = {
 
     // GET .................................
-    get: (req, res) => {
+    get: async (req, res) => {
+
+        const messageAcceuil = await Acceuil.findOne({})
+
+        console.log("log 1");
+        console.log(messageAcceuil);
+
         res.render('admin', {
             layout: 'adminLayout'
         })
@@ -88,7 +95,7 @@ module.exports = {
             ...req.body,       // suivant le req.body
 
             // Ici on viens formater le chemin de notre image qui sera stocker dans notre DB
-            imageCard: `/assets/imagesArticles/${req.file.originalname}`,
+            imageCard: `/assets/imagesArticles/${req.file.filename}`,
 
             // On stock aussi le nom de l'image
             // name: req.file.originalname

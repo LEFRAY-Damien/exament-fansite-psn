@@ -2,7 +2,6 @@
 const express = require('express'),
     router = express.Router(),
     path = require('path'),
-
     upload = require('./config/multer')
 
 // Controller
@@ -15,7 +14,8 @@ const homeController = require('./controllers/homeController'),
     modalController = require('./controllers/modalController'),
     gameController = require('./controllers/gameController'),
     monthController = require('./controllers/monthController'),
-    adminController = require('./controllers/adminController')
+    adminController = require('./controllers/adminController'),
+    adminAcceuilController = require('./controllers/adminAcceuilController')
 
 // Home
 router.route('/')
@@ -45,11 +45,15 @@ router.route('/freetoplay')
 router.route('/modal')
     .get(modalController.get)
 
-// admin
+// admin article ID
 router.route('/admin')
     .get(adminController.get)
     .post(upload.single('imageCard'), adminController.postArticleId)
-    //.post(upload.fields([{ name: 'imageCard', maxCount: 1 }, { name: 'imagesCarouselId', maxCount: 6 }]), adminController.postArticleId)
+
+// Admin Acceuil
+router.route('/admin/acceuil')
+    .get(adminAcceuilController.getAcceuil)
+    .post(adminAcceuilController.postAcceuil)
 
 // voir archives
 router.route('/game')

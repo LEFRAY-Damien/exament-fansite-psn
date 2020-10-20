@@ -1,25 +1,21 @@
+// Controllers page home, get free to play
+
+const Acceuil = require("../../database/models/Acceuil");
+const Article = require("../../database/models/Article"); // Model database
+
 module.exports = {
-    get: (req, res) => {
-        const title = 'Mon Super titre'
-        const myArray = [
-            {name: 'name 1', description: 'desxcrerg'},
-            {name: 'name 2', description: 'desxcrerg'},
-            {name: 'name 3', description: 'desxcrerg'},
-            {name: 'name 4', description: 'desxcrerg'},
-        ]
+    get: async (req, res) => {
+        // Variable de récupération de tout les Articles
+        const cardearticleftp = await Article.find({})
+        const messageAcceuil = await Acceuil.findOne({})
+
+        console.log("log 1");
+        console.log(messageAcceuil);
 
         res.render('home', {
             page: 'Acceuil',
-            success: "success",
-            titre: title,
-            navbar_acceuil: "",
-            tableau: myArray
+            cardearticleftp,
+            messageAcceuil
         })
     }
 }
-
-// titre   a inscerer dans une page en {{ titre }}
-// title   est = a la const title "ce qu'il y a a afficher dans la page"
-// myArray   cree les nombre d'acction demander ici 4 avec "name" et "description"
-
-// succes orange est envoyer a navbar.hbs
