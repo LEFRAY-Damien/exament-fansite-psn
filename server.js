@@ -10,17 +10,20 @@ const
     express = require('express'),
     app = express(),
     hbs = require('express-handlebars'),
+    methodOverride = require('method-override'),
     mongoose = require('mongoose'), // Passerel pour communiquer avec la base de donnée MongoDB
-    session = require('express-session') // Permet de gere les session utilisateur du site
+    session = require('express-session'), // Permet de gere les session utilisateur du site
     bodyParser = require('body-parser'), // Modul pour traiter les formulaires
     morgan = require('morgan'), // Module pour debuger
     sharp = require('sharp'), // modul pour redimenssionner les images
     // helpers = require('handlebars-helpers')(), // modul pour limiter le nombre dans un array
     port = process.env.PORT;
 
+app.use(methodOverride('_method'))
+
 // Base de donnée ...............................................
-// pour mongodb cloud   // mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'
-                                                        // blog le nom de la collection et <password> le mot de passe collection
+// pour mongodb cloud   // mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'     
+// blog le nom de la collection et <password> le mot de passe collection
 mongoose.connect(process.env.PORTMDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

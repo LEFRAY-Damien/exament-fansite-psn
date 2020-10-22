@@ -12,13 +12,23 @@ module.exports = {
     get: async (req, res) => {
 
         const messageAcceuil = await Acceuil.findOne({})
+        const titreAcceuil = await Acceuil.find({})
+        const titleNoExist = (titreAcceuil < 1)
 
-        console.log("log 1");
-        console.log(messageAcceuil);
+        if(titleNoExist) {
+            res.render('admin', {
+                layout: 'adminLayout',
+                messageAcceuil,
+                titleNoExist
+            })
+        } else {
+            res.render('admin', {
+                layout: 'adminLayout',
+                messageAcceuil
+            })
+        }
 
-        res.render('admin', {
-            layout: 'adminLayout'
-        })
+
     },
 
     //  // POST................................
@@ -33,16 +43,16 @@ module.exports = {
         const file = req.file; // cree constante file pour cree l'image en webp
 
 
-// SHARP ............................................................................
+        // SHARP ............................................................................
         // sharp(file.path)
         //     .resize(200)  // taille de la redimenssion
         //     .webp({ quality: 80 })
         //     // toFile ->  endrois ou stocker l'image
         //     .toFile('./public/webp' + file.originalname.split('.').slice(0, -1).join('.') + ".webp", (err, info) => { });
-// SHARP .............................................................................
+        // SHARP .............................................................................
 
 
-// Multer array....................................................................................................
+        // Multer array....................................................................................................
         // // Définition d'un tableau que l'on va agrémenté avec nos data pour l'inscrire dans la DB
         // arrayFiles = []
 
@@ -64,9 +74,9 @@ module.exports = {
 
         // Cree un boucle pour cover
 
-  // console.log("4 log arrayfiles");
+        // console.log("4 log arrayfiles");
         // console.log(arrayFiles);
-// MULTER ARRAY ...........................................................................................................
+        // MULTER ARRAY ...........................................................................................................
 
 
 

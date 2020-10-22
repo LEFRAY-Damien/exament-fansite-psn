@@ -1,0 +1,39 @@
+{{!-- Tableau flex Archives --}}
+<ul id="myUL" class="list-unstyled row">
+
+
+
+    {{!-- Boucle Archives --}}
+    {{#each cardeArchive}}
+
+    <div class="container text-center">
+        <div class="col-md-10 text-white text-center bg-bleu_transparent_ps center-div mb-4">
+            <div class="d-flex justify-content-around mt-3 mb-3">
+                <div class="col-md-6 text-center mt-1">
+                    <div class="center-div">
+                        <img src="{{imageArchive}}" alt="Placeholder image" class="img-fluid d-block taille_img_arch">
+                    </div>
+                </div>
+                <div class="col-md-6 mt-1 px-4">
+                    <h1>{{dateArchive}}</h1>
+                    <p>Jeux du mois, {{dateArchive}}</p>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-primary"><a href="lienPremierLien"
+                                target="_blank">{{nomPremierLien}}</a></li>
+                        <li class="list-group-item list-group-item-primary"><a href="lienDeuxiemeLien"
+                                target="_blank">{{nomDeuxiemeLien}}</a>
+                        </li>
+                        <li class="list-group-item list-group-item-primary"><a href="lienTroisiemeLien"
+                                target="_blank">{{nomtroisiemeLien}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+    {{!-- X Boucle Archives --}}
+
+
+</ul>
+{{!-- Tableau flex Archives --}}

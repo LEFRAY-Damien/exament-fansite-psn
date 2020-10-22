@@ -11,6 +11,8 @@
                 </button>
                 <div class="trait_admin"></div>
 
+                {{!-- class="collapse show"   pour afficher le collaps --}}
+
                 <div id="collapseacceuil" class="collapse" aria-labelledby="headingacceuil"
                     data-parent="#accordionacceuil">
                     <div class="card-body text-center text-primary">
@@ -42,26 +44,58 @@
                                     {{!-- Cadre modification carde caroussels acceuil--}}
 
                                     {{!-- Modification message d'acceuil --}}
-                                    <h2 class="mt-2">Message d'acceuil</h2>
-                                    <form action="/admin/acceuil" method="post">
-                                        <textarea type="text" class="p-2" value="{{messageAcceuil.mesAcceuil}}" name="mesAcceuil" id=""
-                                            cols="45" rows="4"></textarea>
-                                        {{!-- X Modification message d'acceuil --}}
+                                    <div class="col-md-8 center-div border border-white rounded-lg mt-3">
+                                        <h2 class="mt-2">Message d'acceuil</h2>
 
-                                        <div class="col-md-12 center-div mb-4 mt-4">
-                                            <button type="submit" class="btn btn-success">Modifier</button></form>
+                                        <div class="col-md-8 center-div border border-white rounded-lg mt-1">
+                                            <h5 class="my-1">{{messageAcceuil.mesAcceuil}}</h5>
+                                        </div>
+
+                                        {{#if titleNoExist}}
+
+                                        <form action="/admin/acceuil" method="POST">
+
+                                            <textarea type="text" class="p-2 m-2" name="mesAcceuil" cols="45" rows="4">
+                                            </textarea>
+
+                                            </div>
+
+                                            {{!-- X Modification message d'acceuil --}}
+                                            <div class="col-md-12 center-div mb-4 mt-4">
+                                                <button type="submit" class="btn btn-success">Créé un titre</button>
+                                            </div>
+
+                                        </form>
+
+                                        {{else}}
+
+                                        <form action="/admin/acceuil/{{ messageAcceuil._id }}?_method=PUT" method="POST">
+
+                                            <textarea type="text" class="p-2 m-2" name="mesAcceuil" cols="45" rows="4"></textarea>
+
+                                            </div>
+
+                                            {{!-- X Modification message d'acceuil --}}
+                                            <div class="col-md-12 center-div mb-4 mt-4">
+                                                <button type="submit" class="btn btn-success">Modifier</button>
+                                            </div>
+
+                                        </form>
+
+                                        {{/if}}
+
+                                    
+                                    {{!-- X Interrieur collaps acceuil --}}
                                 </div>
-                                {{!-- X Interrieur collaps acceuil --}}
                             </div>
+                            <div class="trait_admin"></div>
                         </div>
-                        <div class="trait_admin"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    {{!-- X collaps acceuil --}}
+        {{!-- X collaps acceuil --}}
 
-</div>
+    </div>
 
 </div>

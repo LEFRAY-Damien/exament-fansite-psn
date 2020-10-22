@@ -80,7 +80,7 @@
                                             </label>
                                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                                    placeholder="Genre du jeux" name="genre">
+                                                    placeholder="Genre du jeux" name="genre" required>
                                             </div>
                                             {{!-- X Modif details genre --}}
 
@@ -90,7 +90,7 @@
                                             </label>
                                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                                    placeholder="Editeur du jeux" name="editeur">
+                                                    placeholder="Editeur du jeux" name="editeur" required>
                                             </div>
                                             {{!-- X Modif details editeur --}}
 
@@ -100,7 +100,7 @@
                                             </label>
                                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                                    placeholder="Date de sortie du jeux" name="dateDeSortie">
+                                                    placeholder="Date de sortie du jeux" name="dateDeSortie" required>
                                             </div>
                                             {{!-- X Modif details date de sortie --}}
 
@@ -110,7 +110,7 @@
                                             </label>
                                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                                    placeholder="Taille du jeux" name="taille">
+                                                    placeholder="Taille du jeux" name="taille" required>
                                             </div>
                                             {{!-- X Modif details editeur --}}
 
@@ -149,7 +149,7 @@
                                     </label>
                                     <div class="form-group center-div">
                                         <input type="text" class="form-control" id="exampleFormControlInput2"
-                                            placeholder="Titre du jeux" name="title">
+                                            placeholder="Titre du jeux" name="title" required>
                                     </div>
                                     {{!-- X Modification titre du jeux --}}
 
@@ -208,6 +208,8 @@
                                 <button type="submit" class="btn btn-success mr-3">Crée, modifier l'article</button>
 
                                 <button type="button" class="btn btn-secondary">Charger l'article</button>
+
+                                <button type="button" class="btn btn-danger ml-5">Supprimer</button>
                             </div>
                         </form>
                     </div>
