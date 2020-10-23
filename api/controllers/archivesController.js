@@ -5,15 +5,34 @@ const Archive = require("../../database/models/Archive"); // Model database
 module.exports = {
     get: async (req, res) => {
 
-        const cardeArchive = await Archive.find({})
+        const cardeArchive = await Archive.find({}).populate('links').exec()
+        // const troisiemeCardeArchive = await Archive.findOne({})
 
-        console.log("1er log");
+        // const title3 = (troisiemeCardeArchive.nomTroisiemeLien < 1)
+
+        console.log("log trois");
+        // console.log(title3);
         console.log(cardeArchive);
 
-        res.render('archives', {
-            cardeArchive,
-            page: 'Archive'
+        console.log("troisiemeLien");
+        // console.log(troisiemeCardeArchive.nomTroisiemeLien);
 
-        })
+        // if (title3) {
+
+            res.render('archives', {
+                cardeArchive,
+                // title3,
+                page: 'Archive'
+
+            })
+
+        // } else {
+
+        //     res.render('archives', {
+        //         cardeArchive,
+        //         page: 'Archive'
+
+        //     })
+        // }
     }
 }

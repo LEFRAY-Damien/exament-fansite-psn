@@ -1,0 +1,47 @@
+
+<!-- Modal -->
+<div class="modal fade" id="addLinksModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="addLinksModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="addLinksModalLabel">Charger l'archive</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <ul id="myUL" class="list-unstyled row">
+
+                    <form action="">
+
+                    {{#each cardeArchive}}
+
+                    <div class="col-md-10  text-center bg-bleu_transparent_ps center-div rounded-lg my-1">
+
+                         {{!-- <a href="" target="" class="text-decoration-none text-white"> <h4 class="mt-1">Archive de {{dateArchive}}</h4></a> --}}
+                         <button type="button" class="btn btn-block text-white">Archive de {{dateArchive}}</button>
+
+                    </div>
+
+                    {{/each}}
+                    
+                    </form>
+
+                </ul>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Charger l'archive</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

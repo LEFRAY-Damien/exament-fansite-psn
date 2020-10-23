@@ -1,9 +1,11 @@
 // Import du model Article de la base de donnée
+const Archive = require("../../database/models/Archive"); // Model database
 const Acceuil = require("../../database/models/Acceuil");
 const Article = require("../../database/models/Article"); // Model database
 const path = require('path') // utile uniquement pour path.resolve plus bas
 sharp = require('sharp') // modul pour redimenssionner les images
 fs = require('fs')
+const { link } = require("fs");
 
 // Controllers
 module.exports = {
@@ -13,6 +15,7 @@ module.exports = {
 
         const messageAcceuil = await Acceuil.findOne({})
         const titreAcceuil = await Acceuil.find({})
+        const cardeArchive = await Archive.find({}).populate('links').exec()
         const titleNoExist = (titreAcceuil < 1)
 
         if(titleNoExist) {
@@ -24,11 +27,10 @@ module.exports = {
         } else {
             res.render('admin', {
                 layout: 'adminLayout',
-                messageAcceuil
+                messageAcceuil,
+                cardeArchive
             })
         }
-
-
     },
 
     //  // POST................................

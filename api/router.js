@@ -62,19 +62,12 @@ router.route('/admin/acceuil/:id')
 
 // Admin Archive
 router.route('/admin/archive')
-    // .post(adminArchiveController.postArchive)
+    // .get(adminArchiveController.getarchive)
     .post(uploadArchive.single('imageArchive'), adminArchiveController.postArchive)
 
+router.route('/admin/archive/:id')
+    .get(adminArchiveController.deleteOne)
+    .put(uploadArchive.single('imageArchive'), adminArchiveController.editArchive)
 
-
-// voir archives
-// router.route('/game')
-//     .get(gameController.getGame)
-//     .post(gameController.createGame)
-
-// voir archives
-// router.route('/month')
-//     .get(monthController.getMonth)
-//     .post(monthController.createMonth)
 
 module.exports = router;

@@ -1,23 +1,19 @@
 // Model de l'Archive sauvgarder dans la base de donnée
 
 const mongoose = require('mongoose') // Appel de la constante mongoose vue qu'elle seras utilise
+const Schema = mongoose.Schema
+const Links = require('./Links')
+
 
 // Shema enregistrer dans la base de données
 const ArchiveSchema = new mongoose.Schema({
 
     dateArchive: String, 
-     
-    nomPremierLien: String,
-    lienPremierLien: String,
-    
-    nomDeuxiemeLien: String,
-    lienDeuxiemeLien: String,
-
-    nomTroisiemeLien: String,
-    lienTroisiemeLien: String,
-
+    links: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Links'
+    }],
     imageArchive: String,
-
     cover: {
         name: String,
         originalName: String,
@@ -25,7 +21,6 @@ const ArchiveSchema = new mongoose.Schema({
         // urlSharp: String,
         createAt: Date
     }
-
 })
 
 // Cree une constante Archive selon le shema ci dessus
