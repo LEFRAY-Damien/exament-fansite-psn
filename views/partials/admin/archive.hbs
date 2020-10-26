@@ -22,55 +22,19 @@
                     <div class="container">
                         <div
                             class="col-md-8 text-white text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div pt-3">
-                            <form action="/admin/archive" method="POST" enctype="multipart/form-data">
-                                <div class="col-md-12">
-
-                                    <label for="exampleFormControlInput1">
-                                        <h4>Date de l'archive :</h4>
-                                    </label>
-                                    <div class="form-group d-inline-flex justify-content-center mb-2">
-                                        <input type="text" class="form-control" id="iddateArchive"
-                                            placeholder="Mois année" name="dateArchive">
-                                    </div>
-                                </div>
-
-                                {{!-- Cadre modification image archive --}}
-                                <div class="col-md-6 center-div border border-white rounded-lg my-3">
-                                    <h2 class="mt-2">Image de l'archive</h2>
-                                    <div class="col-md-6 center-div bg-white"><img src="assets/images/croix.png"
-                                            class="d-block w-100 h-75 taille_img_arch mt-1" alt=""></div>
-
-                                    <div class="form-group m-2">
-                                        <input type="file" class="form-control-file mb-1" id="exampleFormControlFile1"
-                                            name="imageArchive">
-                                    </div>
-
-                                </div>
-                                {{!-- X Cadre modification image archive --}}
-
-                                {{!-- Cadre modification carde archives --}}
-                                <div class="col-md-10 center-div border border-white rounded-lg mt-2 pb-2">
-                                    <h2 class="mt-2">Liens archive</h2>
-
-                                    <div class="form-group d-inline-flex justify-content-center mb-2">
-                                        <input type="text" class="form-control mr-2" id="idnomPremierLien"
-                                            placeholder="Nom liens 1" name="nomLink1">
-                                        <input type="text" class="form-control ml-2" id="idlienPremierLien"
-                                            placeholder="Liens 1" name="link1">
-                                    </div>
-                                </div>
-
-                                {{!-- Cadre modification carde archives --}}
-
-                                <div class="col-md-12 center-div mb-4 mt-4">
-                                    <button type="submit" class="btn btn-success">Créé l'archive</button>
-                            </form>
-
-                            {{> admin/listearchives}}
+                         
 
 
+                        {{#if cardeArchiveupdate}}
 
-                            {{!-- <button type="button" class="btn btn-secondary mx-2">Charger l'archive</button> --}}
+                         {{> admin/archive_creat }}
+
+                         {{else}}
+
+                         {{> admin/archive_update }}
+
+                         {{/if}}
+
                             <button type="button" data-toggle="modal" data-target="#addLinksModal"
                                 class="btn btn-secondary mx-2">Charger l'archive</button>
 
@@ -78,6 +42,7 @@
 
                         </div>
 
+                                {{> admin/listearchives}}
 
 
                         {{!-- {{#if admin}} --}}
@@ -86,10 +51,10 @@
                                 class="btn btn-success">
                                 <i class="fas fa-plus-circle"></i>
                             </button>
-                        </li>
+                        </li> --}}
 
                         <!-- Modal -->
-                        <div class="modal fade" id="addLinksModal{{_id}}" data-backdrop="static" data-keyboard="false"
+                        {{!-- <div class="modal fade" id="addLinksModal{{_id}}" data-backdrop="static" data-keyboard="false"
                             tabindex="-1" aria-labelledby="addLinksModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -121,7 +86,7 @@
                                 </div>
                             </div>
                         </div> --}}
-                        {{!-- {{/if }} --}}
+                   {{!-- {{/if }} --}}
 
                     </div>
                     {{!-- X Interieur collaps archives --}}
@@ -133,4 +98,3 @@
     </div>
 </div>
 </div>
-{{!-- X collaps archives --}}

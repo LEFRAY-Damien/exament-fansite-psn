@@ -23,35 +23,83 @@
                     <div class="container">
 
                         <div class="d-flex justify-content-center">
-                            <div class="col-md-5 text-white text-center bg-bleu_transparent_ps text-decoration-none m-2">
+                            <div
+                                class="col-md-5 text-white text-center bg-bleu_transparent_ps text-decoration-none m-2">
                                 <h2 class="mt-2">A propos</h2>
 
-                                <textarea type="text" class="p-2"
-                                    placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-                                    name="" id="" cols="30" rows="8"></textarea>
+                              
 
-                                <h2 class="mt-4">Me suivre sur</h2>
-                                <label for="exampleFormControlInput1">twitter</label> <br>
-                                <div class="form-group d-inline-flex justify-content-center mb-2">
-                                    <input type="text" class="form-control" id="exampleFormControlInput2"
-                                        placeholder="Twitter.truc.com">
+                                {{#if aproposNoExist}}
+
+
+                                <form action="/admin/contact" method="POST">
+
+                                    <textarea type="text" class="p-2"
+                                        placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+                                        id="" cols="30" rows="8" name="apropos"></textarea>
+
+                                    <h2 class="mt-4">Me suivre sur</h2>
+                                    <label for="exampleFormControlInput1">twitter</label> <br>
+                                    <div class="form-group d-inline-flex justify-content-center mb-2">
+                                        <input type="text" class="form-control" id="exampleFormControlInput5"
+                                            value="{{messageContact.inputtwitter}}" name="inputtwitter">
+                                    </div>
+                                    <br><label for="exampleFormControlInput1">Facebook</label><br>
+                                    <div class="form-group d-inline-flex justify-content-center mb-2">
+                                        <input type="text" class="form-control" id="exampleFormControlInput3"
+                                            value="{{messageContact.inputfacebook}}" name="inputfacebook">
+                                    </div>
+                                    <br><label for="exampleFormControlInput1">Github</label><br>
+                                    <div class="form-group d-inline-flex justify-content-center mb-4">
+
+                                        <input type="text" class="form-control" id="exampleFormControlInput4"
+                                            value="{{messageContact.inputGithub}}" name="inputGithub">
+                                    </div><br>
+
+                                    <div class="form-group d-inline-flex justify-content-center mb-4">
+                                        <button type="submit" class="btn btn-success">Créé</button>
+
+                                    </div>
+                                </form>
+
+                                {{else}}
+
+                                <div class="col-md-8 center-div border border-white rounded-lg mt-1">
+                                    <h5 class="my-1">{{messageContact.apropos}}</h5>
                                 </div>
-                                <br><label for="exampleFormControlInput1">Facebook</label><br>
-                                <div class="form-group d-inline-flex justify-content-center mb-2">
-                                    <input type="text" class="form-control" id="exampleFormControlInput2"
-                                        placeholder="Facebook.truc.com">
-                                </div>
-                                <br><label for="exampleFormControlInput1">Github</label><br>
-                                <div class="form-group d-inline-flex justify-content-center mb-4">
 
-                                    <input type="text" class="form-control" id="exampleFormControlInput2"
-                                        placeholder="Github.truc.com">
-                                </div><br>
+                                      <form action="/admin/contact/{{ messageContact._id }}?_method=PUT" method="POST">
 
-                                <div class="form-group d-inline-flex justify-content-center mb-4">
-                                    <button type="button" class="btn btn-success">Modifier</button>
+                                    <textarea type="text" class="p-2"
+                                        placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+                                        id="" cols="30" rows="8" name="apropos"></textarea>
 
-                                </div>
+                                    <h2 class="mt-4">Me suivre sur</h2>
+                                    <label for="exampleFormControlInput1">twitter</label> <br>
+                                    <div class="form-group d-inline-flex justify-content-center mb-2">
+                                        <input type="text" class="form-control" id="exampleFormControlInput5"
+                                            value="{{messageContact.inputtwitter}}" name="inputtwitter">
+                                    </div>
+                                    <br><label for="exampleFormControlInput1">Facebook</label><br>
+                                    <div class="form-group d-inline-flex justify-content-center mb-2">
+                                        <input type="text" class="form-control" id="exampleFormControlInput3"
+                                            value="{{messageContact.inputfacebook}}" name="inputfacebook">
+                                    </div>
+                                    <br><label for="exampleFormControlInput1">Github</label><br>
+                                    <div class="form-group d-inline-flex justify-content-center mb-4">
+
+                                        <input type="text" class="form-control" id="exampleFormControlInput4"
+                                            value="{{messageContact.inputGithub}}" name="inputGithub">
+                                    </div><br>
+
+                                    <div class="form-group d-inline-flex justify-content-center mb-4">
+                                        <button type="submit" class="btn btn-success">Modifier</button>
+
+                                    </div>
+                                </form>
+
+                                {{/if}}
+
                             </div>
                         </div>
                     </div>

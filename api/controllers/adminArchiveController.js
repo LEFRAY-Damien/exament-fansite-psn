@@ -8,20 +8,6 @@ const { link } = require("fs");
 // Controllers
 module.exports = {
 
-    // GET...........
-    // getarchive: async (req, res) => {
-
-
-    //     const cardeArchive = await Archive.find({}).populate('links').exec()
-    //     res.render('admin', {
-    //         layout: 'adminLayout',
-    //         cardeArchive
-
-    //     })
-
-    // },
-
-
     // POST................................
     postArchive: async (req, res) => {
         const file = req.file; // cree constante file pour cree l'image en webp

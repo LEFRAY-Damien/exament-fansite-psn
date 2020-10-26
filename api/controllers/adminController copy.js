@@ -17,84 +17,49 @@ module.exports = {
 
         const messageAcceuil = await Acceuil.findOne({})
         const titreAcceuil = await Acceuil.find({})
-
         const messageContact = await Contact.findOne({})
-        const apropos = await Contact.find()
-
+        const apropos = await Contact.find({})
         const cardeArchive = await Archive.find({}).populate('links').exec()
-        const archiveID = await Archive.findById(req.params.id).populate('links').exec()
-
-
-
-        // const cardeArchiveupdate = (archiveID < 1)
         const titleNoExist = (titreAcceuil < 1)
         const aproposNoExist = (apropos < 1)
 
+        //................. 
+        const archiveID = await Archive.findById(req.params.id)
+       
+        //.......................................
 
-        console.log("log2");
-        console.log(cardeArchive);
-
-
+        
         console.log("cardearchive");
         console.log(archiveID);
 
-        // if (cardeArchiveupdate) {
-        //     res.render('admin', {
-        //         layout: 'adminLayout',
-        //         cardeArchiveupdate
-        //     })
-        // }
-
-
-        switch (titleNoExist && aproposNoExist) {
-            case titleNoExist && aproposNoExist:
-                res.render('admin', {
-                    layout: 'adminLayout',
-                    messageAcceuil,
-                    messageContact,
-                    titleNoExist,
-                    aproposNoExist,
-                    cardeArchive
-                });
-                break;
-            default:
-
-                if (titleNoExist) {
-                    res.render('admin', {
-                        layout: 'adminLayout',
-                        messageAcceuil,
-                        messageContact,
-                        titleNoExist,
-                        cardeArchive
-                    })
-
-                } else if (aproposNoExist) {
-                    res.render('admin', {
-                        layout: 'adminLayout',
-                        messageAcceuil,
-                        messageContact,
-                        aproposNoExist,
-                        cardeArchive
-                    })
-                }
-                else {
-                    res.render('admin', {
-                        layout: 'adminLayout',
-                        messageAcceuil,
-                        messageContact,
-                        cardeArchive
-                    })
-                }
+        if(titleNoExist) {
+            res.render('admin', {
+                layout: 'adminLayout',
+                messageAcceuil,
+                titleNoExist
+            })
+        } else {
+            res.render('admin', {
+                layout: 'adminLayout',
+                messageAcceuil,
+                cardeArchive
+            })
         }
     },
 
     //  // POST................................
     postArticleId: (req, res) => {
 
+        console.log("1 log files ");
+        console.log(req.file);
+
+        console.log("2 log body");
+        console.log(req.body);
+
         const file = req.file; // cree constante file pour cree l'image en webp
 
 
-        //................................
+//................................
 
 
         // SHARP ............................................................................

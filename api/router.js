@@ -13,11 +13,10 @@ const homeController = require('./controllers/homeController'),
     loginController = require('./controllers/loginController'),
     freetoplayController = require('./controllers/freetoplayController'),
     modalController = require('./controllers/modalController'),
-    // gameController = require('./controllers/gameController'),
-    // monthController = require('./controllers/monthController'),
     adminController = require('./controllers/adminController'),
     adminAcceuilController = require('./controllers/adminAcceuilController'),
-    adminArchiveController = require('./controllers/adminArchiveController')
+    adminArchiveController = require('./controllers/adminArchiveController'),
+    adminContactController = require('./controllers/adminContactController')
 
 // Home
 router.route('/')
@@ -52,7 +51,7 @@ router.route('/admin')
     .get(adminController.get)
     .post(upload.single('imageCard'), adminController.postArticleId)
 
-// Admin Acceuil Post
+// Admin Acceuil POST
 router.route('/admin/acceuil')
     .post(adminAcceuilController.postAcceuil)
 
@@ -62,12 +61,19 @@ router.route('/admin/acceuil/:id')
 
 // Admin Archive
 router.route('/admin/archive')
-    // .get(adminArchiveController.getarchive)
     .post(uploadArchive.single('imageArchive'), adminArchiveController.postArchive)
 
 router.route('/admin/archive/:id')
     .get(adminArchiveController.deleteOne)
     .put(uploadArchive.single('imageArchive'), adminArchiveController.editArchive)
+
+// Admin Contact POST
+router.route('/admin/contact')
+    .post(adminContactController.postContact)
+
+// Admin Contact PUT
+router.route('/admin/contact/:id')
+    .put(adminContactController.putContact) // MAJ page contact
 
 
 module.exports = router;

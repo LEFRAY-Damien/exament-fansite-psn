@@ -47,9 +47,7 @@
                                     <div class="col-md-8 center-div border border-white rounded-lg mt-3">
                                         <h2 class="mt-2">Message d'acceuil</h2>
 
-                                        <div class="col-md-8 center-div border border-white rounded-lg mt-1">
-                                            <h5 class="my-1">{{messageAcceuil.mesAcceuil}}</h5>
-                                        </div>
+
 
                                         {{#if titleNoExist}}
 
@@ -58,44 +56,50 @@
                                             <textarea type="text" class="p-2 m-2" name="mesAcceuil" cols="45" rows="4">
                                             </textarea>
 
-                                            </div>
+                                    </div>
 
-                                            {{!-- X Modification message d'acceuil --}}
-                                            <div class="col-md-12 center-div mb-4 mt-4">
-                                                <button type="submit" class="btn btn-success">Créé un titre</button>
-                                            </div>
+                                    {{!-- X Modification message d'acceuil --}}
+                                    <div class="col-md-12 center-div mb-4 mt-4">
+                                        <button type="submit" class="btn btn-success">Créé un titre</button>
+                                    </div>
 
-                                        </form>
+                                    </form>
 
-                                        {{else}}
-
-                                        <form action="/admin/acceuil/{{ messageAcceuil._id }}?_method=PUT" method="POST">
-
-                                            <textarea type="text" class="p-2 m-2" name="mesAcceuil" cols="45" rows="4"></textarea>
-
-                                            </div>
-
-                                            {{!-- X Modification message d'acceuil --}}
-                                            <div class="col-md-12 center-div mb-4 mt-4">
-                                                <button type="submit" class="btn btn-success">Modifier</button>
-                                            </div>
-
-                                        </form>
-
-                                        {{/if}}
-
+                                    {{else}}
                                     
-                                    {{!-- X Interrieur collaps acceuil --}}
+                                    <div class="col-md-8 center-div border border-white rounded-lg mt-1">
+                                        <h5 class="my-1">{{messageAcceuil.mesAcceuil}}</h5>
+                                    </div>
+
+
+                                    <form action="/admin/acceuil/{{ messageAcceuil._id }}?_method=PUT" method="POST">
+
+                                        <textarea type="text" class="p-2 m-2" name="mesAcceuil" cols="45"
+                                            rows="4"></textarea>
+
                                 </div>
+
+                                {{!-- X Modification message d'acceuil --}}
+                                <div class="col-md-12 center-div mb-4 mt-4">
+                                    <button type="submit" class="btn btn-success">Modifier</button>
+                                </div>
+
+                                </form>
+
+                                {{/if}}
+
+
+                                {{!-- X Interrieur collaps acceuil --}}
                             </div>
-                            <div class="trait_admin"></div>
                         </div>
+                        <div class="trait_admin"></div>
                     </div>
                 </div>
             </div>
         </div>
-        {{!-- X collaps acceuil --}}
-
     </div>
+    {{!-- X collaps acceuil --}}
+
+</div>
 
 </div>
