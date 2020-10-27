@@ -16,7 +16,8 @@ const homeController = require('./controllers/homeController'),
     adminController = require('./controllers/adminController'),
     adminAcceuilController = require('./controllers/adminAcceuilController'),
     adminArchiveController = require('./controllers/adminArchiveController'),
-    adminContactController = require('./controllers/adminContactController')
+    adminContactController = require('./controllers/adminContactController'),
+    adminArticleController = require('./controllers/adminArticleController')
 
 // Home
 router.route('/')
@@ -64,8 +65,17 @@ router.route('/admin/archive')
     .post(uploadArchive.single('imageArchive'), adminArchiveController.postArchive)
 
 router.route('/admin/archive/:id')
-    .get(adminArchiveController.deleteOne)
+    .delete(adminArchiveController.deleteOne)
     .put(uploadArchive.single('imageArchive'), adminArchiveController.editArchive)
+
+// Route Admin chargement archive
+router.route('/admin/loadArchive')
+    .post(adminController.loadArchive)
+
+// Route Admin chargement article
+router.route('/admin/loadArticle')
+    .post(adminArticleController.loadArticle)
+
 
 // Admin Contact POST
 router.route('/admin/contact')

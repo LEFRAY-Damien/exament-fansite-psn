@@ -3,12 +3,33 @@
     <div class="accordion mt-5" id="accordionacceuil">
         <div class="card bg-gris_transparent_ps">
             <div class="card-header" id="headingacceuil">
+
+
+
+                {{#if LoadArchive}}
+
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                     aria-expanded="true" aria-controls="collapseacceuil">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Acceuil</h2>
+                    </div>
+                </button>
+
+                {{else}}
+
                 <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapseacceuil" aria-expanded="true" aria-controls="collapseacceuil">
                     <div class="container text-center text-primary pt-2">
                         <h2>Acceuil</h2>
                     </div>
                 </button>
+
+                {{/if}}
+
+
+
+
+
                 <div class="trait_admin"></div>
 
                 {{!-- class="collapse show"   pour afficher le collaps --}}
@@ -28,11 +49,11 @@
                                     <div class="col-md-8 center-div border border-white rounded-lg mt-3">
                                         <h2 class="mt-2">Images caroussel</h2>
                                         <div class="d-flex justify-content-around">
-                                            <div class="bg-white col-md-3"><img src="assets/images/croix.png"
+                                            <div class="bg-white col-md-3"><img src="/assets/images/croix.png"
                                                     class="d-block w-100 h-100 taille_img_arch mt-1" alt=""></div>
-                                            <div class="bg-white col-md-3"><img src="assets/images/croix.png"
+                                            <div class="bg-white col-md-3"><img src="/assets/images/croix.png"
                                                     class="d-block w-100 h-100 taille_img_arch mt-1" alt=""></div>
-                                            <div class="bg-white col-md-3"><img src="assets/images/croix.png"
+                                            <div class="bg-white col-md-3"><img src="/assets/images/croix.png"
                                                     class="d-block w-100 h-100 taille_img_arch pt-1" alt=""></div>
                                         </div>
                                         <div class="col-md-12 center-div mb-2 mt-3">
@@ -66,7 +87,7 @@
                                     </form>
 
                                     {{else}}
-                                    
+
                                     <div class="col-md-8 center-div border border-white rounded-lg mt-1">
                                         <h5 class="my-1">{{messageAcceuil.mesAcceuil}}</h5>
                                     </div>

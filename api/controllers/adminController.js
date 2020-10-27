@@ -21,30 +21,13 @@ module.exports = {
         const messageContact = await Contact.findOne({})
         const apropos = await Contact.find()
 
+        // liste de tt les article pour cree une boucle pour pouvoir charger
+        const listearticles = await Article.find({})
+
         const cardeArchive = await Archive.find({}).populate('links').exec()
-        const archiveID = await Archive.findById(req.params.id).populate('links').exec()
 
-
-
-        // const cardeArchiveupdate = (archiveID < 1)
         const titleNoExist = (titreAcceuil < 1)
         const aproposNoExist = (apropos < 1)
-
-
-        console.log("log2");
-        console.log(cardeArchive);
-
-
-        console.log("cardearchive");
-        console.log(archiveID);
-
-        // if (cardeArchiveupdate) {
-        //     res.render('admin', {
-        //         layout: 'adminLayout',
-        //         cardeArchiveupdate
-        //     })
-        // }
-
 
         switch (titleNoExist && aproposNoExist) {
             case titleNoExist && aproposNoExist:
@@ -52,6 +35,7 @@ module.exports = {
                     layout: 'adminLayout',
                     messageAcceuil,
                     messageContact,
+                    listearticles,
                     titleNoExist,
                     aproposNoExist,
                     cardeArchive
@@ -64,6 +48,7 @@ module.exports = {
                         layout: 'adminLayout',
                         messageAcceuil,
                         messageContact,
+                        listearticles,
                         titleNoExist,
                         cardeArchive
                     })
@@ -73,18 +58,45 @@ module.exports = {
                         layout: 'adminLayout',
                         messageAcceuil,
                         messageContact,
+                        listearticles,
                         aproposNoExist,
                         cardeArchive
                     })
-                }
-                else {
+                } else {
                     res.render('admin', {
                         layout: 'adminLayout',
                         messageAcceuil,
                         messageContact,
+                        listearticles,
                         cardeArchive
                     })
                 }
+        }
+    },
+
+    // Method Get ID
+    loadArchive: async (req, res) => {
+        // Import const
+
+        const cardeArchive = await Archive.find({}).populate('links').exec()
+        // Ici query est égale à l'id envoyer via l'URL /article/:id
+        const query = req.body.id // boby = formulaire
+        // Ici on recherche l'article ayant comme id le query de notre URL   
+        dbArchiveID = await Archive.findById(query).populate('links').exec()
+
+        const LoadArchive = dbArchiveID
+
+        if (LoadArchive) {
+            res.render('admin', {
+                layout: 'adminLayout',
+                LoadArchive,
+                cardeArchive,
+                ArchiveID: dbArchiveID
+            })
+        } else {
+            res.render('admin', {
+                layout: 'adminLayout',
+            })
         }
     },
 
@@ -92,10 +104,6 @@ module.exports = {
     postArticleId: (req, res) => {
 
         const file = req.file; // cree constante file pour cree l'image en webp
-
-
-        //................................
-
 
         // SHARP ............................................................................
         // sharp(file.path)
@@ -171,7 +179,6 @@ module.exports = {
         })
 
     },
-
 }
 
 

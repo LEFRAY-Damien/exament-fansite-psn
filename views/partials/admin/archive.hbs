@@ -4,89 +4,69 @@
         <div class="card bg-gris_transparent_ps">
             <div class="card-header" id="headingarchives">
                 <h2 class="mb-0">
-                    <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#collapsearchives" aria-expanded="true" aria-controls="collapsearchives">
+
+                    {{#if LoadArchive}}
+
+                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                        aria-controls="collapsearchives">
                         <div class="container text-center text-primary pt-2">
                             <h2>Archives</h2>
                         </div>
                     </button>
+
                 </h2>
                 <div class="trait_admin"></div>
             </div>
 
             <div id="collapsearchives" class="collapse show" aria-labelledby="headingarchives"
                 data-parent="#accordionarchives">
+
+                {{else}}
+
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                    data-target="#collapsearchives" aria-expanded="true" aria-controls="collapsearchives">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Archives</h2>
+                    </div>
+                </button>
+
+                </h2>
+                <div class="trait_admin"></div>
+            </div>
+
+            <div id="collapsearchives" class="collapse" aria-labelledby="headingarchives"
+                data-parent="#accordionarchives">
+
+                {{/if}}
+
                 <div class="card-body text-center text-primary">
 
                     {{!-- Interieur collaps archives --}}
                     <div class="container">
                         <div
                             class="col-md-8 text-white text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div pt-3">
-                         
 
+                            {{#if LoadArchive}}
 
-                        {{#if cardeArchiveupdate}}
+                            {{> admin/archive_update }}
 
-                         {{> admin/archive_creat }}
+                            <form method="get" action="/admin">
+                                <button type="submit" class="btn btn-secondary mx-2">Annuler</button>
+                            </form>
 
-                         {{else}}
+                            {{else}}
 
-                         {{> admin/archive_update }}
+                            {{> admin/archive_creat }}
 
-                         {{/if}}
-
-                            <button type="button" data-toggle="modal" data-target="#addLinksModal"
+                            <button type="button" data-toggle="modal" data-target="#addArchivesModal"
                                 class="btn btn-secondary mx-2">Charger l'archive</button>
-
                             <button type="button" class="btn btn-danger ml-5">Supprimer l'archive</button>
+
+                            {{/if}}
 
                         </div>
 
-                                {{> admin/listearchives}}
-
-
-                        {{!-- {{#if admin}} --}}
-                        {{!-- <li class="list-group-item list-group-item-primary">
-                            <button type="button" data-toggle="modal" data-target="#addLinksModal{{_id}}"
-                                class="btn btn-success">
-                                <i class="fas fa-plus-circle"></i>
-                            </button>
-                        </li> --}}
-
-                        <!-- Modal -->
-                        {{!-- <div class="modal fade" id="addLinksModal{{_id}}" data-backdrop="static" data-keyboard="false"
-                            tabindex="-1" aria-labelledby="addLinksModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-dark" id="addLinksModalLabel">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="/admin/archive/{{_id}}?_method=PUT" method="post"
-                                            enctype="multipart/form-data">
-
-                                            <div class="form-group d-inline-flex justify-content-center mb-2">
-                                                <input type="text" class="form-control mr-2" id="idnomPremierLien"
-                                                    placeholder="Nom liens 1" name="name">
-                                                <input type="text" class="form-control ml-2" id="idlienPremierLien"
-                                                    placeholder="Liens 1" name="link">
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Understood</button>
-                                            </div>
-                                            
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                   {{!-- {{/if }} --}}
+                        {{> admin/listearchives}}
 
                     </div>
                     {{!-- X Interieur collaps archives --}}
