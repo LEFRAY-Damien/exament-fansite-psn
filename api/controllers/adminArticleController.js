@@ -22,7 +22,7 @@ module.exports = {
 
         const LoadArticle = dbArticleID
 
-        if (LoadArchive) {
+        if (LoadArticle) {
             res.render('admin', {
                 layout: 'adminLayout',
                 listearticles,
@@ -32,6 +32,9 @@ module.exports = {
         } else {
             res.render('admin', {
                 layout: 'adminLayout',
+                listearticles,
+                LoadArticle,
+                ArticleID: dbArticleID
             })
         }
     }

@@ -84,6 +84,9 @@ module.exports = {
         // Ici on recherche l'article ayant comme id le query de notre URL   
         dbArchiveID = await Archive.findById(query).populate('links').exec()
 
+        console.log("2 ID");
+        console.log(dbArchiveID);
+
         const LoadArchive = dbArchiveID
 
         if (LoadArchive) {
@@ -155,7 +158,7 @@ module.exports = {
             genre: req.body.genre,
             editeur: req.body.editeur,
             dateDeSortie: req.body.dateDeSortie,
-            taille: req.body.taille
+            multijoueurs: req.body.multijoueurs
         }
 
         Article.create({       // On cree l'article sur le model Article DB
