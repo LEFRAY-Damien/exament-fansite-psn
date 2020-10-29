@@ -11,7 +11,8 @@ const ArticleSchema = new mongoose.Schema({
     imageCard: String, // Chemin de l image principal
    // imagesCarouselId: String, // Images du carousel
     pegi: String, // Pegi de l'article
-    note: String, // Note en etoiles de l'article 
+    langue: String, // Langue de l'article
+    voix: String, // voix de l'article 
     details: {      // Details est un OBJ
         type: Object
     },

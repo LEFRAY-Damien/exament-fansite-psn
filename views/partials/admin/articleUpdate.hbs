@@ -12,8 +12,7 @@
                         style="max-width: 16rem;">
                         <h4 class="mt-2">Image de l'archive</h4>
                         <div class="col-md-6 center-div bg-white">
-                            <img src="/assets/images/croix.png" alt=""
-                                class="mt-2 mb-2 d-block w-100 h-75 taille_img_arch"></div>
+                            <img src="{{ArticleID.imageCard}}" alt="" class="d-block w-100 h-75 taille_img_arch"></div>
                         <div class="form-group m-2">
                             <input type="file" class="form-control-file" id="imageCardAdmin" name="imageCard" required>
                             {{!-- required oblige a mettre l'image --}}
@@ -28,7 +27,11 @@
                             <h4>Pegi</h4>
                         </div>
 
-                        <div class="card-body text-center">
+                        <div class="card-body">
+                            <h5>PEGI {{ArticleID.pegi}}</h5>
+                        </div>
+
+                        <div class="card-footer">
                             <div class="col-md-6 center-div m-2">
                                 <label for="pegi">
                                     <select class="form-control" id="pegi" name="pegi">
@@ -41,6 +44,7 @@
                                 </label>
                             </div>
                         </div>
+
                     </div>
                     {{!-- X Modification PEGI id --}}
 
@@ -59,7 +63,7 @@
                             </label>
                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                    placeholder="Genre du jeux" name="genre" required>
+                                    value="{{ArticleID.details.genre}}" name="genre" required>
                             </div>
                             {{!-- X Modif details genre --}}
 
@@ -69,7 +73,7 @@
                             </label>
                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                    placeholder="Editeur du jeux" name="editeur" required>
+                                    value="{{ArticleID.details.editeur}}" name="editeur" required>
                             </div>
                             {{!-- X Modif details editeur --}}
 
@@ -79,7 +83,7 @@
                             </label>
                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                    placeholder="Date de sortie du jeux" name="dateDeSortie" required>
+                                    value="{{ArticleID.details.dateDeSortie}}" name="dateDeSortie" required>
                             </div>
                             {{!-- X Modif details date de sortie --}}
 
@@ -89,7 +93,7 @@
                             </label>
                             <div class="form-group d-inline-flex justify-content-center mb-3">
                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                    placeholder="Nombre de joueurs" name="multijoueurs" required>
+                                    value="{{ArticleID.details.multijoueurs}}" name="multijoueurs" required>
                             </div>
                             {{!-- X Modif details editeur --}}
 
@@ -97,27 +101,37 @@
                     </div>
                     {{!-- X Modification details --}}
 
-                    {{!-- Modification evaluation --}}
+                    {{!-- Modification Langue --}}
                     <div class="border border-white rounded-lg text-white mb-3 mt-2" style="max-width: 16rem;">
                         <div class="card-header">
-                            <h4>Evaluation</h4>
+                            <h4>Langue</h4>
                         </div>
                         <div class="card-body text-center">
-                            <div class="col-md-6 center-div m-2">
-                                <label for="note">
-                                    <select class="form-control" id="note" name="note">
-                                        <option value="1">1 étoile</option>
-                                        <option value="2">2 étoiles</option>
-                                        <option value="3">3 étoiles</option>
-                                        <option value="4">4 étoiles</option>
-                                        <option value="5">5 étoiles</option>
-                                    </select>
-                                </label>
+
+                            {{!-- modif langue langue ecrant --}}
+                            <label for="exampleFormControlInput1">
+                                <h5 class="card-title">Langues à l'écran:</h5>
+                            </label>
+                            <div class="form-group d-inline-flex justify-content-center mb-3">
+                                <input type="text" class="form-control" id="exampleFormControlInput2"
+                                    value="{{ArticleID.langue}}" name="langue" required>
                             </div>
+                            {{!-- X Modif langue langue ecrant --}}
+
+                            {{!-- modif voix --}}
+                            <label for="exampleFormControlInput1">
+                                <h5 class="card-title">Voix</h5>
+                            </label>
+                            <div class="form-group d-inline-flex justify-content-center mb-3">
+                                <input type="text" class="form-control" id="exampleFormControlInput2"
+                                    value="{{ArticleID.voix}}" name="voix" required>
+                            </div>
+                            {{!-- X Modif voix --}}
+
                         </div>
                     </div>
                 </div>
-                {{!-- X Modification evaluation --}}
+                {{!-- X Modification Langue --}}
 
                 <div class="col-md-9 text-center text-white">
 
@@ -126,13 +140,9 @@
                         <h2 class="card-title m-3">Titre du jeux: </h5>
                     </label>
 
-                    <div class="col-md-8 center-div border border-white rounded-lg mt-1">
-                        <h5 class="my-1">{{ArticleID.title}}</h5>
-                    </div>
-
                     <div class="form-group center-div">
                         <input type="text" class="form-control" id="exampleFormControlInput2"
-                            placeholder="Titre du jeux" name="title" required>
+                            value="{{ArticleID.title}}" name="title" required>
                     </div>
                     {{!-- X Modification titre du jeux --}}
 
@@ -163,10 +173,11 @@
                             <h2>Description</h2>
                         </div>
                         <div class="card-body text-center">
-
-                            <textarea type="text" class="p-2" placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes                                          Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes
-                                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes penatibus et magnis dis parturient montes.
-                                            " name="descriptionGen" id="" cols="60" rows="8"></textarea>
+                            {{ArticleID.descriptionGen}}
+                        </div>
+                        <div class="card-footer">
+                            <textarea type="text" class="p-2" placeholder="Entrer votre texte" name="descriptionGen"
+                                id="" cols="50" rows="7"></textarea>
                         </div>
                     </div>
                     {{!-- Cadre modification texte description article id --}}
@@ -177,23 +188,24 @@
                             <h2>Description simplifier</h2>
                         </div>
                         <div class="card-body text-center">
-
-                            <textarea type="text" class="p-2" placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.
-                                           
-                                            " name="descriptionSimple" id="" cols="60" rows="4"></textarea>
+                            {{ArticleID.descriptionSimple}}
                         </div>
+                        <div class="card-footer">
+                            <textarea type="text" class="p-2" placeholder="Entrer votre texte" name="descriptionSimple"
+                                id="" cols="50" rows="4"></textarea>
+                        </div>
+
                     </div>
                     {{!-- Cadre modification texte description article id simplifier --}}
 
                 </div>
             </div>
             <div class="col-md-12 center-div mb-4 mt-4">
-                <button type="submit" class="btn btn-success mr-3">Crée l'article</button>
+                <button type="submit" class="btn btn-success mr-3">Modifier l'article</button>
+            </div>
         </form>
-
-
-        <button type="button" data-toggle="modal" data-target="#addArticlesModal" class="btn btn-secondary mx-2">Charger
-            l'article</button>
+        <button type="button" data-toggle="modal" data-target="#addArticlesModal"
+            class="btn btn-secondary mx-2">Annuler</button>
 
         <button type="button" class="btn btn-danger ml-5">Supprimer</button>
     </div>
@@ -202,9 +214,3 @@
 
 </div>
 {{!-- X Interieur collaps article id --}}
-
-
-
-{{!-- <div class="col-md-8 center-div border border-white rounded-lg mt-1">
-    <h5 class="my-1">{{messageContact.apropos}}</h5>
-</div> --}}

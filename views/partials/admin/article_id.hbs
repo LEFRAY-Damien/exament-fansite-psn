@@ -7,8 +7,8 @@
 
                     {{#if LoadArchive}}
 
-                    <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                        aria-expanded="true" aria-controls="collapsearticle_id">
+                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                        aria-controls="collapsearticle_id">
                         <div class="container text-center text-primary pt-2">
                             <h2>Article-id</h2>
                         </div>
@@ -31,16 +31,22 @@
 
             <div id="collapsearticle_id" class="collapse show" aria-labelledby="headingarticle_id"
                 data-parent="#accordionarticle_id">
-                
-                {{> admin/articleCreat }}
+
+
+                {{#if LoadArticle}}
 
                 {{> admin/articleUpdate }}
 
+                {{else}}
+
+                {{> admin/articleCreat }}
+
+                {{/if}}
 
                 <div class="trait_admin"></div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
 {{!-- X collaps article_id --}}

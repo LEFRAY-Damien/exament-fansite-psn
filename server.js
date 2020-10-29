@@ -25,8 +25,8 @@ app.use(methodOverride('_method'))
 // pour mongodb cloud   // mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'     
 // blog le nom de la collection et <password> le mot de passe collection
 
-mongoose.connect(process.env.PORTMDBCLOUD, {
-// mongoose.connect(process.env.PORTMDB, {
+// mongoose.connect(process.env.PORTMDBCLOUD, {
+mongoose.connect(process.env.PORTMDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

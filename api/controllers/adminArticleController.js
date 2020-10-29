@@ -7,7 +7,7 @@ const { link } = require("fs");
 // Controllers
 module.exports = {
 
-    // Method Get ID
+    // Method Get ID Article
     loadArticle: async (req, res) => {
         // liste de tt les article pour cree une boucle pour pouvoir charger
         const listearticles = await Article.find({})
@@ -34,8 +34,48 @@ module.exports = {
                 layout: 'adminLayout',
                 listearticles,
                 LoadArticle,
-                ArticleID: dbArticleID
             })
         }
+    },
+
+    majArticle: async (req, res) => {
+        const articleID = await Article.findById(req.params.id) // on vien cherche l'article par son ID
+        console.log("LOG article ID");
+        console.log(articleID);
+
+        const file = req.file; // cree constante file pour cree l'image
+
+        // On cree le nom d el'image et son chemin
+        const cover = {
+            name: file.filename,
+            originalName: file.originalname,
+            //path: file.path.replace("public", "imageswebp"),
+            //urlSharp: '/public/imageswebp/' + file.originalname.split('.').slice(0, -1).join('.') + ".webp",
+            createAt: Date.now(),
+        }
+
+        // Const cree pour faire un model de l'obj
+        const details = {
+            genre: req.body.genre,
+            editeur: req.body.editeur,
+            dateDeSortie: req.body.dateDeSortie,
+            multijoueurs: req.body.multijoueurs
+        }
+
+        Archive.findByIdAndUpdate({       // On cree l'article sur le model Article DB
+
+            cover: cover,       // On enregistre le nom la provenance et la date de l'image
+
+            ...req.body,       // suivant le req.body
+
+            // Ici on viens formater le chemin de notre image qui sera stocker dans notre DB
+            imageArchive: `/assets/imagesArchives/${req.file.filename}`,
+
+        }, (err, post) => {
+
+            // Et on redirige sur la page /
+            res.redirect('/admin')
+        })
+
     }
 }

@@ -1,8 +1,6 @@
 {{!-- Interieur collaps article id --}}
 <div class="card-body text-center text-primary">
 
-
-
     <div class="container-fluid bg-bleu_transparent_ps">
         <form action="/admin" method="POST" enctype="multipart/form-data">
             {{! -- enctype pour pouvoir transferer des fichiers --}}
@@ -99,27 +97,37 @@
                     </div>
                     {{!-- X Modification details --}}
 
-                    {{!-- Modification evaluation --}}
+                    {{!-- Modification Langue --}}
                     <div class="border border-white rounded-lg text-white mb-3 mt-2" style="max-width: 16rem;">
                         <div class="card-header">
-                            <h4>Evaluation</h4>
+                            <h4>Langue</h4>
                         </div>
                         <div class="card-body text-center">
-                            <div class="col-md-6 center-div m-2">
-                                <label for="note">
-                                    <select class="form-control" id="note" name="note">
-                                        <option value="1">1 étoile</option>
-                                        <option value="2">2 étoiles</option>
-                                        <option value="3">3 étoiles</option>
-                                        <option value="4">4 étoiles</option>
-                                        <option value="5">5 étoiles</option>
-                                    </select>
-                                </label>
+
+                            {{!-- modif langue langue ecrant --}}
+                            <label for="exampleFormControlInput1">
+                                <h5 class="card-title">Langues à l'écran:</h5>
+                            </label>
+                            <div class="form-group d-inline-flex justify-content-center mb-3">
+                                <input type="text" class="form-control" id="exampleFormControlInput2"
+                                    placeholder="langue" name="langue" required>
                             </div>
+                            {{!-- X Modif langue langue ecrant --}}
+
+                            {{!-- modif voix --}}
+                            <label for="exampleFormControlInput1">
+                                <h5 class="card-title">Voix</h5>
+                            </label>
+                            <div class="form-group d-inline-flex justify-content-center mb-3">
+                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="voix"
+                                    name="voix" required>
+                            </div>
+                            {{!-- X Modif voix --}}
+
                         </div>
                     </div>
                 </div>
-                {{!-- X Modification evaluation --}}
+                {{!-- X Modification Langue --}}
 
                 <div class="col-md-9 text-center text-white">
 
@@ -186,9 +194,8 @@
             </div>
             <div class="col-md-12 center-div mb-4 mt-4">
                 <button type="submit" class="btn btn-success mr-3">Crée l'article</button>
+            </div>
         </form>
-
-
         <button type="button" data-toggle="modal" data-target="#addArticlesModal" class="btn btn-secondary mx-2">Charger
             l'article</button>
 

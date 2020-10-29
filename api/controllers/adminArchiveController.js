@@ -75,7 +75,7 @@ module.exports = {
                 })
             })
         } else {
-            const file = req.file; // cree constante file pour cree l'image en webp
+            const file = req.file; // cree constante file pour cree l'image
 
             const cover = {
                 name: file.filename,

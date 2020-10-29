@@ -74,7 +74,7 @@ module.exports = {
         }
     },
 
-    // Method Get ID
+    // Method Get ID Archive
     loadArchive: async (req, res) => {
         // Import const
 
@@ -106,7 +106,7 @@ module.exports = {
     //  // POST................................
     postArticleId: (req, res) => {
 
-        const file = req.file; // cree constante file pour cree l'image en webp
+        const file = req.file; // cree constante file pour enregistrer l image
 
         // SHARP ............................................................................
         // sharp(file.path)
