@@ -198,14 +198,16 @@
                     </div>
                     {{!-- Cadre modification texte description article id simplifier --}}
 
+                    <button type="submit" class="btn btn-success mr-3">Modifier l'article</button>
+
                 </div>
             </div>
-            <div class="col-md-12 center-div mb-4 mt-4">
-                <button type="submit" class="btn btn-success mr-3">Modifier l'article</button>
-            </div>
+
         </form>
-        <button type="button" data-toggle="modal" data-target="#addArticlesModal"
-            class="btn btn-secondary mx-2">Annuler</button>
+
+        <form method="get" action="/admin">
+            <button type="submit" class="btn btn-secondary mx-2">Annuler</button>
+        </form>
 
         <button type="button" class="btn btn-danger ml-5">Supprimer</button>
     </div>

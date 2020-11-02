@@ -1,37 +1,24 @@
 {{!-- Archive UPDATE --}}
 
-<form action="/admin/archive" method="POST" enctype="multipart/form-data">
+<form action="/admin/archive/:id" method="POST" enctype="multipart/form-data">
     <div class="col-md-12">
 
         <label for="exampleFormControlInput1">
             <h4>Date de l'archive :</h4>
         </label>
 
-        <div class="col-md-10 center-div border border-white rounded-lg mb-2">
-            <h5 class="my-1">{{ArchiveID.dateArchive}}</h5>
-        </div>
-
         <div class="form-group d-inline-flex justify-content-center mb-2">
-            <input type="text" class="form-control" id="iddateArchive" placeholder="Mois année" name="dateArchive">
+            <input type="text" class="form-control" id="iddateArchive" value="{{ArchiveID.dateArchive}}"
+                name="dateArchive">
         </div>
     </div>
 
     {{!-- Cadre modification image archive --}}
     <div class="col-md-6 center-div border border-white rounded-lg my-3">
-        <h2 class="mt-2">Image présente</h2>
-        <div class="col-md-5 center-div bg-white mb-2">
-            <img src="{{ArchiveID.imageArchive}}" class="d-block w-100 h-75 taille_img_archm">
-        </div>
-
-    </div>
-
-    <div class="col-md-6 center-div border border-white rounded-lg my-3">
-        <h2 class="mt-2">Image de l'archive a modifier</h2>
-        <div class="col-md-5 center-div bg-white"><img src="/assets/images/croix.png"
+        <h2 class="mt-2">Image de l'archive</h2>
+        <div class="col-md-5 center-div bg-white"><img src="{{ArchiveID.imageArchive}}"
                 class="d-block w-100 h-75 taille_img_arch mt-1" alt="">
-
         </div>
-
         <div class="form-group m-2">
             <input type="file" class="form-control-file mb-1" id="exampleFormControlFile1" name="imageArchive">
         </div>
@@ -43,15 +30,33 @@
     <div class="col-md-10 center-div border border-white rounded-lg mt-2 pb-2">
         <h2 class="mt-2">Liens archive</h2>
 
+        {{!-- Boucle links en populate avec archives --}}
+        {{#each LoadArchive.links}}
         <div class="form-group d-inline-flex justify-content-center mb-2">
-            <input type="text" class="form-control mr-2" id="idnomPremierLien"
-                name="nomLink1" value="{{links.title}}">
-            <input type="text" class="form-control ml-2" id="idlienPremierLien" placeholder="Liens 1" name="link1" value="">
+            <div class="col-md-8 center-div border border-white rounded-lg mt-1 mx-5">
+                <h5 class="my-1">{{title}}</h5>
+            </div>
+             <div class="col-md-8 center-div border border-white rounded-lg mt-1">
+                <h5 class="my-1">{{link}}</h5>
+            </div>
+
         </div>
+        {{/each}}
+        {{!-- X Boucle links en populate avec archives --}}
+
+        {{!-- Ajout Liens --}}
+        <div class="form-group d-inline-flex justify-content-center mb-2">
+            <input type="text" class="form-control mr-2" id="idnomPremierLien" name="nomLink1" placeholder="Nom du lien">
+            <input type="text" class="form-control ml-2" id="idlienPremierLien" name="link1" placeholder="Adresse du lien">
+        </div>
+        {{!-- X Ajout Liens --}}
+
+
+
+
+
     </div>
-
     {{!-- Cadre modification carde archives --}}
-
     <div class="col-md-12 center-div my-4">
         <button type="submit" class="btn btn-success mb-3">Modifier l'archive</button>
 </form>

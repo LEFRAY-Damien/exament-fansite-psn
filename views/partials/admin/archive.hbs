@@ -6,37 +6,43 @@
                 <h2 class="mb-0">
 
                     {{#if LoadArchive}}
-
                     <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
                         aria-controls="collapsearchives">
                         <div class="container text-center text-primary pt-2">
                             <h2>Archives</h2>
                         </div>
                     </button>
-
                 </h2>
                 <div class="trait_admin"></div>
             </div>
-
             <div id="collapsearchives" class="collapse show" aria-labelledby="headingarchives"
                 data-parent="#accordionarchives">
-
                 {{else}}
-
+                {{#if LoadArticle }}
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                    aria-controls="collapsearchives">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Archives</h2>
+                    </div>
+                </button>
+                </h2>
+                <div class="trait_admin"></div>
+            </div>
+            <div id="collapsearchives" class="collapse" aria-labelledby="headingarchives"
+                data-parent="#accordionarchives">
+                {{else}}
                 <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapsearchives" aria-expanded="true" aria-controls="collapsearchives">
                     <div class="container text-center text-primary pt-2">
                         <h2>Archives</h2>
                     </div>
                 </button>
-
                 </h2>
                 <div class="trait_admin"></div>
             </div>
-
             <div id="collapsearchives" class="collapse" aria-labelledby="headingarchives"
                 data-parent="#accordionarchives">
-
+                {{/if}}
                 {{/if}}
 
                 <div class="card-body text-center text-primary">

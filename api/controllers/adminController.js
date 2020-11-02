@@ -77,14 +77,14 @@ module.exports = {
     // Method Get ID Archive
     loadArchive: async (req, res) => {
         // Import const
-
         const cardeArchive = await Archive.find({}).populate('links').exec()
+
         // Ici query est égale à l'id envoyer via l'URL /article/:id
         const query = req.body.id // boby = formulaire
         // Ici on recherche l'article ayant comme id le query de notre URL   
         dbArchiveID = await Archive.findById(query).populate('links').exec()
 
-        console.log("2 ID");
+        console.log("log id");
         console.log(dbArchiveID);
 
         const LoadArchive = dbArchiveID

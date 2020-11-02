@@ -189,17 +189,18 @@
                         </div>
                     </div>
                     {{!-- Cadre modification texte description article id simplifier --}}
+                    <button type="submit" class="btn btn-success mr-3">Crée l'article</button>
 
+                    <button type="button" data-toggle="modal" data-target="#addArticlesModal"
+                        class="btn btn-secondary mx-2">Charger
+                        l'article</button>
+
+                    <button type="button" class="btn btn-danger ml-5">Supprimer</button>
                 </div>
             </div>
-            <div class="col-md-12 center-div mb-4 mt-4">
-                <button type="submit" class="btn btn-success mr-3">Crée l'article</button>
-            </div>
-        </form>
-        <button type="button" data-toggle="modal" data-target="#addArticlesModal" class="btn btn-secondary mx-2">Charger
-            l'article</button>
 
-        <button type="button" class="btn btn-danger ml-5">Supprimer</button>
+        </form>
+
     </div>
 
     {{> admin/listeArticles}}

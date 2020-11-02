@@ -3,7 +3,8 @@ const express = require('express'),
     router = express.Router(),
     path = require('path'),
     upload = require('./config/multer'),
-    uploadArchive = require('./config/multerArchive')
+    uploadArchive = require('./config/multerArchive'),
+    uploadAcceuil = require('./config/multerAcceuil')
 
 // Controller
 const homeController = require('./controllers/homeController'),
@@ -17,7 +18,8 @@ const homeController = require('./controllers/homeController'),
     adminAcceuilController = require('./controllers/adminAcceuilController'),
     adminArchiveController = require('./controllers/adminArchiveController'),
     adminContactController = require('./controllers/adminContactController'),
-    adminArticleController = require('./controllers/adminArticleController')
+    adminArticleController = require('./controllers/adminArticleController'),
+    adminAcceuilCarouselController= require('./controllers/adminAcceuilCarouselController')
 
 // Home
 router.route('/')
@@ -56,7 +58,11 @@ router.route('/admin')
 router.route('/admin/acceuil')
     .post(adminAcceuilController.postAcceuil)
 
-// Admin Acceuil PUT
+// Admin Acceuil Carousel
+router.route('/admin/acceuil/carousel')
+    .post(uploadAcceuil.array('inputArticleArray', 3), adminAcceuilCarouselController.postArrayAcceuil)
+
+// Admin Acceuil MAJ message d'acceuil
 router.route('/admin/acceuil/:id')
     .put(adminAcceuilController.putAcceuil) //MAJ message acceuil
 
@@ -64,6 +70,7 @@ router.route('/admin/acceuil/:id')
 router.route('/admin/archive')
     .post(uploadArchive.single('imageArchive'), adminArchiveController.postArchive)
 
+// Admin Archive Delete et MAJ
 router.route('/admin/archive/:id')
     .delete(adminArchiveController.deleteOne)
     .put(uploadArchive.single('imageArchive'), adminArchiveController.editArchive)

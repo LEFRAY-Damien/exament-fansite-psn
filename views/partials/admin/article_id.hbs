@@ -13,25 +13,45 @@
                             <h2>Article-id</h2>
                         </div>
                     </button>
+                    </h2>
+                <div class="trait_admin"></div>
+            </div>
+
+            <div id="collapsearticle_id" class="collapse" aria-labelledby="headingarticle_id"
+                data-parent="#accordionarticle_id">
 
                     {{else}}
+                    {{#if LoadArticle }}
 
                     <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#collapsearticle_id" aria-expanded="true" aria-controls="collapsearticle_id">
+                        aria-expanded="true" aria-controls="collapsearticle_id">
                         <div class="container text-center text-primary pt-2">
                             <h2>Article-id</h2>
                         </div>
                     </button>
-
-                    {{/if}}
-
-                </h2>
+                    </h2>
                 <div class="trait_admin"></div>
             </div>
 
             <div id="collapsearticle_id" class="collapse show" aria-labelledby="headingarticle_id"
                 data-parent="#accordionarticle_id">
 
+                    {{else}}
+                                        <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapsearticle_id" aria-expanded="true" aria-controls="collapsearticle_id">
+                        <div class="container text-center text-primary pt-2">
+                            <h2>Article-id</h2>
+                        </div>
+                    </button>
+                    </h2>
+                <div class="trait_admin"></div>
+            </div>
+
+            <div id="collapsearticle_id" class="collapse" aria-labelledby="headingarticle_id"
+                data-parent="#accordionarticle_id">
+
+                    {{/if}}
+                    {{/if}}
 
                 {{#if LoadArticle}}
 

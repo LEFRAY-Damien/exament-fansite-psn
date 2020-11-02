@@ -33,7 +33,7 @@
 
                 {{!-- class="collapse show"   pour afficher le collaps --}}
 
-                <div id="collapseacceuil" class="collapse show" aria-labelledby="headingacceuil"
+                <div id="collapseacceuil" class="collapse" aria-labelledby="headingacceuil"
                     data-parent="#accordionacceuil">
                     <div class="card-body text-center text-primary">
 
@@ -56,49 +56,11 @@
                                                     class="d-block w-100 h-100 pt-1" alt=""></div>
                                         </div>
                                         <div class="col-md-12 center-div mb-2 mt-3">
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary m-2" data-toggle="modal"
-                                                data-target="#ModalCarouselAcceuil">Ajouter une image</button>
+                                            <button type="button" class="btn btn-primary m-2">Ajouter une image</button>
                                             <button type="button" class="btn btn-danger m-2">Supprimer une
                                                 image</button>
                                         </div>
                                     </div>
-                                    {{!-- collaps modification image caroussel --}}
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="ModalCarouselAcceuil" tabindex="-1" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-
-                                                <form action="/admin/acceuil/carousel" method="post"
-                                                    enctype="multipart/form-data">
-                                                    <div class="modal-header text-dark">
-                                                        <h5>Ajouter une ou plusieur images</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-
-                                                    <div class="modal-body bg-bleu_transparent_ps">
-
-                                                        <input type="file" name="inputArticleArray" multiple>
-
-                                                    </div>
-                                                    <div class="modal-footer">
-
-                                                        <button type="submit" class="btn btn-primary">Ajouter</button>
-
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Annuler</button>
-
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{!-- X collaps modification image caroussel --}}
-
                                     {{!-- Cadre modification carde caroussels acceuil--}}
 
                                     {{!-- Modification message d'acceuil --}}
@@ -135,11 +97,11 @@
                                         <textarea type="text" class="p-2 m-2" name="mesAcceuil" cols="45"
                                             rows="4"></textarea>
 
+                                
 
-
-                                        {{!-- X Modification message d'acceuil --}}
-
-                                        <button type="submit" class="btn btn-success">Modifier</button>
+                                {{!-- X Modification message d'acceuil --}}
+                           
+                                    <button type="submit" class="btn btn-success">Modifier</button>
                                 </div>
 
                                 </form>

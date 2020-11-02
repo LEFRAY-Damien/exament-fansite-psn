@@ -7,24 +7,29 @@
 
                     {{#if LoadArchive}}
 
-                    <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                         aria-expanded="true" aria-controls="collapsecontacts">
+                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                        aria-controls="collapsecontacts">
                         <div class="container text-center text-primary pt-2">
                             <h2>Contacts</h2>
                         </div>
                     </button>
-
                     {{else}}
-
+                    {{#if LoadArticle }}
+                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                        aria-controls="collapsecontacts">
+                        <div class="container text-center text-primary pt-2">
+                            <h2>Contacts</h2>
+                        </div>
+                    </button>
+                    {{else}}
                     <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                         data-target="#collapsecontacts" aria-expanded="true" aria-controls="collapsecontacts">
                         <div class="container text-center text-primary pt-2">
                             <h2>Contacts</h2>
                         </div>
                     </button>
-
                     {{/if}}
-
+                    {{/if}}
 
                 </h2>
                 <div class="trait_admin"></div>
@@ -43,10 +48,7 @@
                                 class="col-md-5 text-white text-center bg-bleu_transparent_ps text-decoration-none m-2">
                                 <h2 class="mt-2">A propos</h2>
 
-                              
-
                                 {{#if aproposNoExist}}
-
 
                                 <form action="/admin/contact" method="POST">
 
@@ -80,11 +82,11 @@
 
                                 {{else}}
 
-                                <div class="col-md-8 center-div border border-white rounded-lg mt-1">
+                                <div class="col-md-8 center-div border border-white rounded-lg mt-1 mb-2">
                                     <h5 class="my-1">{{messageContact.apropos}}</h5>
                                 </div>
 
-                                      <form action="/admin/contact/{{ messageContact._id }}?_method=PUT" method="POST">
+                                <form action="/admin/contact/{{ messageContact._id }}?_method=PUT" method="POST">
 
                                     <textarea type="text" class="p-2"
                                         placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
@@ -110,7 +112,6 @@
 
                                     <div class="form-group d-inline-flex justify-content-center mb-4">
                                         <button type="submit" class="btn btn-success">Modifier</button>
-
                                     </div>
                                 </form>
 
