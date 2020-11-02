@@ -4,6 +4,7 @@ const Acceuil = require("../../database/models/Acceuil");
 const Contact = require("../../database/models/Contact"); // Model database
 const Article = require("../../database/models/Article"); // Model database
 const Links = require('../../database/models/Links');
+const CarouselAcceuil = require("../../database/models/CarouselAcceuil"); // Model database
 const path = require('path') // utile uniquement pour path.resolve plus bas
 sharp = require('sharp') // modul pour redimenssionner les images
 fs = require('fs')
@@ -18,6 +19,8 @@ module.exports = {
         const messageAcceuil = await Acceuil.findOne({})
         const titreAcceuil = await Acceuil.find({})
 
+        const dbCarouselAcceuil = await CarouselAcceuil.find({})
+
         const messageContact = await Contact.findOne({})
         const apropos = await Contact.find()
 
@@ -29,6 +32,9 @@ module.exports = {
         const titleNoExist = (titreAcceuil < 1)
         const aproposNoExist = (apropos < 1)
 
+        console.log("LOG 2 ACCEUIL CAROUSEL");
+        console.log(dbCarouselAcceuil);
+
         switch (titleNoExist && aproposNoExist) {
             case titleNoExist && aproposNoExist:
                 res.render('admin', {
@@ -38,6 +44,7 @@ module.exports = {
                     listearticles,
                     titleNoExist,
                     aproposNoExist,
+                    dbCarouselAcceuil,
                     cardeArchive
                 });
                 break;
@@ -50,6 +57,7 @@ module.exports = {
                         messageContact,
                         listearticles,
                         titleNoExist,
+                        dbCarouselAcceuil,
                         cardeArchive
                     })
 
@@ -60,6 +68,7 @@ module.exports = {
                         messageContact,
                         listearticles,
                         aproposNoExist,
+                        dbCarouselAcceuil,
                         cardeArchive
                     })
                 } else {
@@ -68,6 +77,7 @@ module.exports = {
                         messageAcceuil,
                         messageContact,
                         listearticles,
+                        dbCarouselAcceuil,
                         cardeArchive
                     })
                 }

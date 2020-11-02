@@ -13,70 +13,25 @@
 
       <!-- 1er image du carousel -->
       <div class="carousel-item active">
-        <img src="assets/images/ps-mnt.jpg" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
+        <img src="assets/images/PS4-logo.jpg" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
 
       </div>
       <!-- / 1er image du carousel -->
 
-      <!-- 2eme image du carousel -->
-      <div class="carousel-item">
-        <img src="assets/images/playstation-network-listing-thumb.png" class="img-fluid d-block taille_img_carousel"
-          alt="Responsive image">
-      </div>
-      <!-- / 2eme image du carousel -->
+      <!-- image du carousel Auto-->
+      {{#each dbCarouselAcceuil }}
+      {{#each galleryImg }}
 
-      <!-- 3eme image du carousel -->
       <div class="carousel-item">
-        <img src="assets/images/slider-promo-days-of-play-jeux-ps-hits.jpg" class="img-fluid d-block taille_img_carousel"
-          alt="Responsive image">
+        <img src="{{ filename }}" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
       </div>
-      <!-- / 3eme image du carousel -->
 
-      <!-- 4eme image du carousel -->
-      <div class="carousel-item">
-        <img src="assets/images/maxresdefault.jpg" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
-      </div>
-      <!-- / 4eme image du carousel -->
-
-      <!-- 5eme image du carousel -->
-      <div class="carousel-item">
-        <img src="assets/images/maxresdefaultt.jpg" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
-      </div>
-      <!-- / 5eme image du carousel -->
-
-      <!-- 6eme image du carousel -->
-      <div class="carousel-item">
-        <img src="assets/images/logo.jpg" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
-      </div>
-      <!-- / 6eme image du carousel -->
+      {{/each}}
+      {{/each}}
+      <!-- / image du carousel Auto-->
 
     </div>
   </div>
-
-{{!-- ...................................... --}}
-
-  <div>
-<ul id="myULCarouselAcceuil" class="list-unstyled row">
-{{#each dbCarouselAcceuil }}
-
-{{#each galleryImg }}
-<li class="my-3 col-xl-3 col-lg-4 col-md-6 text-center">
- <img src="{{ filename }}" class="card-img-top">
-</li>
-{{/each}}
-
-
-{{/each}}
-
-</ul>
-  </div>
-
-{{!-- ...................................... --}}
-
-
-
-
-
 
 </div>
 <!-- / Carousel -->

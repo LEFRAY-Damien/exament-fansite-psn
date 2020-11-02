@@ -60,7 +60,8 @@ router.route('/admin/acceuil')
 
 // Admin Acceuil Carousel
 router.route('/admin/acceuil/carousel')
-    .post(uploadAcceuil.array('inputArticleArray', 3), adminAcceuilCarouselController.postArrayAcceuil)
+    .post(uploadAcceuil.array('inputArticleArray', 6), adminAcceuilCarouselController.postArrayAcceuil)
+    .put(adminAcceuilCarouselController.putArrayAcceuil)
 
 // Admin Acceuil MAJ message d'acceuil
 router.route('/admin/acceuil/:id')
