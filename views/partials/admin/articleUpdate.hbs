@@ -10,12 +10,30 @@
                     {{!-- Modification image id --}}
                     <div class="text-center border border-white rounded-lg mb-3 mt-2 text-white"
                         style="max-width: 16rem;">
-                        <h4 class="mt-2">Image de l'archive</h4>
+                        <h4 class="mt-2">Image de l'article</h4>
                         <div class="col-md-6 center-div bg-white">
-                            <img src="{{ArticleID.imageCard}}" alt="" class="d-block w-100 h-75 taille_img_arch"></div>
+                            <img src="{{ArticleID.imageCard}}" alt="" class="d-block w-100 h-75 taille_img_arch">
+                        </div>
                         <div class="form-group m-2">
-                            <input type="file" class="form-control-file" id="imageCardAdmin" name="imageCard" required>
-                            {{!-- required oblige a mettre l'image --}}
+
+                            <input type="file" class="form-control-file" id="imageCardAdmin" name="imageCard" required
+                                accept="image/*" onchange="loadFile(event)">{{!-- required oblige a mettre l'image --}}
+                            <div class="col-md-6 center-div bg-white">
+                                <img id="output" class="d-block w-100 h-75 taille_img_arch" />
+                            </div>
+                            {{!-- Script pour afficher l'image --}}
+                            <script>
+                                var loadFile = function (event) {
+                                    var reader = new FileReader();
+                                    reader.onload = function () {
+                                        var output = document.getElementById('output');
+                                        output.src = reader.result;
+                                    };
+                                    reader.readAsDataURL(event.target.files[0]);
+                                };
+                            </script>
+                            {{!-- X Script pour afficher l'image --}}
+
                         </div>
                     </div>
                     {{!-- Modification image id --}}

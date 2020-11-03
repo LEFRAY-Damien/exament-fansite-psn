@@ -11,18 +11,12 @@
 
     <div class="carousel-inner">
 
-      <!-- 1er image du carousel -->
-      <div class="carousel-item active">
-        <img src="assets/images/PS4-logo.jpg" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
-
-      </div>
-      <!-- / 1er image du carousel -->
-
       <!-- image du carousel Auto-->
       {{#each dbCarouselAcceuil }}
       {{#each galleryImg }}
 
-      <div class="carousel-item">
+      <div class="carousel-item {{ class }}">
+
         <img src="{{ filename }}" class="img-fluid d-block taille_img_carousel" alt="Responsive image">
       </div>
 

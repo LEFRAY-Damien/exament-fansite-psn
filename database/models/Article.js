@@ -22,7 +22,8 @@ const ArticleSchema = new mongoose.Schema({
         // path: String,
         // urlSharp: String,
         createAt: Date
-    }
+    },
+    carouselArticle: [] // tableau
 
 })
 

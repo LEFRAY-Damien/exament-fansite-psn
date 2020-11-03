@@ -33,7 +33,7 @@
 
                 {{!-- class="collapse show"   pour afficher le collaps --}}
 
-                <div id="collapseacceuil" class="collapse show" aria-labelledby="headingacceuil"
+                <div id="collapseacceuil" class="collapse" aria-labelledby="headingacceuil"
                     data-parent="#accordionacceuil">
                     <div class="card-body text-center text-primary">
 
@@ -133,7 +133,7 @@
                                                                     alt="">
                                                                 {{!-- Formulaire Delete une image --}}
                                                                 <form
-                                                                    action="/admin/acceuil/carousel/{{ ../this._id }}/?_method=PUT"
+                                                                    action="/admin/acceuil/carousel/{{ ../this._id }}?_method=PUT"
                                                                     method="post" enctype="multipart/form-data">
                                                                     <input type="hidden" name="deleteImg"
                                                                         value='{{ name }}'>

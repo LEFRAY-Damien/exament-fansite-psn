@@ -61,7 +61,10 @@ router.route('/admin/acceuil')
 // Admin Acceuil Carousel
 router.route('/admin/acceuil/carousel')
     .post(uploadAcceuil.array('inputArticleArray', 6), adminAcceuilCarouselController.postArrayAcceuil)
-    .put(adminAcceuilCarouselController.putArrayAcceuil)
+
+// Admin Acceuil Carousel Effacer une image
+router.route('/admin/acceuil/carousel/:id')
+    .put(uploadAcceuil.array('inputArticleArray', 6),adminAcceuilCarouselController.putArrayAcceuil)
 
 // Admin Acceuil MAJ message d'acceuil
 router.route('/admin/acceuil/:id')
