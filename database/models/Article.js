@@ -9,7 +9,6 @@ const ArticleSchema = new mongoose.Schema({
     descriptionGen: String, // Description general de l'article
     descriptionSimple: String, // Description simplifié
     imageCard: String, // Chemin de l image principal
-   // imagesCarouselId: String, // Images du carousel
     pegi: String, // Pegi de l'article
     langue: String, // Langue de l'article
     voix: String, // voix de l'article 
@@ -23,7 +22,7 @@ const ArticleSchema = new mongoose.Schema({
         // urlSharp: String,
         createAt: Date
     },
-    carouselArticle: [] // tableau
+    carouselArticle: [] // tableau Images du carousel
 
 })
 
