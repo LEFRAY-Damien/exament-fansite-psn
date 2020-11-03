@@ -5,6 +5,7 @@ const express = require('express'),
     upload = require('./config/multer'),
     uploadArchive = require('./config/multerArchive'),
     uploadAcceuil = require('./config/multerAcceuil')
+    // uploadArrayID = require('./config/multerArrayID')
 
 // Controller
 const homeController = require('./controllers/homeController'),
@@ -54,7 +55,7 @@ router.route('/admin')
     .get(adminController.get)
     .post(upload.single('imageCard'), adminController.postArticleId)
 
-// Admin Acceuil POST
+    // Admin Acceuil POST
 router.route('/admin/acceuil')
     .post(adminAcceuilController.postAcceuil)
 

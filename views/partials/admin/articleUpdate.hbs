@@ -7,37 +7,6 @@
             <div class="row">
                 <div class="col-md-3">
 
-                    {{!-- Modification image id --}}
-                    <div class="text-center border border-white rounded-lg mb-3 mt-2 text-white"
-                        style="max-width: 16rem;">
-                        <h4 class="mt-2">Image de l'article</h4>
-                        <div class="col-md-6 center-div bg-white">
-                            <img src="{{ArticleID.imageCard}}" alt="" class="d-block w-100 h-75 taille_img_arch">
-                        </div>
-                        <div class="form-group m-2">
-
-                            <input type="file" class="form-control-file" id="imageCardAdmin" name="imageCard" required
-                                accept="image/*" onchange="loadFile(event)">{{!-- required oblige a mettre l'image --}}
-                            <div class="col-md-6 center-div bg-white">
-                                <img id="output" class="d-block w-100 h-75 taille_img_arch" />
-                            </div>
-                            {{!-- Script pour afficher l'image --}}
-                            <script>
-                                var loadFile = function (event) {
-                                    var reader = new FileReader();
-                                    reader.onload = function () {
-                                        var output = document.getElementById('output');
-                                        output.src = reader.result;
-                                    };
-                                    reader.readAsDataURL(event.target.files[0]);
-                                };
-                            </script>
-                            {{!-- X Script pour afficher l'image --}}
-
-                        </div>
-                    </div>
-                    {{!-- Modification image id --}}
-
                     {{!-- Modification PEGI id --}}
                     <div class="mb-3 mt-2 border border-white rounded-lg text-white" style="max-width: 16rem;">
 
@@ -164,26 +133,63 @@
                     </div>
                     {{!-- X Modification titre du jeux --}}
 
-                    {{!-- Cadre modification caroussel id admin --}}
-                    <div class="col-md-8 center-div border border-white rounded-lg mt-3">
-                        <h2 class="mt-2">Images caroussel</h2>
-                        <div class="d-flex justify-content-around">
-                            <div class="bg-white col-md-3"><img src="/assets/images/croix.png"
-                                    class="d-block w-100 h-100 taille_img_arch mt-1" alt=""></div>
-                            <div class="bg-white col-md-3"><img src="/assets/images/croix.png"
-                                    class="d-block w-100 h-100 taille_img_arch mt-1" alt=""></div>
-                            <div class="bg-white col-md-3"><img src="/assets/images/croix.png"
-                                    class="d-block w-100 h-100 taille_img_arch pt-1" alt=""></div>
+
+
+
+                    <div class="d-flex justify-content-around">
+
+                        {{!-- Modification image id --}}
+                        <div class="text-center border border-white rounded-lg text-white" style="max-width: 20rem;">
+                            <h4 class="mt-2">Image de l'article</h4>
+                            <div class="col-md-6 center-div bg-white">
+                                <img src="{{ArticleID.imageCard}}" alt="" class="d-block w-100 h-75 taille_img_arch">
+                            </div>
+                            <div class="form-group m-2">
+
+                                <input type="file" class="form-control-file" id="imageCardAdmin" name="imageCard"
+                                    required accept="image/*"
+                                    onchange="loadFile(event)">{{!-- required oblige a mettre l'image --}}
+                                <div class="col-md-6 center-div bg-white">
+                                    <img id="output" class="d-block w-100 h-75 taille_img_arch" />
+                                </div>
+                                {{!-- Script pour afficher l'image --}}
+                                <script>
+                                    var loadFile = function (event) {
+                                        var reader = new FileReader();
+                                        reader.onload = function () {
+                                            var output = document.getElementById('output');
+                                            output.src = reader.result;
+                                        };
+                                        reader.readAsDataURL(event.target.files[0]);
+                                    };
+                                </script>
+                                {{!-- X Script pour afficher l'image --}}
+
+                            </div>
                         </div>
-                        <div class="col-md-12 center-div mb-2 mt-3">
-                            <input type="file" class="form-control-file" id="imagesCarouselIdadmin"
-                                name="imagesCarouselId" multiple>
-                            {{!-- required oblige a mettre l'image --}}
-                            <button type="button" class="btn btn-danger m-2">Supprimer une
-                                image</button>
+                        {{!--X Modification image id --}}
+
+
+                        {{!-- Cadre modification caroussel id admin --}}
+                        <div class="text-center border border-white rounded-lg text-white">
+                            <h2 class="mt-2">Images caroussel</h2>
+
+                            <div class="col-md-12 center-div mb-2 mt-3">
+                                <button type="button" class="btn btn-primary m-2" data-toggle="modal"
+                                    data-target="#ModalCarouselAcceuilAjout">Ajouter une image</button>
+                                <button type="button" class="btn btn-danger m-2" data-toggle="modal"
+                                    data-target="#ModalCarouselAcceuilSupp">Supprimer une
+                                    image</button>
+                            </div>
                         </div>
+                        {{!-- Cadre modification carde caroussels id admin --}}
+
                     </div>
-                    {{!-- Cadre modification carde caroussels id admin --}}
+
+
+
+
+
 
                     {{!-- Cadre modification texte description article id --}}
                     <div class="text-white mb-3 mt-4 border border-white rounded-lg" style="max-width: 108vh;">
@@ -229,6 +235,8 @@
 
         <button type="button" class="btn btn-danger ml-5">Supprimer</button>
     </div>
+
+    <div class="trait_admin"></div>
 
     {{> admin/listeArticles}}
 

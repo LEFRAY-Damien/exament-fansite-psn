@@ -5,7 +5,7 @@ const multer = require('multer')
 const storage = multer.diskStorage({
   // Ici la destination (ou seront stocker nos fichiers par default)
   destination: (req, file, cb) => {
-    cb(null, './public/imagesArticles')
+    cb(null, './public/imagesCarouselID')
   },
   // Ici est définit le format du nom de l'image à stocker
   filename: (req, file, cb) => {
@@ -18,13 +18,13 @@ const storage = multer.diskStorage({
 })
 
 // Ici seront initialiser les parametre de la config de multer
-const upload = multer({
+const uploadArrayID = multer({
   // Ici nous renseignons le stockage definit au dessu
   storage: storage,
   // Ici seront renseigner les limits des fichiers (taile, proportion, ...)
   limits: {
-    fileSize: 2 * 4098 * 4098,
-    files: 2
+    fileSize: 1 * 4098 * 4098,
+    files: 6
   },
   // Ici nous avons un filtre qui va nous permetre de configurer les extensions accepter par notre middleware ou autre
   fileFilter: (req, file, cb) => {
@@ -44,4 +44,4 @@ const upload = multer({
 })
 
 // Ici nous exportons upload afin de pouvoir l'appeler dans notre router
-module.exports = upload
+module.exports = uploadArrayID

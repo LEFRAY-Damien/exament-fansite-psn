@@ -114,45 +114,30 @@ module.exports = {
     },
 
     //  // POST................................
-    postArticleId: (req, res) => {
+    postArticleId: async (req, res) => {
 
         const file = req.file; // cree constante file pour enregistrer l image
-
-        // SHARP ............................................................................
-        // sharp(file.path)
-        //     .resize(200)  // taille de la redimenssion
-        //     .webp({ quality: 80 })
-        //     // toFile ->  endrois ou stocker l'image
-        //     .toFile('./public/webp' + file.originalname.split('.').slice(0, -1).join('.') + ".webp", (err, info) => { });
-        // SHARP .............................................................................
-
-
+ 
         // Multer array....................................................................................................
-        // // Définition d'un tableau que l'on va agrémenté avec nos data pour l'inscrire dans la DB
+        // Définition d'un tableau que l'on va agrémenté avec nos data pour l'inscrire dans la DB
+        // const files = req.files, // Files avec un S pour ARRAY
         // arrayFiles = []
 
         // // Boucle parcours notre req.files afin de récupéré les datas que l'on veux avant d'inscrire
         // // nos objets dans le tableaux
-        // for (let i = 0; i < file.length; i++) {
-        //     if (file) {
+        // for (let i = 0; i < files.length; i++) {
+        //     if (files) {
         //         console.log("3 log files1");
-        //         console.log(file)
+        //         console.log(files)
         //         // C'est grace à la method push que nous inscrivont nos data dans nos Objets
         //         // Et nos objets dans le tableau
         //         arrayFiles.push({
-        //             name: file[i].filename,
-        //             filename: `/../assets/imagesArticles/${file[i].filename}`,
-        //             orifginalname: file[i].originalname
+        //             name: files[i].filename,
+        //             filename: `/../assets/imagesArticles/${files[i].filename}`,
+        //             orifginalname: files[i].originalname
         //         })
         //     }
         // }
-
-        // Cree un boucle pour cover
-
-        // console.log("4 log arrayfiles");
-        // console.log(arrayFiles);
-        // MULTER ARRAY ...........................................................................................................
-
 
 
         const cover = {
@@ -178,6 +163,8 @@ module.exports = {
             cover: cover,       // On enregistre le nom la provenance et la date de l'image
 
             ...req.body,       // suivant le req.body
+
+            // carouselArticle: arrayFiles,
 
             // Ici on viens formater le chemin de notre image qui sera stocker dans notre DB
             imageCard: `/assets/imagesArticles/${req.file.filename}`,

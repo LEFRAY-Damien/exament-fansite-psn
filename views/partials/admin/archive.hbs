@@ -3,16 +3,13 @@
     <div class="accordion mt-5" id="accordionarchives">
         <div class="card bg-gris_transparent_ps">
             <div class="card-header" id="headingarchives">
-                <h2 class="mb-0">
-
-                    {{#if LoadArchive}}
-                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
-                        aria-controls="collapsearchives">
-                        <div class="container text-center text-primary pt-2">
-                            <h2>Archives</h2>
-                        </div>
-                    </button>
-                </h2>
+                {{#if LoadArchive}}
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                    aria-controls="collapsearchives">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Archives</h2>
+                    </div>
+                </button>
                 <div class="trait_admin"></div>
             </div>
             <div id="collapsearchives" class="collapse show" aria-labelledby="headingarchives"
