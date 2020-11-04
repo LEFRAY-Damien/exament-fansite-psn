@@ -62,16 +62,14 @@ module.exports = {
             multijoueurs: req.body.multijoueurs
         }
 
-        Article.findByIdAndUpdate({       // On cree l'article sur le model Article DB
+        Archive.findByIdAndUpdate({       // On cree l'article sur le model Article DB
 
             cover: cover,       // On enregistre le nom la provenance et la date de l'image
 
-            details: details,  // On ce sert de la const details pour cree un model
-            
             ...req.body,       // suivant le req.body
 
             // Ici on viens formater le chemin de notre image qui sera stocker dans notre DB
-            imageCard: `/assets/imagesArticles/${req.file.filename}`,
+            imageArchive: `/assets/imagesArchives/${req.file.filename}`,
 
         }, (err, post) => {
 

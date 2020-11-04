@@ -75,6 +75,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
 
+                                            {{!-- Si le carousel est vide alors on post --}}
+                                            {{#if CarouselAcceuilVide}}
                                             <form action="/admin/acceuil/carousel" method="post"
                                                 enctype="multipart/form-data">
                                                 <div class="modal-header text-dark">
@@ -84,21 +86,41 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-
+                                                <h1 class="text-dark">cree </h1>
                                                 <div class="modal-body bg-bleu_transparent_ps">
-
                                                     <input type="file" name="inputArticleArray" multiple>
-
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Annuler</button>
+                                                </div>
+                                            </form>
 
+                                            {{!-- Si il y a dejat des données alors on update --}}
+                                            {{else}}
+                                            <form action="/admin/acceuil/carousel/{{ this._id }}?_method=PUT"
+                                                method="post" enctype="multipart/form-data">
+                                                <div class="modal-header text-dark">
+                                                    <h5>Ajouter une ou plusieurs images</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <h1 class="text-dark">Ajout</h1>
+                                                <div class="modal-body bg-bleu_transparent_ps">
+                                                    <input type="hidden" name="addImg" value='{{ name }}'>
+                                                    <input type="file" name="inputArticleArray" multiple>
+                                                </div>
+                                                <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Ajouter</button>
 
                                                     <button type="button" class="btn btn-secondary"
                                                         data-dismiss="modal">Annuler</button>
-
                                                 </div>
                                             </form>
+                                            {{/if}}
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +144,7 @@
                                                 <div class="modal-body bg-bleu_transparent_ps">
 
                                                     <ul id="ulListeCarousel" class="list-unstyled row">
-
+                                                        {{!-- Boucle Suppression images carousel --}}
                                                         {{#each dbCarouselAcceuil }}
                                                         {{#each galleryImg }}
 
@@ -145,6 +167,7 @@
 
                                                         {{/each}}
                                                         {{/each}}
+                                                        {{!-- / Boucle Suppression images carousel --}}
                                                     </ul>
 
                                                 </div>

@@ -20,6 +20,10 @@ module.exports = {
         const titreAcceuil = await Acceuil.find({})
 
         const dbCarouselAcceuil = await CarouselAcceuil.find({})
+        const CarouselAcceuilVide = (dbCarouselAcceuil <1)
+
+        console.log("LOG CAROUSEL VIDE");
+        console.log(CarouselAcceuilVide);
 
         const messageContact = await Contact.findOne({})
         const apropos = await Contact.find()
@@ -32,9 +36,6 @@ module.exports = {
         const titleNoExist = (titreAcceuil < 1)
         const aproposNoExist = (apropos < 1)
 
-        console.log("LOG 2 ACCEUIL CAROUSEL");
-        console.log(dbCarouselAcceuil);
-
         switch (titleNoExist && aproposNoExist) {
             case titleNoExist && aproposNoExist:
                 res.render('admin', {
@@ -45,6 +46,7 @@ module.exports = {
                     titleNoExist,
                     aproposNoExist,
                     dbCarouselAcceuil,
+                    CarouselAcceuilVide,
                     cardeArchive
                 });
                 break;
@@ -58,6 +60,7 @@ module.exports = {
                         listearticles,
                         titleNoExist,
                         dbCarouselAcceuil,
+                        CarouselAcceuilVide,
                         cardeArchive
                     })
 
@@ -69,6 +72,7 @@ module.exports = {
                         listearticles,
                         aproposNoExist,
                         dbCarouselAcceuil,
+                        CarouselAcceuilVide,
                         cardeArchive
                     })
                 } else {
@@ -78,6 +82,7 @@ module.exports = {
                         messageContact,
                         listearticles,
                         dbCarouselAcceuil,
+                        CarouselAcceuilVide,
                         cardeArchive
                     })
                 }

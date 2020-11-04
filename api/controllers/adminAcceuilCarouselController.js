@@ -46,13 +46,80 @@ module.exports = {
   },
 
   putArrayAcceuil: async (req, res, next) => {
+
+    const dbCarouselAcceuil = await CarouselAcceuil.findById(req.params.id),
+      // Query est l'id passé dans le formulaire de req post
+      query = { _id: req.params.id }
+
+    console.log("LOG ID CAROUSEL");
+    console.log(query);
+
+    if (req.body.addImg === '') {
+      /*
+     *  Ajouter Une Image
+     **********************/
+      const dbCarouselAcceuil = await CarouselAcceuil.findById(req.params.id),
+        query = { _id: req.params.id },
+        // Gallery Existante
+        dbFiles = dbCarouselAcceuil.galleryImg,
+        // req.files
+        files = req.files,
+        // Definition d'un tableau qui va acceuillir
+        arrayFiles = []
+
+      console.log('?? AddImage')
+      console.log(dbFiles)
+
+      // Boucle pour chercher les files existant dans la DB et les ajouter au tableau arrayFiles
+      for (let i = 0; i < dbFiles.length; i++) {
+        const dbFilename = dbFiles[i].filename
+        if (dbFiles) {
+          console.log(dbFiles[i].filename)
+          // On push les data existante dans arrayFiles
+          arrayFiles.push({
+            name: dbFiles[i].name,
+            filename: dbFiles[i].filename,
+            orifginalname: dbFiles[i].name
+          })
+        }
+      }
+
+      // Boucle pour chercher les req.files et les ajouter au tableau arrayFiles
+      for (let i = 0; i < files.length; i++) {
+        const dbFilename = files[i].filename
+        if (files) {
+          console.log(files[i].filename)
+          // On push les data de notre req.files dans arrayFiles
+          arrayFiles.push({
+            name: files[i].filename,
+            filename: `/assets/imagesAcceuil/${files[i].filename}`,
+            orifginalname: files[i].originalname
+          })
+        }
+      }
+
+      console.log('?? Array files')
+      console.log(arrayFiles)
+
+      // Fonction update Mongoose
+      CarouselAcceuil.updateOne(query, {
+        ...req.body,
+        galleryImg: arrayFiles
+      },
+        // CallBack de la function Mongoose
+        (err) => {
+          if (!err) {
+            res.redirect('/admin')
+          } else {
+            return res.send(err)
+          }
+        })
+
+    }
     /*
      *  Supprimer Une Image
      **********************/
-    console.log('delete single img')
-    const dbCarouselAcceuil = await CarouselAcceuil.findById(req.params.id),
-      query = { _id: req.params.id },
-      files = dbCarouselAcceuil.galleryImg,
+    files = dbCarouselAcceuil.galleryImg,
       arrayFiles = []
 
     console.log('?? req.body')

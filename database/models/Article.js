@@ -21,9 +21,13 @@ const ArticleSchema = new mongoose.Schema({
         // path: String,
         // urlSharp: String,
         createAt: Date
-    },
-    carouselArticle: [] // tableau Images du carousel
-
+    }
+    // Ici nous creeons une relation avec le model carouselArticle
+    // C'est un tableau qui acceuillera les id des images carousel
+    // carouselArticle: [{
+    //     type: Schema.Types.carouselArticle,
+    //     ref: 'carouselArticle'
+    // }]
 })
 
 // Cree une constante article selon le shema ci dessus

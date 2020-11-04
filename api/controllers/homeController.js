@@ -11,11 +11,6 @@ module.exports = {
         const messageAcceuil = await Acceuil.findOne({})
         const dbCarouselAcceuil = await CarouselAcceuil.find({})
 
-        console.log("LOG 1 ARTICLE");
-        console.log(cardearticleftp);
-        console.log("LOG 2 ACCEUIL CAROUSEL");
-        console.log(dbCarouselAcceuil);
-
         res.render('home', {
             page: 'Acceuil',
             cardearticleftp,
