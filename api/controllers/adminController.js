@@ -122,29 +122,7 @@ module.exports = {
     postArticleId: async (req, res) => {
 
         const file = req.file; // cree constante file pour enregistrer l image
- 
-        // Multer array....................................................................................................
-        // Définition d'un tableau que l'on va agrémenté avec nos data pour l'inscrire dans la DB
-        // const files = req.files, // Files avec un S pour ARRAY
-        // arrayFiles = []
-
-        // // Boucle parcours notre req.files afin de récupéré les datas que l'on veux avant d'inscrire
-        // // nos objets dans le tableaux
-        // for (let i = 0; i < files.length; i++) {
-        //     if (files) {
-        //         console.log("3 log files1");
-        //         console.log(files)
-        //         // C'est grace à la method push que nous inscrivont nos data dans nos Objets
-        //         // Et nos objets dans le tableau
-        //         arrayFiles.push({
-        //             name: files[i].filename,
-        //             filename: `/../assets/imagesArticles/${files[i].filename}`,
-        //             orifginalname: files[i].originalname
-        //         })
-        //     }
-        // }
-
-
+        
         const cover = {
             name: file.filename,
             originalName: file.originalname,

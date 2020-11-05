@@ -30,8 +30,22 @@ module.exports = {
       }
     }
 
+
+
+
+
+
+
+    // ...........................................................................................
     // ajouter la classe active au premier element du tableau
-    arrayFiles[0].class = 'active'
+    // arrayFiles[0].class = 'active'
+    // ...........................................................................................
+
+
+
+
+
+
 
     // On push nos data dans la DB grace Mongoose
     CarouselAcceuil.create({
@@ -46,7 +60,6 @@ module.exports = {
   },
 
   putArrayAcceuil: async (req, res, next) => {
-
     const dbCarouselAcceuil = await CarouselAcceuil.findById(req.params.id),
       // Query est l'id passé dans le formulaire de req post
       query = { _id: req.params.id }
@@ -115,57 +128,53 @@ module.exports = {
           }
         })
 
-    }
-    /*
-     *  Supprimer Une Image
-     **********************/
-    files = dbCarouselAcceuil.galleryImg,
-      arrayFiles = []
+    } else if (req.body.deleteImg) {
+      /*
+       *  Supprimer Une Image
+       **********************/
+      const dbCarouselAcceuil = await CarouselAcceuil.findById(req.params.id),
+      files = dbCarouselAcceuil.galleryImg,
+        arrayFiles = []
 
-    console.log('?? req.body')
-    console.log(req.body)
-    console.log('?? dbCarouselAcceuil')
-    console.log(dbCarouselAcceuil)
-
-    // boucle de selection de l'objet à supprimer
-    for (let i = 0; i < files.length; i++) {
-      const dbFilename = files[i].name
-      // on ajoute la condition pour que l'élément égale a notre req.body ne sois pas
-      // re-pusher dans notre tableau que l'on va ensuite inscrir dans la DB
-      if (dbFilename !== req.body.deleteImg) {
-        console.log(dbFilename)
-        // On push les data de notre req.files dans arrayFiles
-        arrayFiles.push({
-          name: files[i].name,
-          filename: files[i].filename,
-          originalname: files[i].name
-        })
-      }
-    }
-
-    console.log('?? arrayfiles')
-    console.log(arrayFiles)
-
-    // Fonction update Mongoose
-    CarouselAcceuil.updateOne(query, {
-      ...req.body,
-      galleryImg: arrayFiles
-    },
-      // CallBack de la function Mongoose
-      (err) => {
-        if (!err) {
-          // unlink suprimera l'élément égale a notre req.body
-          // voir le input dans la view html
-          fs.unlink(path.resolve('public/imagesAcceuil/' + req.body.deleteImg),
-            // CallBack de la function unlink
-            (err) => {
-              if (err) throw err
-            })
-          res.redirect('/admin')
-        } else {
-          return res.send(err)
+      // boucle de selection de l'objet à supprimer
+      for (let i = 0; i < files.length; i++) {
+        const dbFilename = files[i].name
+        // on ajoute la condition pour que l'élément égale a notre req.body ne sois pas
+        // re-pusher dans notre tableau que l'on va ensuite inscrir dans la DB
+        if (dbFilename !== req.body.deleteImg) {
+          console.log(dbFilename)
+          // On push les data de notre req.files dans arrayFiles
+          arrayFiles.push({
+            name: files[i].name,
+            filename: files[i].filename,
+            originalname: files[i].name
+          })
         }
-      })
-  }
+      }
 
+      console.log('?? arrayfiles')
+      console.log(arrayFiles)
+
+      // Fonction update Mongoose
+      CarouselAcceuil.updateOne(query, {
+        ...req.body,
+        galleryImg: arrayFiles
+      },
+        // CallBack de la function Mongoose
+        (err) => {
+          if (!err) {
+            // unlink suprimera l'élément égale a notre req.body
+            // voir le input dans la view html
+            fs.unlink(path.resolve('public/imagesAcceuil/' + req.body.deleteImg),
+              // CallBack de la function unlink
+              (err) => {
+                if (err) throw err
+              })
+            res.redirect('/admin')
+          } else {
+            return res.send(err)
+          }
+        })
+    }
+  }
 }
