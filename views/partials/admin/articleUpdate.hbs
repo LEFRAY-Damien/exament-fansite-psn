@@ -2,7 +2,7 @@
 <div class="card-body text-center text-primary">
 
     <div class="container-fluid bg-bleu_transparent_ps">
-        <form action="/admin" method="POST" enctype="multipart/form-data">
+        <form action="/admin/Article/{{ LoadArticle._id }}?_method=PUT" method="POST" enctype="multipart/form-data">
             {{! -- enctype pour pouvoir transferer des fichiers --}}
             <div class="row">
                 <div class="col-md-3">
@@ -147,7 +147,7 @@
                             <div class="form-group m-2">
 
                                 <input type="file" class="form-control-file" id="imageCardAdmin" name="imageCard"
-                                    required accept="image/*"
+                                    accept="image/*"
                                     onchange="loadFile(event)">{{!-- required oblige a mettre l'image --}}
                                 <div class="col-md-6 center-div bg-white">
                                     <img id="output" class="d-block w-100 h-75 taille_img_arch" />

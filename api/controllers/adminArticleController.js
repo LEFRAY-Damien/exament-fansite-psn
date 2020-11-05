@@ -40,6 +40,8 @@ module.exports = {
 
     majArticle: async (req, res) => {
         const articleID = await Article.findById(req.params.id) // on vien cherche l'article par son ID
+        query = { _id: req.params.id },
+        
         console.log("LOG article ID");
         console.log(articleID);
 
@@ -62,7 +64,7 @@ module.exports = {
             multijoueurs: req.body.multijoueurs
         }
 
-        Article.findByIdAndUpdate({       // On cree l'article sur le model Article DB
+        Article.updateOne(query, {       // On cree l'article sur le model Article DB
 
             cover: cover,       // On enregistre le nom la provenance et la date de l'image
 

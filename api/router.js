@@ -87,8 +87,10 @@ router.route('/admin/loadArchive')
 // Route Admin chargement article
 router.route('/admin/loadArticle')
     .post(adminArticleController.loadArticle)
-    .put(upload.single('imageCard'), adminArticleController.majArticle)
 
+// Route Admin Article MAJ
+router.route('/admin/Article/:id')
+    .put(upload.single('imageCard'), adminArticleController.majArticle)
 
 // Admin Contact POST
 router.route('/admin/contact')

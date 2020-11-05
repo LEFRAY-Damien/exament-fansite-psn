@@ -31,24 +31,15 @@ module.exports = {
     }
 
 
-
-
-
-
-
     // ...........................................................................................
     // ajouter la classe active au premier element du tableau
     // arrayFiles[0].class = 'active'
     // ...........................................................................................
 
 
-
-
-
-
-
     // On push nos data dans la DB grace Mongoose
     CarouselAcceuil.create({
+      ...req.body,
       // imgArticle: `/assets/images/${req.file.originalname}`,
       galleryImg: arrayFiles
     },
@@ -59,6 +50,7 @@ module.exports = {
 
   },
 
+  // Methode PUT
   putArrayAcceuil: async (req, res, next) => {
     const dbCarouselAcceuil = await CarouselAcceuil.findById(req.params.id),
       // Query est l'id passé dans le formulaire de req post
