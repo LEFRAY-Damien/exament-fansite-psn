@@ -4,8 +4,9 @@
     "description": "erfe",
     "main": "server.js",
     "scripts": {
-        "test": "nodemon --exec 'mocha ./test/*.js'",
-        "tu": "nodemon --exec 'mocha ./test/*.js --timeout 10000 -R min'",
+        "test": "nodemon --exec 'mocha ./mocha/test/*.js'",
+        "tu": "nodemon --exec 'mocha ./mocha/test/*.js --timeout 10000 -R min'",
+        "testMocha": "nodemon --exec 'mocha ./mocha/test/testMocha*.js'",
         "start": "nodemon server.js",
         "sass": "sass --watch ./public/css/sass/index.sass:./public/css/style.css",
         "reinstall": "sudo rm -r node_modules* && npm i && npm start"
@@ -36,7 +37,13 @@
         "sharp": "^0.26.2"
     },
     "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "express-oas-generator": "^1.0.28",
         "handlebars": "^4.5.0",
-        "nodemon": "^2.0.2"
+        "mocha": "^8.2.1",
+        "nodemon": "^2.0.2",
+        "supertest": "^6.0.1",
+        "swagger-ui-express": "^4.1.4"
     }
 }

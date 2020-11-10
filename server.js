@@ -21,6 +21,15 @@ const
 
 app.use(methodOverride('_method'))
 
+// Test Swagger
+const swaggerUi = require('swagger-ui-express')
+    // expressOasGenerator = require('express-oas-generator')
+    // expressOasGenerator.init(app, {});
+// const swagger à decommenter quand json ok
+const swaggerDocument = require('./api/config/swagger.json')
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 // Base de donnée ...............................................
 // pour mongodb cloud   // mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'     
 // blog le nom de la collection et <password> le mot de passe collection
@@ -80,3 +89,5 @@ app.use('/', ROUTER)
 app.listen(port, () => {
     console.log("le serveur tourne sur le prt: " + port, "lancé à:" + new Date().toLocaleString());
 });
+
+module.exports = app

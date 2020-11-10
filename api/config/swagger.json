@@ -1,0 +1,195 @@
+{
+  "definitions": {
+    "ArticleID":{
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "descriptionGen:": {
+          "type": "string"
+        },
+        "descriptionSimple:": {
+          "type": "string"
+        },
+        "imageCard:": {
+          "type": "string"
+        }
+      }
+    }
+    
+  },
+  "info": {
+    "title": "architecture-nodejs-base",
+    "version": "1.0.0",
+    "license": {
+      "name": "ISC"
+    },
+    "description": "Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3).\n\nerfe"
+  },
+  "paths": {
+    "/article_id": {
+      "get": {
+        "summary": "Affichage de l'article par son ID",
+        "description": "Page article par son ID",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Numero de l'ID",
+            "required": true,
+            "description": "ID de l'a rticle a recuperé",
+            "type": "integer",
+            "maximum": 10,
+            "minimum": 1,
+            "format": "int64"
+          }
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Affichage de l'ID OK"
+          },
+          "400": {
+            "description": "ID non trouver"
+          },
+          "404": {
+            "description": "Page introuvable"
+          }
+        },
+        "tags": ["Article ID"]
+      }
+    },
+    "/freetoplay": {
+      "get": {
+        "summary": "Affichage de la page Free To Play",
+        "description": "Affiche un tableau avec tout les different free to play entrer dans la base de donnée",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Affichage page free to play ok"
+          },
+          "400": {
+            "description": "ID non trouver"
+          },
+          "404": {
+            "description": "Page introuvable"
+          }
+        },
+        "tags": ["Free To Play"]
+      }
+    },
+    "/admin/acceuil": {
+      "post": {
+        "summary": "Creation d'un message d'acceuil",
+        "description": "Creation du message d'acceuil sur la home page",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Entrer le message d'acceuil",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": ["Acceuil"]
+      }
+    },
+    "/admin/acceuil/{id}": {
+      "put": {
+        "summary": "Mise a jour du message d'acceuil",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": ["Acceuil"]
+      }
+    },
+    "/admin/archive/{id}": {
+      "delete": {
+        "summary": "Effacer une archive",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": ["Archive"]
+      }
+    },
+    "/admin/loadArticle": {
+      "post": {
+        "summary": "Creation d'un article",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Poster un article",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ArticleID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation reussi",
+            "schema": {
+              "$ref": "#/definitions/ArticleID"
+            }
+          },
+          "400": {
+            "description": "ID Invalid"
+          }
+
+        },
+        "tags": ["Article ID"]
+      }
+    },
+    "/admin/Article/{id}": {
+      "put": {
+        "summary": "Mise a jour d'un article",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {},
+        "tags": ["Article ID"]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "tags": []
+}
