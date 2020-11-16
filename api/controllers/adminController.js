@@ -21,10 +21,7 @@ module.exports = {
 
         const dbCarouselAcceuil = await CarouselAcceuil.find({})
         const CarouselAcceuilVide = (dbCarouselAcceuil <1)
-
-        console.log("LOG CAROUSEL VIDE");
-        console.log(CarouselAcceuilVide);
-
+        
         const messageContact = await Contact.findOne({})
         const apropos = await Contact.find()
 
@@ -136,7 +133,7 @@ module.exports = {
             genre: req.body.genre,
             editeur: req.body.editeur,
             dateDeSortie: req.body.dateDeSortie,
-            multijoueurs: req.body.multijoueurs
+            multijoueurs: req.body.multijoueurs,
         }
 
         Article.create({       // On cree l'article sur le model Article DB

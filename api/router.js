@@ -35,8 +35,8 @@ router.route('/archives')
     .get(archivesController.get)
 
 // Article ID
-router.route('/article_id')
-    .get(article_idController.get)
+router.route('/article/:id')
+    .get(article_idController.getID)
 
 // Login
 router.route('/login')

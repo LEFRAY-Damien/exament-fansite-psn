@@ -12,6 +12,7 @@ const ArticleSchema = new mongoose.Schema({
     pegi: String, // Pegi de l'article
     langue: String, // Langue de l'article
     voix: String, // voix de l'article 
+    note: String, // note de l'article
     details: {      // Details est un OBJ
         type: Object
     },

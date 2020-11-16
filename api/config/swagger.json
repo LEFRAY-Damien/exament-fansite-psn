@@ -87,42 +87,6 @@
         "tags": ["Free To Play"]
       }
     },
-    "/admin/acceuil": {
-      "post": {
-        "summary": "Creation d'un message d'acceuil",
-        "description": "Creation du message d'acceuil sur la home page",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Entrer le message d'acceuil",
-            "required": true
-          }
-        ],
-        "responses": {},
-        "tags": ["Acceuil"]
-      }
-    },
-    "/admin/acceuil/{id}": {
-      "put": {
-        "summary": "Mise a jour du message d'acceuil",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {},
-        "tags": ["Acceuil"]
-      }
-    },
     "/admin/archive/{id}": {
       "delete": {
         "summary": "Effacer une archive",
@@ -182,7 +146,8 @@
           {
             "name": "id",
             "in": "path",
-            "required": true
+            "required": true,
+            "description": "Description de l'article a modifier"
           }
         ],
         "responses": {},

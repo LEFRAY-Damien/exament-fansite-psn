@@ -12,7 +12,7 @@ module.exports = {
         const dbCarouselAcceuil = await CarouselAcceuil.find({})
 
         res.render('home', {
-            page: 'Acceuil',
+            page: 'Accueil',
             cardearticleftp,
             messageAcceuil,
             dbCarouselAcceuil

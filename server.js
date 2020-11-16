@@ -26,8 +26,8 @@ const swaggerUi = require('swagger-ui-express')
     // expressOasGenerator = require('express-oas-generator')
     // expressOasGenerator.init(app, {});
 // const swagger à decommenter quand json ok
-const swaggerDocument = require('./api/config/swagger.json')
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// const swaggerDocument = require('./api/config/swagger.json')
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // Base de donnée ...............................................
