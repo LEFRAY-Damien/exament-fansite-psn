@@ -3,6 +3,7 @@ const path = require('path') // utile uniquement pour path.resolve plus bas
 sharp = require('sharp') // modul pour redimenssionner les images
 fs = require('fs')
 const { link } = require("fs");
+const CarouselArticle = require("../../database/models/CarouselArticle");
 
 // Controllers
 module.exports = {
@@ -17,32 +18,37 @@ module.exports = {
         // Ici on recherche l'article ayant comme id le query de notre URL   
         dbArticleID = await Article.findById(query)
 
-        console.log("article ID");
-        console.log(dbArticleID);
+        console.log('LOG');
+        console.log(query);
 
         const LoadArticle = dbArticleID
 
-        if (LoadArticle) {
-            res.render('admin', {
-                layout: 'adminLayout',
-                listearticles,
-                LoadArticle,
-                ArticleID: dbArticleID
-            })
-        } else {
-            res.render('admin', {
-                layout: 'adminLayout',
-                listearticles,
-                LoadArticle,
-            })
-        }
+        Article.findById(query).populate('carouselArticle').exec((err, result) => {
+
+            if (LoadArticle) {
+                res.render('admin', {
+                    layout: 'adminLayout',
+                    listearticles,
+                    LoadArticle,
+                    ArticleID: dbArticleID,
+                    carouselArticle: result.carouselArticle
+
+                })
+            } else {
+                res.render('admin', {
+                    layout: 'adminLayout',
+                    listearticles,
+                    LoadArticle
+                })
+            }
+        })
     },
 
     majArticle: async (req, res) => {
         const articleID = await Article.findById(req.params.id) // on vien cherche l'article par son ID
         query = { _id: req.params.id },
-        
-        console.log("LOG article ID");
+
+            console.log("LOG article ID");
         console.log(articleID);
 
         const file = req.file; // cree constante file pour cree l'image
@@ -69,7 +75,7 @@ module.exports = {
             cover: cover,       // On enregistre le nom la provenance et la date de l'image
 
             details: details,  // On ce sert de la const details pour cree un model
-            
+
             ...req.body,       // suivant le req.body
 
             // Ici on viens formater le chemin de notre image qui sera stocker dans notre DB

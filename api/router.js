@@ -5,6 +5,7 @@ const express = require('express'),
     upload = require('./config/multer'),
     uploadArchive = require('./config/multerArchive'),
     uploadAcceuil = require('./config/multerAcceuil')
+const uploadArticle = require('./config/multerArticle')
     // uploadArrayID = require('./config/multerArrayID')
 
 // Controller
@@ -20,7 +21,8 @@ const homeController = require('./controllers/homeController'),
     adminArchiveController = require('./controllers/adminArchiveController'),
     adminContactController = require('./controllers/adminContactController'),
     adminArticleController = require('./controllers/adminArticleController'),
-    adminAcceuilCarouselController= require('./controllers/adminAcceuilCarouselController')
+    adminAcceuilCarouselController = require('./controllers/adminAcceuilCarouselController'),
+    adminArticleCarouselController = require('./controllers/adminArticleCarouselController')
 
 // Home
 router.route('/')
@@ -55,7 +57,7 @@ router.route('/admin')
     .get(adminController.get)
     .post(upload.single('imageCard'), adminController.postArticleId)
 
-    // Admin Acceuil POST
+// Admin Acceuil POST
 router.route('/admin/acceuil')
     .post(adminAcceuilController.postAcceuil)
 
@@ -91,6 +93,11 @@ router.route('/admin/loadArticle')
 // Route Admin Article MAJ
 router.route('/admin/Article/:id')
     .put(upload.single('imageCard'), adminArticleController.majArticle)
+
+// Admin Article Carrousel ID
+router.route('/admin/CarrouselArticle/:id')
+    .post(uploadArticle.array('inputArticleArray', 6), adminArticleCarouselController.postArrayArticle)
+    .put(uploadArticle.array('inputArticleArray', 6), adminArticleCarouselController.putArrayArticle)
 
 // Admin Contact POST
 router.route('/admin/contact')

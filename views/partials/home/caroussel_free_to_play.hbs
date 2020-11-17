@@ -18,8 +18,8 @@
     <ul id="myUL" class="list-unstyled row">
 
       {{#each ( limit cardearticleftp 4 ) }}
-      <a href="/article/{{ _id }}">
-        <li class="my-3 col-xl-3 col-lg-4 col-md-6 text-center">
+
+      <li class="my-3 col-xl-3 col-lg-4 col-md-6 text-center"><a href="/article/{{ _id }}">
           <div class="card border-primary center-div" style="width: 15rem;">
             <img src="{{imageCard}}" class="card-img-top" alt="Placeholder image">
             <div class="card-body text-white bg-primary">
@@ -27,8 +27,9 @@
               <p class="card-text">{{descriptionSimple}}</p>
             </div>
           </div>
-        </li>
-      </a>
+        </a>
+      </li>
+
       {{/each}}
     </ul>
     {{!-- X Boucle free to play limite 3 --}}

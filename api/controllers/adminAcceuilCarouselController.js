@@ -39,7 +39,6 @@ module.exports = {
 
     // On push nos data dans la DB grace Mongoose
     CarouselAcceuil.create({
-      ...req.body,
       // imgArticle: `/assets/images/${req.file.originalname}`,
       galleryImg: arrayFiles
     },

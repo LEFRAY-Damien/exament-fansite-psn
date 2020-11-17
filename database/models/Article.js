@@ -1,6 +1,10 @@
 // Model de l'article sauvgarder dans la base de donnée
 
 const mongoose = require('mongoose') // Appel de la constante mongoose vue qu'elle seras utilise ic
+const Schema   = mongoose.Schema
+
+// Importe model
+const CarouselArticle = require('./CarouselArticle')
 
 // Shema enregistrer dans la base de données
 const ArticleSchema = new mongoose.Schema({
@@ -23,12 +27,14 @@ const ArticleSchema = new mongoose.Schema({
         // urlSharp: String,
         createAt: Date
     },
-    // Ici nous creeons une relation avec le model carouselArticle
+
+    // Ici nous creons une relation avec le model CarouselArticle
     // C'est un tableau qui acceuillera les id des images carousel
-    // carouselArticle: {
-    //     type: Schema.Types.carouselArticle,
-    //     ref: 'carouselArticle'
-    // }
+    carouselArticle: [{
+        type: Schema.Types.ObjectId,
+        ref: 'CarouselArticle'
+    }]
+
 })
 
 // Cree une constante article selon le shema ci dessus

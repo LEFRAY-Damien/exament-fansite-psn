@@ -49,8 +49,6 @@
                                         <!-- image du carousel Auto-->
                                         <ul id="ulListeCarousel" class="list-unstyled row">
 
-
-
                                             {{#each dbCarouselAcceuil }}
                                             {{#each galleryImg }}
 
@@ -132,15 +130,6 @@
                                                 <h1 class="text-dark">cree </h1>
                                                 <div class="modal-body bg-bleu_transparent_ps">
 
-
-                                                    <div class="form-group d-inline-flex justify-content-center mb-3">
-                                                        <input type="text" class="form-control" placeholder="titre"
-                                                            name="title" required>
-                                                    </div>
-
-
-
-
                                                     <input type="file" name="inputArticleArray" multiple>
                                                 </div>
                                                 <div class="modal-footer">
@@ -158,55 +147,43 @@
                                 <div class="modal fade" id="ModalCarouselAcceuilSupp" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
+                                            <div class="modal-header text-dark">
+                                                <h5>Supprimer une ou plusieurs images</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body bg-bleu_transparent_ps">
+                                                <ul id="ulListeCarousel" class="list-unstyled row">
+                                                    {{!-- Boucle Suppression images carousel --}}
+                                                    {{#each dbCarouselAcceuil }}
+                                                    {{#each galleryImg }}
+                                                    <li class="col-md-6 my-2">
+                                                        <div class="mt-2">
+                                                            <img src="{{ filename }}" class="d-block w-100 h-100">
+                                                            {{!-- Formulaire Delete une image --}}
+                                                            <form
+                                                                action="/admin/acceuil/carousel/{{ ../this._id }}?_method=PUT"
+                                                                method="post" enctype="multipart/form-data">
+                                                                <input type="hidden" name="deleteImg"
+                                                                    value='{{ name }}'>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger mt-1 btn-sm">Supprimer
+                                                                    l'image</button>
+                                                            </form>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                    {{/each}}
+                                                    {{!-- / Boucle Suppression images carousel --}}
+                                                </ul>
+                                            </div>
+                                            <div class="modal-footer">
 
-                                            <form action="/admin/acceuil/carousel" method="post"
-                                                enctype="multipart/form-data">
-                                                <div class="modal-header text-dark">
-                                                    <h5>Supprimer une ou plusieurs images</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="modal-body bg-bleu_transparent_ps">
-
-                                                    <ul id="ulListeCarousel" class="list-unstyled row">
-                                                        {{!-- Boucle Suppression images carousel --}}
-                                                        {{#each dbCarouselAcceuil }}
-                                                        {{#each galleryImg }}
-
-                                                        <li class="col-md-6 my-2">
-                                                            <div class="mt-2">
-                                                                <img src="{{ filename }}" class="d-block w-100 h-100"
-                                                                    alt="">
-                                                                {{!-- Formulaire Delete une image --}}
-                                                                <form
-                                                                    action="/admin/acceuil/carousel/{{ ../this._id }}?_method=PUT"
-                                                                    method="post" enctype="multipart/form-data">
-                                                                    <input type="hidden" name="deleteImg"
-                                                                        value='{{ name }}'>
-                                                                    <button type="submit"
-                                                                        class="btn btn-danger mt-1 btn-sm">Supprimer
-                                                                        l'image</button>
-                                                                </form>
-                                                            </div>
-                                                        </li>
-
-                                                        {{/each}}
-                                                        {{/each}}
-                                                        {{!-- / Boucle Suppression images carousel --}}
-                                                    </ul>
-
-                                                </div>
-                                                <div class="modal-footer">
-
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Annuler</button>
-
-
-                                                </div>
-                                            </form>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Annuler</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

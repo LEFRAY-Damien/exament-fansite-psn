@@ -5,7 +5,6 @@ const mongoose = require('mongoose') // Appel de la constante mongoose
 // Shema enregistrer dans la base de données
 const CarouselAcceuilSchema = new mongoose.Schema({
 
-    title: String,
     galleryImg: [] // tableau 
 
 })
