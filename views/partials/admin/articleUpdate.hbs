@@ -196,37 +196,6 @@
                                 <li class="col-md-3 my-2"><img src="{{ filename }}" style="width:60%">
                                 </li>
                                 {{/each}}
-
-                                <!-- Modal  Carousel Ajout Images  carousel -->
-                                <div class="modal fade" id="ModalCarouselAcceuilAjout" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            {{!-- Si le carousel a dejat des données alors on update --}}
-                                            <form action="/admin/CarrouselArticle/{{ _id }}?_method=PUT" method="post"
-                                                enctype="multipart/form-data">
-                                                <div class="modal-header text-dark">
-                                                    <h5>Ajouter une ou plusieurs images{{ _id }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <h1 class="text-dark">Carrousel images</h1>
-                                                <div class="modal-body bg-bleu_transparent_ps">
-                                                    <input type="hidden" name="addImg" value='{{ name }}'>
-                                                    <input type="file" name="inputArticleArray" multiple>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Annuler</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- / Modal  Carousel Ajout Images  carousel -->
-
                                 {{/each}}
                             </ul>
 
@@ -291,10 +260,8 @@
                     {{!-- Cadre modification texte description article id simplifier --}}
 
                     <button type="submit" class="btn btn-success mr-3">Modifier l'article</button>
-
                 </div>
             </div>
-
         </form>
 
         <form method="get" action="/admin">
@@ -303,14 +270,12 @@
 
         <button type="button" class="btn btn-danger ml-5">Supprimer</button>
     </div>
-
     <div class="trait_admin"></div>
 
     {{> admin/listeArticles}}
 
 </div>
 {{!-- X Interieur collaps article id --}}
-
 
 <!-- Modal  Carousel Ajout Images  carousel vide -->
 <div class="modal fade" id="ModalCarouselAcceuilVide" tabindex="-1" aria-hidden="true">
@@ -337,10 +302,6 @@
     </div>
 </div>
 <!-- / Modal  Carousel Ajout Images  carousel vide -->
-
-
-
-
 
 <!-- Modal  Carousel supprimer image -->
 <div class="modal fade" id="ModalCarouselsuppimerimage" tabindex="-1" aria-hidden="true">
@@ -380,3 +341,32 @@
     </div>
 </div>
 <!-- / Modal  Carousel supprimer image -->
+
+<!-- Modal  Carousel Ajout Images  carousel -->
+<div class="modal fade" id="ModalCarouselAcceuilAjout" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {{!-- Si le carousel a dejat des données alors on update --}}
+            {{#each carouselArticle }}
+            <form action="/admin/CarrouselArticle/{{ _id }}?_method=PUT" method="post" enctype="multipart/form-data">
+                <div class="modal-header text-dark">
+                    <h5>Ajouter une ou plusieurs images{{ _id }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <h1 class="text-dark">Carrousel images</h1>
+                <div class="modal-body bg-bleu_transparent_ps">
+                    <input type="hidden" name="addImg" value='{{ name }}'>
+                    <input type="file" name="inputArticleArray" multiple>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                </div>
+            </form>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<!-- / Modal  Carousel Ajout Images  carousel -->

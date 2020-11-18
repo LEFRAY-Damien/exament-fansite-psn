@@ -20,137 +20,83 @@
                     <div class="container">
                         <div
                             class="col-md-8 text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div p-3">
-                            <div class="overflow-auto taille_fenetre_message_admin bg-gris_ps">
+                            <div class="overflow-auto taille_fenetre_message_admin">
 
-                                {{!-- Message 1 --}}
+                                {{#each listeMessage }}
+                                {{!-- Message --}}
                                 <div
                                     class="col-md-10 bg-white text-dark center-div rounded-lg taille_message_admin mt-2 pt-1">
                                     <div class="row">
                                         <div class="col-md-1 taille_img_message_admin">
                                             <i class="far fa-envelope ml-3"></i></div>
                                         <div class="text-muted col-md-2 mt-1">
-                                            01.09.2020
+                                            {{ created }}
                                         </div>
-                                        <div class="col-md-8 mt-1 pr-5">
-                                            message 1</div>
-                                        <div class="col-md-1 taille_img_message_admin">
-                                            <i class="fas fa-times mr-3"></i></div>
+
+
+                                        <form action="/admin/message/{{ this.id }}" method="post">
+                                            <div class="col-md-8 mt-1 pr-5">
+
+                                                <button class="btn btn-success" type="submit"><input type="disable"
+                                                        class="" name="id" value="{{ _id }}">{{ objet }} </button>
+
+                                            </div>
+                                            <div class="col-md-1 taille_img_message_admin">
+                                        </form>
+                                        <!-- Button  modal suppression message -->
+                                        <button type="button" class="close" data-toggle="modal"
+                                            data-target="#modalSuppr" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <!-- / Button  modal suppression message -->
+
                                     </div>
-                                </div>
-                                {{!-- X Message 1 --}}
-
-                                {{!-- Message 2 --}}
-                                <div
-                                    class="col-md-10 bg-white text-dark center-div rounded-lg taille_message_admin mt-2 pt-1">
-                                    <div class="row">
-                                        <div class="col-md-1 taille_img_message_admin">
-                                            <i class="far fa-envelope ml-3"></i></div>
-                                        <div class="text-muted col-md-2 mt-1">
-                                            31.08.2020
-                                        </div>
-                                        <div class="col-md-8 mt-1 pr-5">
-                                            message 2</div>
-                                        <div class="col-md-1 taille_img_message_admin">
-                                            <i class="fas fa-times mr-3"></i></div>
-                                    </div>
-                                </div>
-                                {{!-- X Message 2 --}}
-
-                                {{!-- Message 3 --}}
-                                <div
-                                    class="col-md-10 bg-white text-dark center-div rounded-lg taille_message_admin mt-2 pt-1 mb-2">
-                                    <div class="row">
-                                        <div class="col-md-1 taille_img_message_admin">
-                                            <i class="far fa-envelope ml-3"></i></div>
-                                        <div class="text-muted col-md-2 mt-1">
-                                            27.08.2020
-                                        </div>
-                                        <div class="col-md-8 mt-1 pr-5">
-                                            message 3</div>
-                                        <div class="col-md-1 taille_img_message_admin">
-                                            <i class="fas fa-times mr-3"></i></div>
-                                    </div>
-                                </div>
-                                {{!-- X Message 3 --}}
-
-                            </div>
-                        </div>
-
-                        <div class="demi_trait_admin"></div>
-
-                        <div
-                            class="col-md-8 text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div p-3 mt-3">
-
-                            {{!-- Message 1 lecture--}}
-                            <div
-                                class="col-md-10 bg-white text-dark center-div rounded-lg taille_message_admin mt-2 pt-1">
-                                <div class="row">
-                                    <div class="col-md-1 taille_img_message_admin">
-                                        <i class="far fa-envelope ml-3"></i></div>
-                                    <div class="text-muted col-md-2 mt-1">
-                                        01.09.2020
-                                    </div>
-                                    <div class="col-md-8 mt-1 pr-5">
-                                        message 1</div>
-                                    <div class="col-md-1 taille_img_message_admin">
-                                        <i class="fas fa-times mr-3"></i></div>
                                 </div>
                             </div>
-                            {{!-- X Message 1 lecture --}}
+                            {{!-- / Message --}}
 
-                            <div class="col-md-10 bg-white text-dark center-div rounded-lg mt-2 pt-1">
-
-                                {{!-- Message Nom: --}}
-                                <div
-                                    class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
-                                    <label for="exampleFormControlInput1">Nom:</label>
-                                    <input type="text" class="form-control border-primary ml-2"
-                                        id="exampleFormControlInput2" placeholder="Pinpin dupins">
+                            {{!-- Modal suppression message --}}
+                            <div class="modal fade" id="modalSuppr" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Supprimer le message</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="/admin/message/{{ this.id }}/?_method=DELETE" method="post">
+                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                            </form>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Annuller</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                {{!-- X Message Nom: --}}
-
-                                {{!-- Message Mail: --}}
-                                <div
-                                    class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-4">
-                                    <label for="exampleFormControlInput1">Mail:</label>
-                                    <input type="email" class="form-control border-primary ml-2"
-                                        id="exampleFormControlInput2" placeholder="Pinpin@dupins.com">
-                                </div>
-                                {{!-- X Message Mail: --}}
-
-                                {{!-- Message Mail: --}}
-                                <div
-                                    class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2">
-                                    <label for="exampleFormControlInput1">Sujet:</label>
-                                    <input type="text" class="form-control border-primary ml-2"
-                                        id="exampleFormControlInput2" placeholder="Pinpin">
-                                </div>
-                                {{!-- X Message Mail: --}}
-
-                                {{!-- Message corp du mail --}}
-
-                                <textarea type="text" class="p-2 border-primary rounded-lg mt-4"
-                                    placeholder="Bienvenue sur mon site fan, j essaye de recence tout le contenue gratuis du playstation network et les jeux offert tout les mois au service playstation +."
-                                    name="" id="" cols="50" rows="5"></textarea>
-                                {{!-- X Message corp du mail --}}
-
-                                {{!-- Boutons repondre supprimer --}}
-                                <div class="col-md-12 center-div mb-3 mt-3">
-                                    <button type="button" class="btn btn-primary m-2">Repondre</button>
-                                    <button type="button" class="btn btn-danger m-2">Supprimer</button>
-                                </div>
-                                {{!-- X Boutons repondre supprimer --}}
-
                             </div>
+                            {{!-- / Modal suppression message --}}
+                            {{/each}}
+
                         </div>
                     </div>
-                    {{!-- X Interrieur collaps message --}}
+                    <div class="demi_trait_admin"></div>
+                    <div
+                        class="col-md-8 text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div p-3 mt-3">
 
-                    <div class="trait_admin"></div>
+                        {{!-- Message ID --}}
+                        {{> admin/messagesID }}
+                        {{!-- / Message ID --}}
 
+                    </div>
                 </div>
+                {{!-- X Interrieur collaps message --}}
+
+                <div class="trait_admin"></div>
+
             </div>
         </div>
     </div>
+</div>
 </div>
 {{!-- X collaps Messages --}}

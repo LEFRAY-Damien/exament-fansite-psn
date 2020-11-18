@@ -1,0 +1,55 @@
+{{!-- Message 1 lecture--}}
+<div class="col-md-10 bg-white text-dark center-div rounded-lg taille_message_admin mt-2 pt-1">
+    <div class="row">
+        <div class="col-md-1 taille_img_message_admin">
+            <i class="far fa-envelope ml-3"></i></div>
+        <div class="text-muted col-md-2 mt-1">
+            {{ LoadMessage.created }}
+        </div>
+        <div class="col-md-8 mt-1 pr-5">
+            {{ LoadMessage.objet }}</div>
+        <div class="col-md-1 taille_img_message_admin">
+            <i class="fas fa-times mr-3"></i></div>
+    </div>
+</div>
+{{!-- X Message 1 lecture --}}
+
+<div class="col-md-10 bg-white text-dark center-div rounded-lg mt-2 pt-1">
+
+    {{!-- Message Nom: --}}
+    <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
+        <label>Nom:</label>
+            <div class="form-control border-primary ml-2"> {{ LoadMessage.nom }}</div>
+    </div>
+    {{!-- X Message Nom: --}}
+
+    {{!-- Message Mail: --}}
+    <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-4">
+        <label>Mail:</label>
+        <div class="form-control border-primary ml-2"> {{ LoadMessage.mail }}</div>
+    </div>
+    {{!-- X Message Mail: --}}
+
+    {{!-- Message Mail: --}}
+    <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2">
+        <label>Sujet:</label>
+        <div class="form-control border-primary ml-2"> {{ LoadMessage.objet }}</div>
+    </div>
+    {{!-- X Message Mail: --}}
+
+    {{!-- Message corp du mail --}}
+
+     <div class="col-md-10 form-group d-inline-flex justify-content-center align-items-center mb-2">
+        <label>Message:</label>
+        <div class="form-control border-primary ml-2"> {{ LoadMessage.message }}</div>
+    </div>
+    {{!-- X Message corp du mail --}}
+
+    {{!-- Boutons repondre supprimer --}}
+    <div class="col-md-12 center-div mb-3 mt-3">
+        <button type="button" class="btn btn-primary m-2">Repondre</button>
+        <button type="button" class="btn btn-danger m-2">Supprimer</button>
+    </div>
+    {{!-- X Boutons repondre supprimer --}}
+
+</div>

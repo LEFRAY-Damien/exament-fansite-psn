@@ -1,6 +1,7 @@
 // Import du model Article de la base de donnée
 const Archive = require("../../database/models/Archive"); // Model database
 const Acceuil = require("../../database/models/Acceuil");
+const Message = require("../../database/models/Message"); // Model database
 const Contact = require("../../database/models/Contact"); // Model database
 const Article = require("../../database/models/Article"); // Model database
 const Links = require('../../database/models/Links');
@@ -28,6 +29,9 @@ module.exports = {
         // liste de tt les article pour cree une boucle pour pouvoir charger
         const listearticles = await Article.find({})
 
+        // Liste de tout les messages
+        const listeMessage = await Message.find()
+
         const cardeArchive = await Archive.find({}).populate('links').exec()
 
         const titleNoExist = (titreAcceuil < 1)
@@ -44,7 +48,8 @@ module.exports = {
                     aproposNoExist,
                     dbCarouselAcceuil,
                     CarouselAcceuilVide,
-                    cardeArchive
+                    cardeArchive,
+                    listeMessage
                 });
                 break;
             default:
@@ -58,7 +63,8 @@ module.exports = {
                         titleNoExist,
                         dbCarouselAcceuil,
                         CarouselAcceuilVide,
-                        cardeArchive
+                        cardeArchive,
+                        listeMessage
                     })
 
                 } else if (aproposNoExist) {
@@ -70,7 +76,8 @@ module.exports = {
                         aproposNoExist,
                         dbCarouselAcceuil,
                         CarouselAcceuilVide,
-                        cardeArchive
+                        cardeArchive,
+                        listeMessage
                     })
                 } else {
                     res.render('admin', {
@@ -80,7 +87,8 @@ module.exports = {
                         listearticles,
                         dbCarouselAcceuil,
                         CarouselAcceuilVide,
-                        cardeArchive
+                        cardeArchive,
+                        listeMessage
                     })
                 }
         }

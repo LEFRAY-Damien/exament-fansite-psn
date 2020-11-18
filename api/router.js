@@ -4,9 +4,9 @@ const express = require('express'),
     path = require('path'),
     upload = require('./config/multer'),
     uploadArchive = require('./config/multerArchive'),
-    uploadAcceuil = require('./config/multerAcceuil')
-const uploadArticle = require('./config/multerArticle')
-    // uploadArrayID = require('./config/multerArrayID')
+    uploadAcceuil = require('./config/multerAcceuil'),
+    uploadArticle = require('./config/multerArticle')
+// uploadArrayID = require('./config/multerArrayID')
 
 // Controller
 const homeController = require('./controllers/homeController'),
@@ -22,7 +22,8 @@ const homeController = require('./controllers/homeController'),
     adminContactController = require('./controllers/adminContactController'),
     adminArticleController = require('./controllers/adminArticleController'),
     adminAcceuilCarouselController = require('./controllers/adminAcceuilCarouselController'),
-    adminArticleCarouselController = require('./controllers/adminArticleCarouselController')
+    adminArticleCarouselController = require('./controllers/adminArticleCarouselController'),
+    adminMessageController = require('./controllers/adminMessageController')
 
 // Home
 router.route('/')
@@ -31,6 +32,7 @@ router.route('/')
 // Contact
 router.route('/contact')
     .get(contactController.get)
+    .post(contactController.postMessage)
 
 // Archives
 router.route('/archives')
@@ -51,6 +53,11 @@ router.route('/freetoplay')
 // modal
 router.route('/modal')
     .get(modalController.get)
+
+// Admin message
+router.route('/admin/message/:id')
+    .delete(adminMessageController.deleteOne)
+    .post(adminMessageController.loadMessage)
 
 // Admin article ID
 router.route('/admin')

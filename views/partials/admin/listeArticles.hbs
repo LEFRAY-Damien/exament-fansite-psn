@@ -4,7 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-dark" id="addArticlesModalLabel">Charger l'archive</h5>
+                <h5 class="modal-title text-dark" id="addArticlesModalLabel">Charger l'article</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,17 +13,14 @@
 
                 <ul id="myUL" class="list-unstyled row">
 
-
-
                     {{#each listearticles}}
 
                     <div class="col-md-10  text-center bg-bleu_transparent_ps center-div rounded-lg my-1">
 
                         <form action="/admin/loadArticle" method="post">
                             <input type="disable" class="" name="id" value="{{ _id }}">
-                            <button class="btn btn-success" type="submit">{{title}}</button>
+                            <button class="btn btn-success" type="submit" >{{title}}</button>
                         </form>
-
 
                     </div>
 
@@ -42,5 +39,4 @@
         </div>
     </div>
 </div>
-
 <!-- X Modal -->
