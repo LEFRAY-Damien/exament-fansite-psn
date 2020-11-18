@@ -3,17 +3,67 @@
     <div class="accordion mt-5" id="accordionmessages">
         <div class="card bg-gris_transparent_ps">
             <div class="card-header" id="headingmessages">
-                <button class="btn btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#collapsemessages" aria-expanded="true" aria-controls="collapsemessages">
+
+
+
+                {{!-- Si une Archive est charger, bloque le collaps Message --}}
+                {{#if LoadArchive}}
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                    aria-controls="collapsemessages">
                     <div class="container text-center text-primary pt-2">
                         <h2>Messages</h2>
-
                     </div>
                 </button>
                 <div class="trait_admin"></div>
             </div>
             <div id="collapsemessages" class="collapse" aria-labelledby="headingmessages"
                 data-parent="#accordionmessages">
+
+                {{else}}
+
+                {{!-- Si un Article est charger, bloque le collaps Message --}}
+                {{#if LoadArticle}}
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                    aria-controls="collapsemessages">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Messages</h2>
+                    </div>
+                </button>
+                <div class="trait_admin"></div>
+            </div>
+            <div id="collapsemessages" class="collapse" aria-labelledby="headingmessages"
+                data-parent="#accordionmessages">
+                {{else}}
+
+                {{!-- Si une Archive est charger, bloque le collaps Message --}}
+                {{#if LoadMessage}}
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                    aria-controls="collapsemessages">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Messages</h2>
+                    </div>
+                </button>
+                <div class="trait_admin"></div>
+            </div>
+            <div id="collapsemessages" class="collapse show" aria-labelledby="headingmessages"
+                data-parent="#accordionmessages">
+                {{else}}
+
+                {{!-- Si rien n'est charger laisse les collaps indemn --}}
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                    data-target="#collapsemessages" aria-expanded="true" aria-controls="collapsemessages">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Messages</h2>
+                    </div>
+                </button>
+                <div class="trait_admin"></div>
+            </div>
+            <div id="collapsemessages" class="collapse" aria-labelledby="headingmessages"
+                data-parent="#accordionmessages">
+                {{/if}}
+                {{/if}}
+                {{/if}}
+
                 <div class="card-body text-center text-primary">
 
                     {{!-- Interrieur collaps message --}}
@@ -22,81 +72,82 @@
                             class="col-md-8 text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div p-3">
                             <div class="overflow-auto taille_fenetre_message_admin">
 
+                                {{!-- Boucle Liste des messages --}}
                                 {{#each listeMessage }}
+
                                 {{!-- Message --}}
                                 <div
                                     class="col-md-10 bg-white text-dark center-div rounded-lg taille_message_admin mt-2 pt-1">
-                                    <div class="row">
+                                    <div class="d-flex justify-content-between">
                                         <div class="col-md-1 taille_img_message_admin">
-                                            <i class="far fa-envelope ml-3"></i></div>
+                                            <i class="far fa-envelope ml-3"></i>
+                                        </div>
                                         <div class="text-muted col-md-2 mt-1">
                                             {{ created }}
                                         </div>
-
-
-                                        <form action="/admin/message/{{ this.id }}" method="post">
-                                            <div class="col-md-8 mt-1 pr-5">
-
-                                                <button class="btn btn-success" type="submit"><input type="disable"
-                                                        class="" name="id" value="{{ _id }}">{{ objet }} </button>
-
-                                            </div>
-                                            <div class="col-md-1 taille_img_message_admin">
-                                        </form>
-                                        <!-- Button  modal suppression message -->
-                                        <button type="button" class="close" data-toggle="modal"
-                                            data-target="#modalSuppr" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <!-- / Button  modal suppression message -->
-
-                                    </div>
-                                </div>
-                            </div>
-                            {{!-- / Message --}}
-
-                            {{!-- Modal suppression message --}}
-                            <div class="modal fade" id="modalSuppr" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Supprimer le message</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <div class="col-md-7 mt-1 pr-5">
+                                            <form action="/admin/message/{{ this.id }}" method="post">
+                                                <button class="btn btn-success" type="submit" name="id"
+                                                    value="{{ _id }}">{{ objet }} </button>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-1 taille_img_message_admin">
+                                            <!-- Button  modal suppression message -->
+                                            <button type="button" class="close" data-toggle="modal"
+                                                data-target="#modalSuppr" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <form action="/admin/message/{{ this.id }}/?_method=DELETE" method="post">
-                                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                                            </form>
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Annuller</button>
+                                            <!-- / Button  modal suppression message -->
                                         </div>
                                     </div>
                                 </div>
+                                {{!-- / Message --}}
+
+                                {{!-- Modal suppression message --}}
+                                <div class="modal fade" id="modalSuppr" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Supprimer le message</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form action="/admin/message/{{ this.id }}/?_method=DELETE"
+                                                    method="post">
+                                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                </form>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Annuller</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{!-- / Modal suppression message --}}
+                                {{/each}}
+                                {{!-- / Boucle Liste des messages --}}
+
                             </div>
-                            {{!-- / Modal suppression message --}}
-                            {{/each}}
+                        </div>
+                        <div class="demi_trait_admin"></div>
+                        <div
+                            class="col-md-8 text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div p-3 mt-3">
+
+                            {{!-- Message ID --}}
+                            {{> admin/messagesID }}
+                            {{!-- / Message ID --}}
 
                         </div>
                     </div>
-                    <div class="demi_trait_admin"></div>
-                    <div
-                        class="col-md-8 text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div p-3 mt-3">
+                    {{!-- X Interrieur collaps message --}}
 
-                        {{!-- Message ID --}}
-                        {{> admin/messagesID }}
-                        {{!-- / Message ID --}}
+                    <div class="trait_admin"></div>
 
-                    </div>
                 </div>
-                {{!-- X Interrieur collaps message --}}
-
-                <div class="trait_admin"></div>
-
             </div>
         </div>
     </div>
-</div>
 </div>
 {{!-- X collaps Messages --}}

@@ -3,6 +3,8 @@
     <div class="accordion mt-5" id="accordionacceuil">
         <div class="card bg-gris_transparent_ps">
             <div class="card-header" id="headingacceuil">
+
+                {{!-- Si une Archive est charger, bloque le collaps Acceuil --}}
                 {{#if LoadArchive }}
                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
                     aria-controls="collapseacceuil">
@@ -11,6 +13,8 @@
                     </div>
                 </button>
                 {{else}}
+
+                {{!-- Si un Article est charger, bloque le collaps Acceuil --}}
                 {{#if LoadArticle }}
                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
                     aria-controls="collapseacceuil">
@@ -19,12 +23,25 @@
                     </div>
                 </button>
                 {{else}}
+
+                {{!-- Si un Message est charger, bloque le collaps Acceuil --}}
+                {{#if LoadMessage }}
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
+                    aria-controls="collapseacceuil">
+                    <div class="container text-center text-primary pt-2">
+                        <h2>Accueil</h2>
+                    </div>
+                </button>
+                {{else}}
+
+                {{!-- Si rien n'est charger laisse les collaps indemn --}}
                 <button class="btn btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapseacceuil" aria-expanded="true" aria-controls="collapseacceuil">
                     <div class="container text-center text-primary pt-2">
                         <h2>Accueil</h2>
                     </div>
                 </button>
+                {{/if}}
                 {{/if}}
                 {{/if}}
 
