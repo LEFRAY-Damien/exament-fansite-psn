@@ -18,19 +18,12 @@ module.exports = {
 
         Message.findById(query)
 
-        console.log("LOG LISTE MESSAGE");
-        console.log(listeMessage);
-
-        console.log("LOG MESSAGE");
-        console.log(LoadMessage);
-
         res.render('admin', {
             layout: 'adminLayout',
             listeMessage,
             LoadMessage,
 
         })
-
     },
 
     deleteOne: (req, res) => {
@@ -43,5 +36,4 @@ module.exports = {
         res.redirect('/admin')
 
     }
-
 }

@@ -4,8 +4,6 @@
         <div class="card bg-gris_transparent_ps">
             <div class="card-header" id="headingmessages">
 
-
-
                 {{!-- Si une Archive est charger, bloque le collaps Message --}}
                 {{#if LoadArchive}}
                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" aria-expanded="true"
@@ -128,23 +126,24 @@
                                 {{!-- / Modal suppression message --}}
                                 {{/each}}
                                 {{!-- / Boucle Liste des messages --}}
-
                             </div>
                         </div>
                         <div class="demi_trait_admin"></div>
                         <div
                             class="col-md-8 text-center bg-bleu_transparent_ps text-decoration-none m-2 center-div p-3 mt-3">
 
+                            {{#if LoadMessage}}
+
                             {{!-- Message ID --}}
                             {{> admin/messagesID }}
                             {{!-- / Message ID --}}
 
+                            {{else}}
+                            {{/if}}
                         </div>
                     </div>
                     {{!-- X Interrieur collaps message --}}
-
                     <div class="trait_admin"></div>
-
                 </div>
             </div>
         </div>

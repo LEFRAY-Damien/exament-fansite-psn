@@ -263,12 +263,19 @@
                 </div>
             </div>
         </form>
-
+        {{!-- Bouton Annuler l'article --}}
         <form method="get" action="/admin">
             <button type="submit" class="btn btn-secondary mx-2">Annuler</button>
         </form>
+        {{!-- Bouton Annuler l'article --}}
 
-        <button type="button" class="btn btn-danger ml-5">Supprimer</button>
+        <!-- Button  modal suppression Article -->
+        <button type="button" class="btn btn-danger ml-5" data-toggle="modal" data-target="#modalSupprArticle"
+            aria-label="Close">
+            Supprimer
+        </button>
+        <!-- / Button  modal suppression Article -->
+
     </div>
     <div class="trait_admin"></div>
 
@@ -370,3 +377,27 @@
     </div>
 </div>
 <!-- / Modal  Carousel Ajout Images  carousel -->
+
+{{!-- Modal suppression message --}}
+<div class="modal fade" id="modalSupprArticle" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Supprimer l article {{ArticleID.title}} </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+  
+                <form action="/admin/Article/{{ ArticleID._id }}/?_method=DELETE" method="post">
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+       
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuller</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- / Modal suppression message --}}

@@ -9,47 +9,94 @@
         <div class="col-md-8 mt-1 pr-5">
             {{ LoadMessage.objet }}</div>
         <div class="col-md-1 taille_img_message_admin">
-            <i class="fas fa-times mr-3"></i></div>
+            <i class="fas fa-arrow-down mr-3"></i></div>
     </div>
 </div>
-{{!-- X Message 1 lecture --}}
+{{!-- / Message 1 lecture --}}
 
 <div class="col-md-10 bg-white text-dark center-div rounded-lg mt-2 pt-1">
 
     {{!-- Message Nom: --}}
     <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
         <label>Nom:</label>
-            <div class="form-control border-primary ml-2"> {{ LoadMessage.nom }}</div>
+        <div class="form-control border-primary ml-2"> {{ LoadMessage.nom }}</div>
     </div>
-    {{!-- X Message Nom: --}}
+    {{!-- / Message Nom: --}}
 
     {{!-- Message Mail: --}}
     <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-4">
         <label>Mail:</label>
         <div class="form-control border-primary ml-2"> {{ LoadMessage.mail }}</div>
     </div>
-    {{!-- X Message Mail: --}}
+    {{!-- / Message Mail: --}}
 
     {{!-- Message Mail: --}}
     <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2">
         <label>Sujet:</label>
         <div class="form-control border-primary ml-2"> {{ LoadMessage.objet }}</div>
     </div>
-    {{!-- X Message Mail: --}}
+    {{!-- / Message Mail: --}}
 
     {{!-- Message corp du mail --}}
 
-     <div class="col-md-10 form-group d-inline-flex justify-content-center align-items-center mb-2">
+    <div class="col-md-10 form-group d-inline-flex justify-content-center align-items-center mb-2">
         <label>Message:</label>
         <div class="form-control border-primary ml-2"> {{ LoadMessage.message }}</div>
     </div>
-    {{!-- X Message corp du mail --}}
+    {{!-- / Message corp du mail --}}
 
-    {{!-- Boutons repondre supprimer --}}
     <div class="col-md-12 center-div mb-3 mt-3">
-        <button type="button" class="btn btn-primary m-2">Repondre</button>
-        <button type="button" class="btn btn-danger m-2">Supprimer</button>
-    </div>
-    {{!-- X Boutons repondre supprimer --}}
 
+        <!-- Button  modal Repondre -->
+        <button type="button" class="btn btn-primary m-2" data-toggle="modal"
+            data-target="#modalReponseMessage">Repondre</button>
+        <!-- / Button  modal Repondre -->
+
+        <button type="button" class="btn btn-danger m-2" data-toggle="modal"
+            data-target="#modalSuppr">Supprimer</button>
+        {{!-- / Boutons repondre supprimer --}}
+    </div>
 </div>
+
+<!-- Modal Repondre -->
+<div class="modal fade" id="modalReponseMessage" tabindex="-1" aria-labelledby="modalReponseMessageLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalReponseMessageLabel">Reponse Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/nodemailerTest" method="POST">
+                <div class="modal-body">
+                    <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
+                        <label>Nom:</label>
+                        <input type="text" name="author" placeholder="Nom" class="form-control border-primary ml-2"
+                            required>
+                    </div>
+                    <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
+                        <label>Mail:</label>
+                        <input type="email" name="email" placeholder="Mail" class="form-control border-primary ml-2"
+                            required>
+                    </div>
+                    <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
+                        <label>Sujet:</label>
+                        <input type="text" name="sujet" placeholder="Sujet" class="form-control border-primary ml-2"
+                            required>
+                    </div>
+                    <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
+                        <label>Message:</label>
+                        <textarea class="form-control" name="text" rows="7"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- / Modal Repondre -->

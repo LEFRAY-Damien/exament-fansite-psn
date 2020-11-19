@@ -23,7 +23,13 @@ const homeController = require('./controllers/homeController'),
     adminArticleController = require('./controllers/adminArticleController'),
     adminAcceuilCarouselController = require('./controllers/adminAcceuilCarouselController'),
     adminArticleCarouselController = require('./controllers/adminArticleCarouselController'),
-    adminMessageController = require('./controllers/adminMessageController')
+    adminMessageController = require('./controllers/adminMessageController'),
+    nodemailerController = require('./controllers/nodemailerController')
+
+// Nodemailer
+// Envoie Mail
+router.route('/nodemailerTest')
+    .post(nodemailerController.test)
 
 // Home
 router.route('/')
@@ -100,6 +106,7 @@ router.route('/admin/loadArticle')
 // Route Admin Article MAJ
 router.route('/admin/Article/:id')
     .put(upload.single('imageCard'), adminArticleController.majArticle)
+    .delete(adminArticleController.deleteOne)
 
 // Admin Article Carrousel ID
 router.route('/admin/CarrouselArticle/:id')
