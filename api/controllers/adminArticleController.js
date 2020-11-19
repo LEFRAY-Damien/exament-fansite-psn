@@ -50,9 +50,6 @@ module.exports = {
         const articleID = await Article.findById(req.params.id) // on vien cherche l'article par son ID
         query = { _id: req.params.id };
 
-        console.log('LOG IMG');
-        console.log(articleID);
-
         // pathImg sera le chemin de notre fichier à supprimer
         pathImg = path.resolve("public/imagesArticles/" + articleID.cover.name)
 
@@ -84,8 +81,6 @@ module.exports = {
             const cover = {
                 name: file.filename,
                 originalName: file.originalname,
-                //path: file.path.replace("public", "imageswebp"),
-                //urlSharp: '/public/imageswebp/' + file.originalname.split('.').slice(0, -1).join('.') + ".webp",
                 createAt: Date.now(),
             }
 

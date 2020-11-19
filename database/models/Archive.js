@@ -8,7 +8,10 @@ const Links = require('./Links')
 // Shema enregistrer dans la base de données
 const ArchiveSchema = new mongoose.Schema({
 
-    dateArchive: String, 
+    dateArchive: String,
+    
+     // Ici nous creeons une relation avec le model Links
+    // C'est un tableau qui acceuillera les id des Links (String)
     links: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Links'

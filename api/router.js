@@ -92,8 +92,9 @@ router.route('/admin/archive')
 
 // Admin Archive Delete et MAJ
 router.route('/admin/archive/:id')
-    .delete(adminArchiveController.deleteOne)
     .put(uploadArchive.single('imageArchive'), adminArchiveController.editArchive)
+    .post(adminArchiveController.postArchiveLien)
+    .delete(adminArchiveController.deleteOne)
 
 // Route Admin chargement archive
 router.route('/admin/loadArchive')
