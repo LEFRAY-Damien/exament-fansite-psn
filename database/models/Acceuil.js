@@ -1,6 +1,6 @@
 // Model de l'Acceuil sauvgarder dans la base de donnée
 
-const mongoose = require('mongoose') // Appel de la constante mongoose vue qu'elle seras utilise ic
+const mongoose = require('mongoose') // Appel de la constante mongoose
 
 // Shema enregistrer dans la base de données
 const AcceuilSchema = new mongoose.Schema({

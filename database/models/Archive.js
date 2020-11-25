@@ -1,21 +1,19 @@
+
 // Model de l'Archive sauvgarder dans la base de donnée
 
-const mongoose = require('mongoose') // Appel de la constante mongoose vue qu'elle seras utilise
+const mongoose = require('mongoose') // Appel de la constante mongoose
 const Schema = mongoose.Schema
-const Links = require('./Links')
 
 
 // Shema enregistrer dans la base de données
 const ArchiveSchema = new mongoose.Schema({
 
     dateArchive: String,
-    
-     // Ici nous creeons une relation avec le model Links
-    // C'est un tableau qui acceuillera les id des Links (String)
-    links: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Links'
-    }],
+    title: String,
+    link: String,
+    title2: String,
+    link2: String,
+    name: String,
     imageArchive: String,
     cover: {
         name: String,

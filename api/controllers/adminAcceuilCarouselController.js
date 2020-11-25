@@ -143,9 +143,6 @@ module.exports = {
         }
       }
 
-      console.log('?? arrayfiles')
-      console.log(arrayFiles)
-
       // Fonction update Mongoose
       CarouselAcceuil.updateOne(query, {
         ...req.body,

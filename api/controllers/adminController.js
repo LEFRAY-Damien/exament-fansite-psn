@@ -4,7 +4,6 @@ const Acceuil = require("../../database/models/Acceuil");
 const Message = require("../../database/models/Message"); // Model database
 const Contact = require("../../database/models/Contact"); // Model database
 const Article = require("../../database/models/Article"); // Model database
-const Links = require('../../database/models/Links');
 const CarouselAcceuil = require("../../database/models/CarouselAcceuil"); // Model database
 const path = require('path') // utile uniquement pour path.resolve plus bas
 sharp = require('sharp') // modul pour redimenssionner les images
@@ -32,7 +31,7 @@ module.exports = {
         // Liste de tout les messages
         const listeMessage = await Message.find()
 
-        const cardeArchive = await Archive.find({}).populate('links').exec()
+        const cardeArchive = await Archive.find()
 
         const titleNoExist = (titreAcceuil < 1)
         const aproposNoExist = (apropos < 1)
@@ -97,15 +96,12 @@ module.exports = {
     // Method Get ID Archive
     loadArchive: async (req, res) => {
         // Import const
-        const cardeArchive = await Archive.find({}).populate('links').exec()
+        const cardeArchive = await Archive.find({})
 
         // Ici query est égale à l'id envoyer via l'URL /article/:id
         const query = req.body.id // boby = formulaire
         // Ici on recherche l'article ayant comme id le query de notre URL   
-        dbArchiveID = await Archive.findById(query).populate('links').exec()
-
-        console.log("log id");
-        console.log(dbArchiveID);
+        dbArchiveID = await Archive.findById(query)
 
         const LoadArchive = dbArchiveID
 

@@ -1,6 +1,7 @@
+
 // Model de l'article sauvgarder dans la base de donnée
 
-const mongoose = require('mongoose') // Appel de la constante mongoose vue qu'elle seras utilise ic
+const mongoose = require('mongoose') // Appel de la constante mongoose
 const Schema   = mongoose.Schema
 
 // Importe model

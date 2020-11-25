@@ -31,7 +31,8 @@ const swaggerUi = require('swagger-ui-express')
 
 
 // Base de donnée ...............................................
-// pour mongodb cloud   // mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'     
+// pour mongodb cloud   
+// mongoose.connect('mongodb+srv://blog:<password>@cluster0.uurc9.mongodb.net/<dbname>?retryWrites=true&w=majority'     
 // blog le nom de la collection et <password> le mot de passe collection
 
 // mongoose.connect(process.env.PORTMDBCLOUD, {

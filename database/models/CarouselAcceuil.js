@@ -1,3 +1,4 @@
+
 // Model du carousel de l'acceuil sauvgarder dans la base de donnée
 
 const mongoose = require('mongoose') // Appel de la constante mongoose 

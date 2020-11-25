@@ -26,6 +26,27 @@
     </div>
     {{!-- X Cadre modification image archive --}}
 
+    {{!-- Cadre modification carde archives --}}
+    <div class="col-md-10 center-div border border-white rounded-lg mt-2 pb-2">
+        <h2 class="mt-2">Liens archive</h2>
+
+        <div class="form-group d-inline-flex justify-content-center mb-2">
+            <input type="text" class="form-control mr-2" id="idnomPremierLien" value="{{ArchiveID.title}}"
+                name="title">
+            <input type="text" class="form-control ml-2" id="idlienPremierLien" value="{{ArchiveID.link}}"
+                name="link">
+        </div>
+
+        <div class="form-group d-inline-flex justify-content-center mb-2">
+            <input type="text" class="form-control mr-2" id="idnomPremierLien" value="{{ArchiveID.title2}}"
+                name="title2">
+            <input type="text" class="form-control ml-2" id="idlienPremierLien" value="{{ArchiveID.link2}}"
+                name="link2">
+        </div>
+
+    </div>
+    {{!-- Cadre modification carde archives --}}
+
     <!-- Button  modal Modifier Archive -->
     <div class="col-md-12 center-div my-4">
         <button type="submit" class="btn btn-success mr-2">Modifier l'archive</button>
@@ -41,38 +62,7 @@
 </div>
 
 
-{{!-- Cadre modification carde archives --}}
-<div class="col-md-10 center-div border border-white rounded-lg mt-2 pb-2">
-    <h2 class="mt-2">Liens archive</h2>
 
-    {{!-- Boucle links en populate avec archives --}}
-    {{#each LoadArchive.links}}
-    <div class="form-group d-inline-flex justify-content-center mb-4">
-        <div class="col-md-8 center-div border border-white rounded-lg mt-1 mx-5">
-            <h5 class="my-1">{{title}}</h5>
-        </div>
-        <div class="col-md-8 center-div border border-white rounded-lg mt-1">
-            <h5 class="my-1">{{link}}</h5>
-        </div>
-    </div>
-    {{/each}}
-    {{!-- / Boucle links en populate avec archives --}}
-    <div>
-        <!-- Button Ajout Lien modal -->
-        <button type="button" class="btn btn-success btn-sm mr-2" data-toggle="modal" data-target="#ajoutlienModal">
-            Ajouter un lien
-        </button>
-        <!-- / Button Ajout Lien modal -->
-
-        <!-- Button Suppresion Lien modal -->
-        <button type="button" class="btn btn-danger btn-sm ml-2" data-toggle="modal" data-target="#supplienModal">
-            Supprimer un lien
-        </button>
-        <!-- / Button Suppresion Lien modal -->
-
-    </div>
-</div>
-{{!-- Cadre modification carde archives --}}
 
 {{!-- Modal suppression Archive --}}
 <div class="modal fade" id="modalSupprArchive" tabindex="-1" aria-hidden="true">
@@ -85,7 +75,7 @@
                 </button>
             </div>
             <div class="modal-footer">
-                
+
                 {{!-- Formulaire DELETE Archive --}}
                 <form action="/admin/Archive/{{ ArchiveID._id }}/?_method=DELETE" method="post">
                     <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -98,61 +88,5 @@
     </div>
 </div>
 {{!-- / Modal suppression Archive --}}
-
-<!-- Modal  Ajout Lien -->
-<div class="modal fade" id="ajoutlienModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-primary">
-                <h5 class="modal-title" id="exampleModalLabel">Ajouter un lien</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body bg-bleu_transparent_ps">
-                <div class="form-group d-inline-flex justify-content-center mb-2">
-                    <input type="text" class="form-control mr-2" id="idnomPremierLien" placeholder="Nom liens 1"
-                        name="nomLink1" required>
-                    <input type="text" class="form-control ml-2" id="idlienPremierLien" placeholder="Liens 1"
-                        name="link1" required>
-                </div>
-            </div>
-            <div class="modal-footer">
-
-                <form action="/admin/Archive/{{ ArticleID._id }}" method="post">
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                </form>
-
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- / Modal  Ajout Lien -->
-
-<!-- Modal  Supp Lien -->
-<div class="modal fade" id="supplienModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-primary">
-                <h5 class="modal-title" id="exampleModalLabel">supprimer un lien</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body bg-bleu_transparent_ps">
-
-            </div>
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-primary">Supprimer</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- / Modal Supp Lien -->
 
 {{!-- / Archive UPDATE --}}

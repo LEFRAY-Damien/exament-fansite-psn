@@ -19,7 +19,7 @@ describe('CHAI // CONTROLLER //  ArticleController', () => {
     });
   });
 
-  it(' ChaiRouter // Get Article', (done) => {
+  it(' ChaiRouter // Get Home', (done) => {
     chai.request(app)
       .get('/')
       .set('Accept', 'application/json')
@@ -33,7 +33,7 @@ describe('CHAI // CONTROLLER //  ArticleController', () => {
       });
   });
 
-  it(' ChaiRouter // Post Article', (done) => {
+  it(' ChaiRouter // Post Acceuil', (done) => {
     let article = {
       title: 'test Chai Post'
     }
@@ -47,7 +47,7 @@ describe('CHAI // CONTROLLER //  ArticleController', () => {
       });
   });
 
-  it(' ChaiRouter // Put Article', (done) => {
+  it(' ChaiRouter // Put Contact', (done) => {
     let article = new Article({
       title: 'test Chai Edit'
     }),

@@ -1,27 +1,45 @@
 <!-- Carousel ID -->
+
 {{!-- Cadre modification caroussel acceuil--}}
 <div class="col-md-8 center-div bg-primary text-white mt-3 px-5">
   <h2 class="mt-2">Images caroussel</h2>
-  <div class="col-md-12 border border-white rounded-lg py-2" style="min-height:450px">
-    <img id="expandedImg" style="width:90%">
+  <div class="col-md-12 border border-white rounded-lg py-2" style="min-height:280px">
+
+    {{!-- Balise d'affichage du script Carrousel ID --}}
+    <img id="extentionImageID" style="width:90%">
+    {{!-- / Balise d'affichage du script Carrousel ID --}}
+
   </div>
   <ul id="ulListeCarousel" class="list-unstyled row d-flex flex-nowrap overflow-auto">
     {{#each carouselArticle }}
     {{#each galleryImg }}
-    <li class="col-md-3 py-2"><img src="{{ filename }}" style="width:60%" onclick="myFunction(this);"></li>
+           
+    <li class="col-md-3 py-2">
+
+      {{!-- Onclick de sur l'imager declanche la fonction ci apres --}}
+      <img src="{{ filename }}" style="width:60%" onclick="FonctionCarrouselID(this);">
+      </li>
+
     {{/each}}
     {{/each}}
   </ul>
 </div>
+
 <!-- / Carousel ID -->
 
-{{!-- Script carousel --}}
+{{!-- Script carousel ID --}}
 <script>
+  // Script de la fonction Carrousel Images de la page Article ID
+  function FonctionCarrouselID(images) {
 
-  function myFunction(imgs) {
-    var expandImg = document.getElementById("expandedImg");
-    expandImg.src = imgs.src;
-    expandImg.parentElement.style.display = "block";
+    // Variable cree en fonction de l'ID d'un document.
+    var extentionImage = document.getElementById("extentionImageID");
+
+    // Ici la variable seras l'image a ajouter a l'ID selectionner precedament
+    extentionImage.src = images.src;
+
+    // Ici l on applique le style css de l element a l'element parent
+    extentionImage.parentElement.style.display = "block";
   }
 </script>
-{{!-- / Script carousel --}}
+{{!-- / Script carousel ID s--}}

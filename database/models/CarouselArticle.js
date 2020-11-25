@@ -6,9 +6,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-// // Import model
-const Article = require('./Article')
-
 // // Création de notre Schéma (CarouselArticle)
 const CarouselArticleSchema = new mongoose.Schema({
 
