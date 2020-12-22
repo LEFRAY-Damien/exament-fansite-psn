@@ -86,7 +86,7 @@ module.exports = {
 
     },
 
-    // Delete Archive et Links populate
+    // Delete Archive
     deleteOne: async (req, res) => {
 
         // Ici on déclare la récupération de notre archiveID grace à notre req.params.id
@@ -113,6 +113,5 @@ module.exports = {
             }
         })
     }
-
 }
 

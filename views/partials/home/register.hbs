@@ -1,0 +1,128 @@
+{{!-- Html --}}
+<div>
+    <h2>Authentification</h2>
+
+    <!-- La div flash est dans la view home.hbs -->
+    <div id="flash"></div>
+
+    <!-- Formulaire register / Créer un compte -->
+    <form id='form' onsubmit="checkForm(event)" action='/register' method="POST">
+
+        <!-- Condition du formulaire -->
+        <h4>Le mot de passe doit contenir minimum 8 character dont:</h4>
+        <ul>
+            <li> 1 numéro</li>
+            <li> 1 majuscule</li>
+            <li> 1 minuscule</li>
+            <li> 1 caracthère spécial</li>
+        </ul>
+
+        <!-- Username / Email -->
+        <div class="row">
+            <div class="col">
+                <label for="pseudo">Pseudo:</label>
+                <input type="text" name="pseudo" placeholder="Pseudo" required>
+            </div>
+            <div class="col">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="row">
+            <div class="col">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id='password' required>
+            </div>
+            <div class="col">
+                <label for="password">Confirm Mot de passe</label>
+                <input type="password" name="passwordConfirm" id='passwordConfirm' required>
+            </div>
+        </div>
+
+        <!-- Accept condition -->
+        <div class="row">
+            <div class="col">
+                <input type="checkbox" name="accept" id='accept'>
+                <label for="accept">Acceptez les conditions</label>
+            </div>
+            <div class="col">
+                <!-- Boutton submit form -->
+                <button class="w-100 btn" type="submit"> Creer un compte </button>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+
+{{!-- Script --}}
+
+<script>
+    // Déclaration de constante
+    const form = document.getElementById('form');
+    const input = form.getElementsByTagName('input');
+
+    // Fonction pour checker le formulaire (Le mot de passe sur notre exemple)
+    function checkForm(event) {
+
+        // On récupère les fonctionnalité par défault de notre formulaire et on les ré-initialise
+        // dans notre cas on demande à notre formulaire de ne pas s'envoyer
+        event.preventDefault()
+
+        // Définition de nos constantes
+        const pass = document.getElementById('password').value;
+        const passConfirm = document.getElementById('passwordConfirm').value;
+        const accept = document.getElementById('accept').checked;
+        const flash = document.getElementById('flash');
+        const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+
+        // console.log(pass)
+
+        // Condition pour matché notre password avec la regex
+        if (!pass.match(regex)) {
+            // Gestion du flash (error)
+            flash.style.color = 'red';
+            flash.innerText = 'Le mot de passe ne respect pas la chartes !';
+
+            // Condition pour checker si password est bien égale avec passwordConfim
+        } else if (pass !== passConfirm) {
+            // Gestion du flash (error)
+            flash.style.color = 'red';
+            flash.innerText = 'Les mots de passe ne sont pas identique !';
+
+            // Condition pour checker si les conditions on été acceptez
+        } else if (!accept) {
+            // Gestion du flash (error)
+            flash.style.color = 'red';
+            flash.innerText = 'Vous devez acceptez les conditions !';
+
+            // Et si toute les conditions son respecter alors on envoit le formulaire
+        } else if (pass.match(regex) && pass === passConfirm && accept === true) {
+            alert("Confirmer l'envoir du formulaire");
+            // C'est ici que le formulaire s'envoie
+            form.submit();
+
+        }
+    }
+</script>
+
+{{!-- Css --}}
+
+<style>
+    .row {
+        display: flex;
+    }
+    .col {
+        display: flex;
+        flex-direction: column;
+    }
+    .btn {
+        margin: 10px;
+    }
+    .w-100 {
+        width: 100px;
+    }
+</style>

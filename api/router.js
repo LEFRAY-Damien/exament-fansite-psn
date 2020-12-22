@@ -24,7 +24,11 @@ const homeController = require('./controllers/homeController'),
     adminAcceuilCarouselController = require('./controllers/adminAcceuilCarouselController'),
     adminArticleCarouselController = require('./controllers/adminArticleCarouselController'),
     adminMessageController = require('./controllers/adminMessageController'),
+    authController = require('./controllers/authController'),
     nodemailerController = require('./controllers/nodemailerController')
+
+// Middleware Admin
+const AdminMiddleware = require('./middleware/isAdmin')
 
 // Nodemailer
 // Envoie Mail
@@ -59,6 +63,18 @@ router.route('/freetoplay')
 // modal
 router.route('/modal')
     .get(modalController.get)
+
+// Session Enregistrement
+router.route('/register')
+    .post(authController.register)
+
+// Session Login
+router.route('/login')
+    .post(authController.login) 
+    
+// Session Logout
+router.route('/logout')
+    .get(authController.logout)
 
 // Admin message
 router.route('/admin/message/:id')

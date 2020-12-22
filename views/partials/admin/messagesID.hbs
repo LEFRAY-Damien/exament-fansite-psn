@@ -2,14 +2,16 @@
 <div class="col-md-10 bg-white text-dark center-div rounded-lg taille_message_admin mt-2 pt-1">
     <div class="row">
         <div class="col-md-1 taille_img_message_admin">
-            <i class="far fa-envelope ml-3"></i></div>
+            <i class="far fa-envelope ml-3"></i>
+        </div>
         <div class="text-muted col-md-2 mt-1">
             {{ LoadMessage.created }}
         </div>
         <div class="col-md-8 mt-1 pr-5">
             {{ LoadMessage.objet }}</div>
         <div class="col-md-1 taille_img_message_admin">
-            <i class="fas fa-arrow-down mr-3"></i></div>
+            <i class="fas fa-arrow-down mr-3"></i>
+        </div>
     </div>
 </div>
 {{!-- / Message 1 lecture --}}
@@ -55,6 +57,11 @@
         <button type="button" class="btn btn-danger m-2" data-toggle="modal"
             data-target="#modalSuppr">Supprimer</button>
         {{!-- / Boutons repondre supprimer --}}
+
+        <!-- Bouton Annuler l'article -->
+        <form method="get" action="/admin">
+            <button type="submit" class="btn btn-secondary mx-2">Annuler</button>
+        </form>
     </div>
 </div>
 
@@ -78,8 +85,8 @@
                     </div>
                     <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
                         <label>Mail:</label>
-                        <input type="email" name="email" placeholder="Mail" class="form-control border-primary ml-2"
-                            required>
+                        <input type="email" name="email" value="{{ LoadMessage.mail }}"
+                            class="form-control border-primary ml-2" required>
                     </div>
                     <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
                         <label>Sujet:</label>
@@ -88,7 +95,7 @@
                     </div>
                     <div class="col-md-8 form-group d-inline-flex justify-content-center align-items-center mb-2 mt-2">
                         <label>Message:</label>
-                        <textarea class="form-control" name="text" rows="7"></textarea>
+                        <textarea class="form-control" name="texte" rows="7"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

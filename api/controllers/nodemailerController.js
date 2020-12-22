@@ -29,20 +29,17 @@ module.exports = {
         const mailOptions = {
             from: 'arratseantest@gmail.com',
             to: req.body.email,
-            subject: 'Félicitation, ' + req.body.author + ' !',
-            html: `
-        <h2>${req.body.author}, Ton premier mail avec nodemailer, Successfull !!</h2>
-      `
+            subject: req.body.sujet,
+            html: req.body.texte
         }
 
         // On demande à notre transporter d'envoyer notre mail
         transporter.sendMail(mailOptions, (err, info) => {
             if (err) console.log(err)
+            
             else {
                 console.log(info)
-                res.redirect('home', {
-                    success: "Un email à bien été envoyer à " + req.body.email
-                })
+                res.redirect('/admin')
             }
         })
     }

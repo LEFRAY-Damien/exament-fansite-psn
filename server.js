@@ -16,15 +16,19 @@ const
     bodyParser = require('body-parser'), // Modul pour traiter les formulaires
     morgan = require('morgan'), // Module pour debuger
     sharp = require('sharp'), // modul pour redimenssionner les images
+    MongoStore = require('connect-mongo'),
+    expressSession = require('express-session'),
     // helpers = require('handlebars-helpers')(), // modul pour limiter le nombre dans un array
     port = process.env.PORT;
 
 app.use(methodOverride('_method'))
 
+app.disable('x-powered-by');
+
 // Test Swagger
 const swaggerUi = require('swagger-ui-express')
-    // expressOasGenerator = require('express-oas-generator')
-    // expressOasGenerator.init(app, {});
+// expressOasGenerator = require('express-oas-generator')
+// expressOasGenerator.init(app, {});
 // const swagger à decommenter quand json ok
 // const swaggerDocument = require('./api/config/swagger.json')
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -34,7 +38,7 @@ const swaggerUi = require('swagger-ui-express')
 // pour mongodb cloud   
 
 mongoose.connect(process.env.PORTMDBCLOUD, {
-// mongoose.connect(process.env.PORTMDB, {
+    // mongoose.connect(process.env.PORTMDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -79,6 +83,20 @@ app.use(bodyParser.urlencoded({
 // CRUD = GET / POST / PUT / DELETE
 const ROUTER = require('./api/router');
 app.use('/', ROUTER)
+
+// save session avec MongoDB 
+const mongoStore = MongoStore(expressSession)
+
+// Express-session -- Crée des session utilisateur ou admin
+app.use(expressSession({
+    secret: 'securite',
+    name: 'cookie-sess',
+    saveUninitialized: true,
+    resave: false,
+    store: new mongoStore({
+        mongooseConnection: mongoose.connection
+    })
+  }));
 
 // app.use((req, res) => {
 //     res.render('err404')
