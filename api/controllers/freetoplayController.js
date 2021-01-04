@@ -6,7 +6,7 @@ module.exports = {
     // Method Get
     get: async (req, res) => {
         // Variable de récupération de tout les Articles
-        const cardearticleftp = await Article.find({})
+        const cardearticleftp = await Article.find({}).sort("-dateISO")
         // Petit log pour checker
         console.log("consol article ftp");
         console.log(cardearticleftp);

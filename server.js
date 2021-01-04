@@ -79,17 +79,12 @@ app.use(bodyParser.urlencoded({
     extended: true // -> A VOIR EN FALSE
 }));
 
-// Notre router permettra de diriger des chemins 'URL' sur les actions 'Controller' qui distriburont nos pages, ... 
-// CRUD = GET / POST / PUT / DELETE
-const ROUTER = require('./api/router');
-app.use('/', ROUTER)
-
 // save session avec MongoDB 
 const mongoStore = MongoStore(expressSession)
 
 // Express-session -- Crée des session utilisateur ou admin
 app.use(expressSession({
-    secret: 'securite',
+    secret: process.env.SECRETSESSION,
     name: 'cookie-sess',
     saveUninitialized: true,
     resave: false,
@@ -97,6 +92,11 @@ app.use(expressSession({
         mongooseConnection: mongoose.connection
     })
   }));
+
+// Notre router permettra de diriger des chemins 'URL' sur les actions 'Controller' qui distriburont nos pages, ... 
+// CRUD = GET / POST / PUT / DELETE
+const ROUTER = require('./api/router');
+app.use('/', ROUTER)
 
 // app.use((req, res) => {
 //     res.render('err404')

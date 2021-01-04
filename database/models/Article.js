@@ -28,6 +28,9 @@ const ArticleSchema = new mongoose.Schema({
         // urlSharp: String,
         createAt: Date
     },
+    dateISO: {
+        type: Date
+    },
 
     // Ici nous creons une relation avec le model CarouselArticle
     // C'est un tableau qui acceuillera les id des images carousel

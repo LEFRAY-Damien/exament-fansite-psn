@@ -78,64 +78,64 @@ router.route('/logout')
 
 // Admin message
 router.route('/admin/message/:id')
-    .delete(adminMessageController.deleteOne)
-    .post(adminMessageController.loadMessage)
+    .delete(AdminMiddleware, adminMessageController.deleteOne)
+    .post(AdminMiddleware, adminMessageController.loadMessage)
 
 // Admin article ID
 router.route('/admin')
-    .get(adminController.get)
-    .post(upload.single('imageCard'), adminController.postArticleId)
+    .get(AdminMiddleware, adminController.get)
+    .post(AdminMiddleware, upload.single('imageCard'), adminController.postArticleId)
 
 // Admin Acceuil POST
 router.route('/admin/acceuil')
-    .post(adminAcceuilController.postAcceuil)
+    .post(AdminMiddleware, adminAcceuilController.postAcceuil)
 
 // Admin Acceuil Carousel
 router.route('/admin/acceuil/carousel')
-    .post(uploadAcceuil.array('inputArticleArray', 6), adminAcceuilCarouselController.postArrayAcceuil)
+    .post(AdminMiddleware, uploadAcceuil.array('inputArticleArray', 6), adminAcceuilCarouselController.postArrayAcceuil)
 
 // Admin Acceuil Carousel Effacer une image
 router.route('/admin/acceuil/carousel/:id')
-    .put(uploadAcceuil.array('inputArticleArray', 6), adminAcceuilCarouselController.putArrayAcceuil)
+    .put(AdminMiddleware, uploadAcceuil.array('inputArticleArray', 6), adminAcceuilCarouselController.putArrayAcceuil)
 
 // Admin Acceuil MAJ message d'acceuil
 router.route('/admin/acceuil/:id')
-    .put(adminAcceuilController.putAcceuil) //MAJ message acceuil
+    .put(AdminMiddleware, adminAcceuilController.putAcceuil) //MAJ message acceuil
 
 // Admin Archive
 router.route('/admin/archive')
-    .post(uploadArchive.single('imageArchive'), adminArchiveController.postArchive)
+    .post(AdminMiddleware, uploadArchive.single('imageArchive'), adminArchiveController.postArchive)
 
 // Admin Archive Delete et MAJ
 router.route('/admin/archive/:id')
-    .put(uploadArchive.single('imageArchive'), adminArchiveController.editArchive)
-    .delete(adminArchiveController.deleteOne)
+    .put(AdminMiddleware, uploadArchive.single('imageArchive'), adminArchiveController.editArchive)
+    .delete(AdminMiddleware, adminArchiveController.deleteOne)
 
 // Route Admin chargement archive
 router.route('/admin/loadArchive')
-    .post(adminController.loadArchive)
+    .post(AdminMiddleware, adminController.loadArchive)
 
 // Route Admin chargement article
 router.route('/admin/loadArticle')
-    .post(adminArticleController.loadArticle)
+    .post(AdminMiddleware, adminArticleController.loadArticle)
 
 // Route Admin Article MAJ
 router.route('/admin/Article/:id')
-    .put(upload.single('imageCard'), adminArticleController.majArticle)
-    .delete(adminArticleController.deleteOne)
+    .put(AdminMiddleware, upload.single('imageCard'), adminArticleController.majArticle)
+    .delete(AdminMiddleware, adminArticleController.deleteOne)
 
 // Admin Article Carrousel ID
 router.route('/admin/CarrouselArticle/:id')
-    .post(uploadArticle.array('inputArticleArray', 6), adminArticleCarouselController.postArrayArticle)
-    .put(uploadArticle.array('inputArticleArray', 6), adminArticleCarouselController.putArrayArticle)
+    .post(AdminMiddleware, uploadArticle.array('inputArticleArray', 6), adminArticleCarouselController.postArrayArticle)
+    .put(AdminMiddleware, uploadArticle.array('inputArticleArray', 6), adminArticleCarouselController.putArrayArticle)
 
 // Admin Contact POST
 router.route('/admin/contact')
-    .post(adminContactController.postContact)
+    .post(AdminMiddleware, adminContactController.postContact)
 
 // Admin Contact PUT
 router.route('/admin/contact/:id')
-    .put(adminContactController.putContact) // MAJ page contact
+    .put(AdminMiddleware, adminContactController.putContact) // MAJ page contact
 
 
 module.exports = router;

@@ -15,7 +15,15 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Le mot de passe est obligatoire']
     },
-   
+    // Notre Status sera obligatoire pour la création de middleware
+    status: {
+        type: String,
+        default: 'user'
+    },
+    isAdmin: {
+        type: Boolean,
+        default: true
+    },
 })
 
 UserSchema.pre('save', function (next) {
