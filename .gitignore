@@ -1,7 +1,6 @@
 node_modules/*
 .vscode
 .sass-cache
-.env
 images/*
 imagesAcceuil/*
 imagesArchives/*
