@@ -18,8 +18,8 @@
                     <div class="col-md-10  text-center bg-bleu_transparent_ps center-div rounded-lg my-1">
 
                         <form action="/admin/loadArticle" method="post">
-                            <input type="disable" class="" name="id" value="{{ _id }}">
-                            <button class="btn btn-success" type="submit" >{{title}}</button>
+                            <input type="hidden" class="" name="id" value="{{ _id }}">
+                            <button class="btn" type="submit">{{title}}</button>
                         </form>
 
                     </div>
