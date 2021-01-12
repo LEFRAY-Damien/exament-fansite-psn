@@ -13,13 +13,15 @@ module.exports = {
         const messageAcceuil = await Acceuil.findOne({})
         const dbCarouselAcceuil = await CarouselAcceuil.find({})
         const cardeArchive = await Archive.find({})
+        const CCookie = req.cookies.Cookie
 
         res.render('home', {
             page: 'Accueil',
             cardearticleftp,
             messageAcceuil,
             dbCarouselAcceuil,
-            cardeArchive
+            cardeArchive,
+            CCookie
         })
     }
 }

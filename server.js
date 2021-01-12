@@ -8,6 +8,7 @@ require('dotenv').config()
 // Import de module
 const
     express = require('express'),
+    cookieParser = require('cookie-parser'),
     app = express(),
     hbs = require('express-handlebars'),
     methodOverride = require('method-override'),
@@ -20,6 +21,9 @@ const
     expressSession = require('express-session'),
     // helpers = require('handlebars-helpers')(), // modul pour limiter le nombre dans un array
     port = process.env.PORT;
+
+// Cookie-Parser
+app.use(cookieParser())
 
 app.use(methodOverride('_method'))
 

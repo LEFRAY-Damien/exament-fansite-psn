@@ -25,10 +25,19 @@ const homeController = require('./controllers/homeController'),
     adminArticleCarouselController = require('./controllers/adminArticleCarouselController'),
     adminMessageController = require('./controllers/adminMessageController'),
     authController = require('./controllers/authController'),
-    nodemailerController = require('./controllers/nodemailerController')
+    nodemailerController = require('./controllers/nodemailerController'),
+    cookieController = require('./controllers/cookieController')
+
 
 // Middleware Admin
 const AdminMiddleware = require('./middleware/isAdmin')
+
+// Middleware cookies
+
+
+// Create New Cookie
+router.route('/newCookie')
+    .get(cookieController.newCookie)
 
 // Nodemailer
 // Envoie Mail
