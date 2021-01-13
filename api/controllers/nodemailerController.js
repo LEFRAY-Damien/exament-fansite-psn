@@ -2,6 +2,8 @@
  * On déclare nos constante
  * ************************ */
 
+require('dotenv').config()
+
 // import nodemailer 
 const nodemailer = require('nodemailer'),
     // Déclaration ne notre transporter

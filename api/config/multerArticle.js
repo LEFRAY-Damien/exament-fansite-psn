@@ -17,13 +17,13 @@ const storage = multer.diskStorage({
   }
 })
 
-// Ici seront initialiser les parametre de la config de multer
+// Ici seront initialiser les parametres de la config de multer
 const uploadArticle = multer({
   // Ici nous renseignons le stockage definit au dessu
   storage: storage,
   // Ici seront renseigner les limits des fichiers (taile, proportion, ...)
   limits: {
-    fileSize: 1 * 4098 * 4098,
+    fileSize: 2 * 4098 * 4098,
     files: 6
   },
   // Ici nous avons un filtre qui va nous permetre de configurer les extensions accepter par notre middleware ou autre
