@@ -12,34 +12,24 @@
             <script>
                 // Déclaration de myFunction   
                 function myFunction() {
-
                     // Déclaration de nos variables
                     var input, filter, ul, li, a, i, txtValue;
-
                     // Récupération du input
                     input = document.getElementById("myInput");
-
-                    // atribuons la variable filter a la récupération de notre valeur de notre input
+                    // attribuons la variable filter a la récupération de notre valeur de notre input
                     filter = input.value.toUpperCase();
-
                     // On récupère la liste complète grace à ul
                     ul = document.getElementById("myUL");
-
                     //  On définit que li est un enfant de ul
                     li = ul.getElementsByTagName("li");
-
                     // Ici nous avons la boucle qui permet de trier nos résultat
                     for (i = 0; i < li.length; i++) {
-
                         // Ici on définit a comme étant l'enfant de li[i] Ici ils recherche des "h5"
                         a = li[i].getElementsByTagName("h5")[0];
-
                         // txtValue est egale au contenu de a
                         txtValue = a.textContent || a.innerText;
-
                         // Ici on check si notre txtValue est bien égale à filter
                         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-
                             // On laisse notre class vide si ça match
                             li[i].style.display = "";
                         } else {
