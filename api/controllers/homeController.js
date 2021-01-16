@@ -12,7 +12,7 @@ module.exports = {
         const cardearticleftp = await Article.find({})
         const messageAcceuil = await Acceuil.findOne({})
         const dbCarouselAcceuil = await CarouselAcceuil.find({})
-        const cardeArchive = await Archive.find({})
+        const cardeArchive = await Archive.find({}).sort("-cover")
         const CCookie = req.cookies.Cookie
 
         res.render('home', {
