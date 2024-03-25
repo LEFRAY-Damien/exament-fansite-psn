@@ -20,7 +20,7 @@ const
     MongoStore = require('connect-mongo'),
     expressSession = require('express-session'),
     // helpers = require('handlebars-helpers')(), // modul pour limiter le nombre dans un array
-    port = process.env.PORT;
+    port = 3000;
 
 // Cookie-Parser
 app.use(cookieParser())
@@ -41,12 +41,12 @@ const swaggerUi = require('swagger-ui-express')
 // Base de donnée ...............................................
 // pour mongodb cloud   
 
-mongoose.connect(process.env.PORTMDBCLOUD, {
-    // mongoose.connect(process.env.PORTMDB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
+// Mongoose -- 4 -- Base de donnée
+mongoose.connect('mongodb://localhost:27017/NodeJs-ps+', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
 });
 // .............................................................
 
@@ -88,7 +88,7 @@ const mongoStore = MongoStore(expressSession)
 
 // Express-session -- Crée des session utilisateur ou admin
 app.use(expressSession({
-    secret: process.env.SECRETSESSION,
+    secret:'securite' ,
     name: 'cookie-sess',
     saveUninitialized: true,
     resave: false,
